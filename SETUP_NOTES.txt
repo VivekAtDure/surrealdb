@@ -1,0 +1,240 @@
+================================================================================
+SURREALDB SETUP NOTES
+Date: 2026-04-15
+================================================================================
+
+INSTALLATION
+------------
+- Installed via: winget install SurrealDB.SurrealDB
+- Version: SurrealDB v3.0.5
+- Binary location: C:\Users\Vijay\AppData\Local\Microsoft\WinGet\Packages\SurrealDB.SurrealDB_Microsoft.Winget.Source_8wekyb3d8bbwe\surreal.exe
+- Command alias: surreal (available after shell restart)
+
+SERVER
+------
+- URL:      http://localhost:8000
+- Username: root
+- Password: root
+- Bind:     0.0.0.0:8000
+
+STORAGE
+-------
+- Engine:     RocksDB (v3.0.5 still supports it via rocksdb:// scheme)
+- Data path:  d:/LLM-repository/POC/surrealdb/data-rocksdb/
+- Start cmd:  surreal start --user root --pass root --bind 0.0.0.0:8000 "rocksdb:///d:/LLM-repository/POC/surrealdb/data-rocksdb"
+- Start script: d:/LLM-repository/POC/surrealdb/start.bat  (double-click to run)
+
+IMPORTANT PATH NOTE (Windows quirk)
+-------------------------------------
+- file://path           -> FAILS on Windows (SurrealDB v3 path parser bug)
+- file:///d:/...        -> FAILS (strips drive colon)
+- rocksdb:///d:/path    -> WORKS  (RocksDB, matches server)
+- surrealkv:///d:/path  -> WORKS  (SurrealKV, alternative)
+
+NOTE: SurrealDB v3 ships with BOTH RocksDB and SurrealKV. RocksDB is NOT removed.
+Use rocksdb:// to match the server engine exactly.
+
+STORAGE OPTIONS
+---------------
+| Scheme           | Engine    | Notes                          |
+|------------------|-----------|--------------------------------|
+| memory           | In-memory | Lost on restart, dev/test only |
+| surrealkv:///... | SurrealKV | Persistent, replaces RocksDB   |
+| tikv://...       | TiKV      | Distributed, production use    |
+| fdb://...        | FoundationDB | Distributed                 |
+
+HEALTH CHECK
+------------
+  curl http://localhost:8000/health
+
+RUN A QUERY (REST API)
+----------------------
+  curl -X POST http://localhost:8000/sql \
+    -H "Accept: application/json" \
+    -H "surreal-ns: test" \
+    -H "surreal-db: test" \
+    -u "root:root" \
+    -d "SELECT * FROM person;"
+
+INTERACTIVE SQL REPL
+---------------------
+  surreal sql --conn http://localhost:8000 --user root --pass root --ns test --db test
+
+FIRST-TIME NAMESPACE + DATABASE SETUP
+---------------------------------------
+  DEFINE NAMESPACE test;
+  USE NS test;
+  DEFINE DATABASE test;
+  USE DB test;
+
+  (SurrealDB requires namespace and database to be explicitly defined before use)
+
+SAMPLE QUERIES
+--------------
+  -- Create a record
+  CREATE person SET name = 'Vijay', age = 30;
+
+  -- Select all
+  SELECT * FROM person;
+
+  -- Delete
+  DELETE person;
+
+  -- Create with specific ID
+  CREATE person:vijay SET name = 'Vijay', role = 'developer';
+
+PYTHON CLIENT
+-------------
+  pip install surrealdb
+
+  from surrealdb import Surreal
+  async with Surreal("ws://localhost:8000/rpc") as db:
+      await db.signin({"username": "root", "password": "root"})
+      await db.use("test", "test")
+      await db.create("person", {"name": "Vijay", "age": 30})
+
+NODE.JS CLIENT
+--------------
+  npm install surrealdb
+
+  import Surreal from 'surrealdb';
+  const db = new Surreal();
+  await db.connect('http://localhost:8000/rpc');
+  await db.signin({ username: 'root', password: 'root' });
+  await db.use({ namespace: 'test', database: 'test' });
+
+SURREALIST (GUI)
+----------------
+  Download from: https://surrealdb.com/surrealist
+  Connect with: http://localhost:8000, root/root
+
+================================================================================
+
+DATABASE DUMP / IMPORT
+================================================================================
+
+VITASALES DATABASE
+------------------
+- Dump file:  d:/LLM-repository/POC/surrealdb/datadump/vitasalesbackup[1].surql
+- Namespace:  vitasales
+- Database:   vitasales
+- Imported:   2026-04-15
+
+IMPORT COMMAND
+--------------
+  surreal import \
+    --endpoint http://localhost:8000 \
+    --username root \
+    --password root \
+    --namespace vitasales \
+    --database vitasales \
+    "d:/LLM-repository/POC/surrealdb/datadump/vitasalesbackup[1].surql"
+
+  NOTE: Use --endpoint (not --conn) in SurrealDB v3.x
+
+TABLES (36 total)
+-----------------
+  attachment, channel, contact_channel_map, conversation, customer_contact,
+  error_log, event, event_log, executed, followup_task, generated,
+  generated_event, generated_quotation, had_state, has_conversation,
+  has_followup_task, interested_in, lead, lead_raw_payload, lead_stage,
+  lead_state_history, lead_status, master_product_price_list, message,
+  missing_field_group, notification, organisation, product, quotation,
+  rule, sales_event, scheduled_event, triggered, user, workflow,
+  workflow_state
+
+RECORD COUNTS (at time of import)
+----------------------------------
+  lead        : 385
+  product     : 11
+  channel     :   4  (email, voice, web, whatsapp)
+  workflow    :   1
+  user        :   0
+  quotation   :   0
+
+CONNECT TO VITASALES DB
+------------------------
+  -- Interactive REPL
+  surreal sql --endpoint http://localhost:8000 --username root --password root --ns vitasales --db vitasales
+
+  -- REST API
+  curl -X POST http://localhost:8000/sql \
+    -H "surreal-ns: vitasales" \
+    -H "surreal-db: vitasales" \
+    -u "root:root" \
+    -d "SELECT * FROM lead LIMIT 5;"
+
+================================================================================
+
+================================================================================
+ML MODEL — LEAD SCORING (close_probability)
+================================================================================
+
+MODEL
+-----
+- File:        models/lgbm.onnx        (LightGBM regressor, 429 KB)
+- Converted:   models/lgbm.surml       (SurrealDB ML format)
+- Name:        close_prob  version 1.0.0
+- Predicts:    sales close probability (0.0 – 1.0)
+- Features:    29 float32 inputs (pre-normalised)
+- Conversion:  python convert_to_surml.py
+
+LOAD MODEL INTO DB (run once per server start after restart)
+--------------------------------------------------------------
+  curl -X POST http://localhost:8000/ml/import \
+    -H "surreal-ns: vitasales" -H "surreal-db: vitasales" \
+    -u "root:root" \
+    --data-binary @models/lgbm.surml
+
+APPLY FUNCTION + EVENTS (run once, persisted in RocksDB)
+---------------------------------------------------------
+  curl -X POST http://localhost:8000/sql \
+    -H "surreal-ns: vitasales" -H "surreal-db: vitasales" \
+    -u "root:root" \
+    --data-binary @setup_ml.surql
+
+MANUAL SCORE CALL
+-----------------
+  RETURN fn::score_lead(lead:<id>);
+
+HOW IT WORKS
+------------
+1. DEFINE FUNCTION fn::score_lead($lead_id)
+   - Joins: lead + conversation + message + product + organisation + generated_quotation
+   - Encodes categoricals (pipeline stage, channel, product, industry, completeness)
+   - Applies StandardScaler/MinMaxScaler normalisations (from training reference)
+   - Calls ml::close_prob<1.0.0>([29 floats]) → raw float score
+   - Returns score rounded to 4 decimal places
+
+2. DEFINE EVENT score_on_lead_change ON TABLE lead
+   - Fires on CREATE and on UPDATE (only when state/completeness/channel/org changes)
+   - Writes score to lead.ai_confidence
+   - Infinite-loop safe: ai_confidence changes do NOT re-trigger
+
+3. DEFINE EVENT score_on_conv_change ON TABLE conversation
+   - Fires on CREATE and on UPDATE (only when sentiment/summary/last_message_at changes)
+   - Re-scores the linked lead (lead.ai_confidence)
+
+SCORING VERIFIED
+----------------
+  lead state        ai_confidence
+  NEW_LEAD          ~0.012
+  SALES_QUALIFIED   ~0.124
+  QUOTATION         ~0.203
+  QUOTATION + POSITIVE conversation + summary  ~0.328
+
+IMPORTANT NOTES
+---------------
+- The ML model IS persisted in RocksDB — survives server restarts, no re-import needed
+  (verified: model callable immediately after restart without re-running ml/import)
+- Sentiment mapping: POSITIVE=1.0, NEUTRAL=0.0, ANGRY=-1.0 etc.
+- Products not in the training catalogue (CHIL-001..COOL-004) get -1 encoding (unknown)
+- capacity_tons defaults to training mean (14.08) — cannot parse CMH from DB attributes
+- fe_has_urgency_keyword and fe_has_price_mention default to 0.0 (no text search in DB)
+
+CONVERSION SCRIPT NOTE
+-----------------------
+- surrealml Python package has no Windows DLL; .surml built manually via convert_to_surml.py
+- Format: [4-byte i32 big-endian header length] + [UTF-8 header with //=> delimiters] + [ONNX bytes]
+
+================================================================================

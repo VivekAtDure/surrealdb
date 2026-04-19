@@ -1,0 +1,18 @@
+# Ignore database storage folders
+data-rocksdb/
+data-rocksdb-test/
+store/
+cache/
+
+# Ignore executables and ML cache
+surreal-v2.6.5.exe
+.surmlcache/
+
+# Random user/temp directories within the project
+Users/
+LLM-repository/
+.vscode/
+
+# Ignore generated test files
+ml_setup_result.json
+test_insert.json

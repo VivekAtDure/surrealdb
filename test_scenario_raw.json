@@ -1,0 +1,131 @@
+{
+  "scenario1": {
+    "lead": {
+      "classification": "NON-SALES",
+      "completeness": "INCOMPLETE",
+      "created_at": "2026-04-15T11:51:29.459176900Z",
+      "email": "ahmed@sc_1.com",
+      "id": "lead:9ro6miuyijn2d97m1zb3",
+      "name": "Ahmed Al Rashid",
+      "organisation": "organisation:1",
+      "source_channel": "channel:email",
+      "state": "NEW_LEAD",
+      "updated_at": "2026-04-15T11:51:29.459199400Z"
+    },
+    "after_create": {
+      "ai_confidence": 0.0167,
+      "completeness": "INCOMPLETE",
+      "id": "lead:9ro6miuyijn2d97m1zb3",
+      "source_channel": "channel:email",
+      "state": "NEW_LEAD"
+    }
+  },
+  "scenario2": {
+    "lead": {
+      "classification": "NON-SALES",
+      "completeness": "COMPLETE",
+      "created_at": "2026-04-15T11:51:35.720547500Z",
+      "email": "sarah@sc_2.com",
+      "id": "lead:6u9zsx82g58nkmxl52fp",
+      "name": "Sarah Johnson",
+      "organisation": "organisation:sc_pharma",
+      "source_channel": "channel:whatsapp",
+      "state": "SALES_QUALIFIED",
+      "updated_at": "2026-04-15T11:51:35.720569Z"
+    },
+    "after_create": {
+      "ai_confidence": 0.1339,
+      "completeness": "COMPLETE",
+      "id": "lead:6u9zsx82g58nkmxl52fp",
+      "organisation": "organisation:sc_pharma",
+      "source_channel": "channel:whatsapp",
+      "state": "SALES_QUALIFIED"
+    }
+  },
+  "scenario3": {
+    "lead": {
+      "classification": "NON-SALES",
+      "completeness": "COMPLETE",
+      "created_at": "2026-04-15T11:51:41.979619700Z",
+      "email": "raj@sc_3.com",
+      "id": "lead:57fkdp4598sbojkzws68",
+      "name": "Raj Kumar",
+      "organisation": "organisation:sc_steel",
+      "source_channel": "channel:whatsapp",
+      "state": "QUOTATION",
+      "updated_at": "2026-04-15T11:51:41.979637300Z"
+    },
+    "before_conversation": {
+      "ai_confidence": 0.1981,
+      "completeness": "COMPLETE",
+      "id": "lead:57fkdp4598sbojkzws68",
+      "state": "QUOTATION"
+    },
+    "after_conversation": {
+      "ai_confidence": 0.3278,
+      "completeness": "COMPLETE",
+      "id": "lead:57fkdp4598sbojkzws68",
+      "state": "QUOTATION"
+    }
+  },
+  "scenario4": {
+    "lead": {
+      "classification": "NON-SALES",
+      "completeness": "INCOMPLETE",
+      "created_at": "2026-04-15T11:51:52.403182600Z",
+      "email": "moh@sc_4.com",
+      "id": "lead:jgon8n4a4j4s80eubbwm",
+      "name": "Mohammed Al Farsi",
+      "organisation": "organisation:sc_food",
+      "source_channel": "channel:email",
+      "state": "NEW_LEAD",
+      "updated_at": "2026-04-15T11:51:52.403198600Z"
+    },
+    "stage_NEW_LEAD_INCOMPLETE": {
+      "ai_confidence": 0.0167,
+      "id": "lead:jgon8n4a4j4s80eubbwm",
+      "state": "NEW_LEAD"
+    },
+    "stage_SALES_QUALIFIED_COMPLETE": {
+      "ai_confidence": 0.1324,
+      "completeness": "COMPLETE",
+      "id": "lead:jgon8n4a4j4s80eubbwm",
+      "state": "SALES_QUALIFIED"
+    },
+    "stage_FOLLOW_UP_NEGOTIATION": {
+      "ai_confidence": 0.2173,
+      "id": "lead:jgon8n4a4j4s80eubbwm",
+      "state": "FOLLOW_UP_NEGOTIATION"
+    }
+  },
+  "scenario5": {
+    "lead": {
+      "classification": "NON-SALES",
+      "completeness": "COMPLETE",
+      "created_at": "2026-04-15T11:52:04.880160700Z",
+      "email": "priya@sc_5.com",
+      "id": "lead:1yf1dpee6z6rb8c1zfbv",
+      "name": "Priya Sharma",
+      "organisation": "organisation:sc_pharma",
+      "source_channel": "channel:email",
+      "state": "SALES_QUALIFIED",
+      "updated_at": "2026-04-15T11:52:04.880181200Z"
+    },
+    "before_any_conversation": {
+      "ai_confidence": 0.1285,
+      "id": "lead:1yf1dpee6z6rb8c1zfbv",
+      "sentiment": null,
+      "state": "SALES_QUALIFIED"
+    },
+    "after_neutral_conversation": {
+      "ai_confidence": 0.1375,
+      "id": "lead:1yf1dpee6z6rb8c1zfbv",
+      "state": "SALES_QUALIFIED"
+    },
+    "after_positive_conversation": {
+      "ai_confidence": 0.293,
+      "id": "lead:1yf1dpee6z6rb8c1zfbv",
+      "state": "SALES_QUALIFIED"
+    }
+  }
+}

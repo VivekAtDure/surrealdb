@@ -360,16 +360,37 @@ DEFINE EVENT infer_sentiment_on_message ON TABLE message
         -- 1. Get the conversation summary as context
         LET $conv = (SELECT summary FROM ONLY $value.conversation);
         LET $context = IF $conv.summary != NONE THEN $conv.summary ELSE "" END;
+
+        -- 2. Fetch the last inserted message content of this conversation
+        LET $last_msg = (
+            SELECT content FROM message
+            WHERE conversation = $value.conversation
+            ORDER BY created_at DESC LIMIT 1
+        )[0];
+        LET $text = IF $last_msg.content != NONE THEN $last_msg.content ELSE $value.content END;
+
+        -- 3. Call the LLM API with context and last message text
+        LET $api_response = fn::infer_sentiment($context, $text);
         
-        -- 2. Call the LLM API using the new message and conversation context
-        LET $api_response = fn::infer_sentiment($context, $value.content);
-        
-        -- 3. Extract the labels array from the response and join them
-        -- Example: ["Urgent", "Angry"] -> "URGENT,ANGRY"
-        LET $labels_array = $api_response.labels;
-        LET $sentiment_str = string::uppercase(string::join(',', $labels_array));
-        
-        -- 4. Update the conversation table with the new sentiment.
+        -- 4. Extract the primary sentiment label from the LLM response.
+        -- The API returns labels as a Python-style string e.g. "['CURIOUS']" or "['SATISFIED', 'NEGOTIATING']".
+        -- type::string() converts any type to string, then we strip brackets/quotes and take the first label.
+        LET $raw = type::string($api_response.labels);
+        LET $sentiment_str = string::uppercase(
+            string::trim(
+                string::split(
+                    string::replace(
+                        string::replace(
+                            string::replace(
+                                string::replace($raw, "[", ""),
+                            "]", ""),
+                        "'", ""),
+                    " ", ""),
+                ","
+            )[0]
+        );
+
+        -- 5. Update the conversation table with the new sentiment.
         -- (This will naturally trigger `score_on_conv_change` to re-score the lead!)
         UPDATE $value.conversation SET sentiment = $sentiment_str;
     };

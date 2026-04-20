@@ -1,0 +1,11 @@
+lead_id,product_category,product_type,product_complexity,product_base_price,product_tax_rate,price_tier,capacity_tons,capacity_bin,product_x_capacity,total_price_with_tax,capacity_price_ratio,quotation_sent,is_enterprise_deal,industry_close_rate,pipeline_stage,is_repeat_customer,sale_closed,days_in_pipeline,pipeline_velocity
+lead:00000001,hybrid,combo,3,85000,18,mid,11,11-20t,combo_11-20t,100300,0.000129,1,0,0.633,Closed,1,1,0,6
+lead:00000002,chiller,glycol,4,195000,18,high,7,6-10t,glycol_6-10t,230100,3.60E-05,1,0,0.512,Quotation,0,0,10,0.4
+lead:00000003,cooler,modular,2,62000,12,mid,3,1-5t,modular_1-5t,69440,4.80E-05,1,0,0.602,Follow Up / Negot.,1,1,21,0.2381
+lead:00000004,chiller,centrifugal,5,450000,18,enterprise,25,21-50t,centrifugal_21-50t,531000,5.60E-05,0,1,0.463,Sales Qualified,0,0,5,0.4
+lead:00000005,cooler,portable,1,28000,12,low,2,1-5t,portable_1-5t,31360,7.10E-05,0,0,0.579,New Lead,0,0,1,1
+lead:00000006,hybrid,combo,3,85000,18,mid,15,11-20t,combo_11-20t,100300,0.000176,1,0,0.605,Closed,1,1,0,6
+lead:00000007,chiller,rooftop,3,320000,18,high,20,11-20t,rooftop_11-20t,377600,6.30E-05,0,1,0.598,Manual Follow Up,1,0,15,0.1333
+lead:00000008,cooler,economy,1,18500,12,low,4,1-5t,economy_1-5t,20720,0.000216,1,0,0.614,Quotation,0,1,12,0.3333
+lead:00000009,chiller,industrial,4,275000,18,high,30,21-50t,industrial_21-50t,324500,0.000109,0,1,0.533,Sales Follow Up,0,0,8,0.375
+lead:00000010,hybrid,premium,3,120000,18,mid,8,6-10t,premium_6-10t,141600,6.70E-05,1,0,0.633,Closed,1,1,0,6

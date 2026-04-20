@@ -1,0 +1,11 @@
+lead_id,whatsapp_count,phone_count,email_count,total_interactions,dominant_channel,first_channel,last_channel,is_multi_channel,channel_switch_count,conversation_time_hours,conv_time_bucket,recency_bucket,engagement_depth,channel_x_stage,historical_deals_won,sale_closed
+lead:00000001,5,2,1,8,whatsapp,whatsapp,email,1,2,171.5,low_slow,cold,3.9,whatsapp_Closed,2,1
+lead:00000002,0,0,3,3,email,email,email,0,0,240,low_slow,stale,3.6,email_Quotation,0,0
+lead:00000003,3,1,1,5,whatsapp,whatsapp,email,1,2,504,low_slow,stale,5.1,whatsapp_Follow_Up__Negot.,1,1
+lead:00000004,1,0,1,2,whatsapp,whatsapp,email,1,1,48,low_slow,active,1.8,whatsapp_Sales_Qualified,0,1
+lead:00000005,0,1,0,1,phone,phone,phone,0,0,0.5,high_fast,fresh,0.5,phone_New_Lead,0,0
+lead:00000006,4,3,2,9,whatsapp,whatsapp,email,1,2,360,low_slow,cold,3.9,whatsapp_Closed,3,1
+lead:00000007,0,2,1,3,phone,phone,email,1,1,312,low_slow,stale,3.3,phone_Manual_Follow_Up,1,0
+lead:00000008,2,1,3,6,email,whatsapp,email,1,2,288,low_slow,stale,3.8,email_Quotation,0,1
+lead:00000009,1,0,1,2,whatsapp,whatsapp,email,1,1,96,low_slow,active,2.5,whatsapp_Sales_Follow_Up,0,0
+lead:00000010,6,1,1,8,whatsapp,whatsapp,email,1,2,420,low_slow,cold,3.9,whatsapp_Closed,4,1

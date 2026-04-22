@@ -1,0 +1,17 @@
+[
+  "whatsapp_count",
+  "phone_count",
+  "email_count",
+  "total_interactions",
+  "dominant_channel",
+  "first_channel",
+  "last_channel",
+  "is_multi_channel",
+  "channel_switch_count",
+  "conversation_time_hours",
+  "conv_time_bucket",
+  "recency_bucket",
+  "engagement_depth",
+  "channel_x_stage",
+  "historical_deals_won"
+]

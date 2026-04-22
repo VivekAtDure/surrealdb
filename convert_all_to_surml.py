@@ -1,0 +1,204 @@
+"""
+convert_all_to_surml.py
+=======================
+Generic converter: builds a .surml file for each of the 3 new scoring models
+(consumer_score, interaction_score, product_quotation_score) from their
+respective .onnx files.
+
+Same binary layout as the existing close_prob model — see convert_to_surml.py
+for detailed format documentation.
+
+NOTE: No normalisers are embedded — these models are trained on raw feature
+      values, so SurrealQL functions pass raw values directly (no StandardScaler
+      needed unlike fn::score_lead).
+
+Usage:
+    python convert_all_to_surml.py                  # converts all 3 models
+    python convert_all_to_surml.py consumer_score   # converts only one model
+"""
+
+import os
+import struct
+import sys
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+MODELS_DIR = os.path.join(SCRIPT_DIR, "models")
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Model definitions — add new models here without touching any other code
+# ─────────────────────────────────────────────────────────────────────────────
+
+MODEL_CONFIGS = {
+
+    "consumer_score": {
+        "onnx_file":   "consumer-model/lgbm.onnx",
+        "surml_file":  "consumer-model/consumer_score.surml",
+        "name":        "consumer_score",
+        "version":     "1.0.0",
+        "output":      "close_probability=>none",
+        "description": (
+            "LightGBM regressor predicting sale close probability from consumer "
+            "sentiment signals. 12 raw (un-normalised) float32 features. "
+            "Feature engineering done in fn::score_consumer() before calling model."
+        ),
+        "feature_cols": [
+            "primary_sentiment",        # [0]  ordinal: angry=0 … urgent=6
+            "sentiment_score",          # [1]  continuous -1.0 to 1.0
+            "sentiment_combo_score",    # [2]  stage × sentiment, clamped -5 to 8
+            "intent",                   # [3]  ordinal: at_risk=0 … window_shopping=9
+            "message_quality",          # [4]  ordinal: detailed=0, long=1, medium=2, short=3
+            "summary_length",           # [5]  char count, capped at 499
+            "has_action_milestone",     # [6]  binary: 1 if stage >= QUOTATION
+            "stage_velocity",           # [7]  stage_ordinal / days_in_pipeline
+            "historical_deals_won",     # [8]  from organisation record
+            "is_repeat_customer",       # [9]  binary: 1 if historical_deals_won > 0
+            "historical_avg_sentiment", # [10] from organisation record
+            "industry_close_rate",      # [11] fixed lookup 0.38-0.67 by industry
+        ],
+    },
+
+    "interaction_score": {
+        "onnx_file":   "interaction-model/lgbm.onnx",
+        "surml_file":  "interaction-model/interaction_score.surml",
+        "name":        "interaction_score",
+        "version":     "1.0.0",
+        "output":      "close_probability=>none",
+        "description": (
+            "LightGBM regressor predicting sale close probability from channel "
+            "interaction patterns. 15 raw float32 features. "
+            "Feature engineering done in fn::score_interaction() before calling model."
+        ),
+        "feature_cols": [
+            "whatsapp_count",           # [0]  count of WhatsApp conversations
+            "phone_count",              # [1]  count of phone/voice conversations
+            "email_count",              # [2]  count of email conversations
+            "total_interactions",       # [3]  sum of all channel counts
+            "dominant_channel",         # [4]  ordinal: email=0, phone=1, whatsapp=2
+            "first_channel",            # [5]  ordinal: email=0, phone=1, whatsapp=2
+            "last_channel",             # [6]  ordinal: email=0, phone=1, whatsapp=2
+            "is_multi_channel",         # [7]  binary: 1 if distinct channels > 1
+            "channel_switch_count",     # [8]  distinct_channels - 1
+            "conversation_time_hours",  # [9]  hours from first to last message
+            "conv_time_bucket",         # [10] ordinal: high_fast=0 … medium_medium=4
+            "recency_bucket",           # [11] ordinal: active=0, cold=1, fresh=2, stale=3
+            "engagement_depth",         # [12] total_interactions × sentiment_weight
+            "channel_x_stage",          # [13] ordinal: 36 combinations (channel × stage)
+            "historical_deals_won",     # [14] from organisation record
+        ],
+    },
+
+    "product_quotation_score": {
+        "onnx_file":   "product-quotation-model/lgbm.onnx",
+        "surml_file":  "product-quotation-model/product_quotation_score.surml",
+        "name":        "product_quotation_score",
+        "version":     "1.0.0",
+        "output":      "close_probability=>none",
+        "description": (
+            "LightGBM regressor predicting sale close probability from product "
+            "and quotation data. 18 raw float32 features. "
+            "Feature engineering done in fn::score_product_quotation() before calling model."
+        ),
+        "feature_cols": [
+            "product_category",         # [0]  ordinal: chiller=0, cooler=1, hybrid=2
+            "product_type",             # [1]  ordinal: absorption=0 … vrf=21
+            "product_complexity",       # [2]  continuous 1.0-4.5 inferred from type
+            "product_base_price",       # [3]  raw price value
+            "product_tax_rate",         # [4]  tax % (e.g. 18.0)
+            "price_tier",               # [5]  ordinal: enterprise=0, high=1, low=2, mid=3
+            "capacity_tons",            # [6]  raw capacity value
+            "capacity_bin",             # [7]  ordinal: 1-5t=0, 11-20t=1, 21-50t=2, 51-100t=3, 6-10t=4
+            "product_x_capacity",       # [8]  ordinal: product_type × 5 + capacity_bin
+            "total_price_with_tax",     # [9]  base_price × (1 + tax_rate/100)
+            "capacity_price_ratio",     # [10] capacity_tons / total_price_with_tax
+            "quotation_sent",           # [11] binary: 1 if generated_quotation exists
+            "is_enterprise_deal",       # [12] binary: 1 if base_price >= 400,000
+            "industry_close_rate",      # [13] fixed lookup 0.38-0.67 by industry
+            "pipeline_stage",           # [14] ordinal: Closed=0 … Sales_Qualified=12
+            "is_repeat_customer",       # [15] binary: 1 if historical_deals_won > 0
+            "days_in_pipeline",         # [16] days since lead.created_at
+            "pipeline_velocity",        # [17] stage_ordinal / days_in_pipeline
+        ],
+    },
+}
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Core builder (same binary format as convert_to_surml.py)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def build_header(cfg: dict) -> bytes:
+    keys        = "=>".join(cfg["feature_cols"])
+    normalisers = ""                    # raw features — no normalisers needed
+    output      = cfg["output"]
+    name        = cfg["name"]
+    version     = cfg["version"]
+    description = cfg["description"]
+    engine      = "pytorch"            # SurrealDB ONNX runtime label
+    origin      = ""
+    input_dims  = f"1,{len(cfg['feature_cols'])}"
+
+    fields = [keys, normalisers, output, name, version, description, engine, origin, input_dims]
+    header_str = "//=>" + "//=>".join(fields) + "//=>"
+    return header_str.encode("utf-8")
+
+
+def convert_model(model_key: str) -> None:
+    cfg = MODEL_CONFIGS[model_key]
+
+    onnx_path  = os.path.join(MODELS_DIR, cfg["onnx_file"])
+    surml_path = os.path.join(MODELS_DIR, cfg["surml_file"])
+
+    if not os.path.exists(onnx_path):
+        print(f"  [SKIP] ONNX not found: {onnx_path}")
+        return
+
+    print(f"\n{'─' * 60}")
+    print(f"Model      : {cfg['name']} v{cfg['version']}")
+    print(f"Features   : {len(cfg['feature_cols'])}")
+    print(f"ONNX       : {onnx_path}")
+
+    with open(onnx_path, "rb") as f:
+        onnx_bytes = f.read()
+    print(f"ONNX size  : {len(onnx_bytes):,} bytes")
+
+    header_bytes = build_header(cfg)
+    print(f"Header size: {len(header_bytes):,} bytes")
+
+    header_len_prefix = struct.pack(">i", len(header_bytes))
+    surml_bytes = header_len_prefix + header_bytes + onnx_bytes
+
+    os.makedirs(os.path.dirname(surml_path), exist_ok=True)
+    with open(surml_path, "wb") as f:
+        f.write(surml_bytes)
+
+    print(f"Saved      : {surml_path}  ({len(surml_bytes) / 1024:.1f} KB)")
+
+
+def main():
+    # Allow targeting a single model via CLI arg, else convert all
+    if len(sys.argv) > 1:
+        key = sys.argv[1]
+        if key not in MODEL_CONFIGS:
+            print(f"Unknown model '{key}'. Available: {list(MODEL_CONFIGS.keys())}")
+            sys.exit(1)
+        keys_to_run = [key]
+    else:
+        keys_to_run = list(MODEL_CONFIGS.keys())
+
+    print(f"Converting {len(keys_to_run)} model(s) to SURML...")
+    for key in keys_to_run:
+        convert_model(key)
+
+    print(f"\n{'─' * 60}")
+    print("Done. Load each .surml into SurrealDB with:")
+    print()
+    for key in keys_to_run:
+        cfg = MODEL_CONFIGS[key]
+        print(f"  curl -X POST http://localhost:8000/ml/import \\")
+        print(f"    -H \"surreal-ns: vitasales\" -H \"surreal-db: vitasales\" \\")
+        print(f"    -u \"root:root\" --data-binary @models/{cfg['surml_file']}")
+        print()
+
+
+if __name__ == "__main__":
+    main()

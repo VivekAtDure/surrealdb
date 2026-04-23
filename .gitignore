@@ -5,7 +5,7 @@ store/
 cache/
 
 # Ignore executables and ML cache
-surreal-v2.6.5.exe
+# surreal-v2.6.5.exe
 .surmlcache/
 
 # Random user/temp directories within the project

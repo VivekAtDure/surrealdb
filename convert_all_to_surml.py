@@ -1,9 +1,9 @@
 """
 convert_all_to_surml.py
 =======================
-Generic converter: builds a .surml file for each of the 3 new scoring models
-(consumer_score, interaction_score, product_quotation_score) from their
-respective .onnx files.
+Generic converter: builds a .surml file for each of the 4 scoring models
+(consumer_score, interaction_score, product_quotation_score, lead_qualification)
+from their respective .onnx files.
 
 Same binary layout as the existing close_prob model — see convert_to_surml.py
 for detailed format documentation.
@@ -13,8 +13,9 @@ NOTE: No normalisers are embedded — these models are trained on raw feature
       needed unlike fn::score_lead).
 
 Usage:
-    python convert_all_to_surml.py                  # converts all 3 models
-    python convert_all_to_surml.py consumer_score   # converts only one model
+    python convert_all_to_surml.py                    # converts all 4 models
+    python convert_all_to_surml.py consumer_score     # converts only one model
+    python convert_all_to_surml.py lead_qualification # converts only lead_qual
 """
 
 import os
@@ -117,6 +118,42 @@ MODEL_CONFIGS = {
             "is_repeat_customer",       # [15] binary: 1 if historical_deals_won > 0
             "days_in_pipeline",         # [16] days since lead.created_at
             "pipeline_velocity",        # [17] stage_ordinal / days_in_pipeline
+        ],
+    },
+
+    "lead_qualification": {
+        "onnx_file":   "lead-qualification/lgbm.onnx",
+        "surml_file":  "lead-qualification/lead_qualification.surml",
+        "name":        "lead_qualification",
+        "version":     "1.0.0",
+        "output":      "close_probability=>none",
+        "description": (
+            "LightGBM regressor predicting overall lead qualification score by "
+            "combining signals from all 3 sub-models (consumer, interaction, product) "
+            "plus pipeline and org data. 20 IQR-binned float32 features. "
+            "Feature engineering done in fn::score_lead_qualification() before calling model."
+        ),
+        "feature_cols": [
+            "has_action_milestone",          # [0]  binary: 1 if stage >= QUOTATION
+            "stage_velocity",                # [1]  IQR bin 1/2/3: stage_raw / days_in_pipeline
+            "historical_deals_won",          # [2]  IQR bin 1/2/3: from organisation record
+            "is_repeat_customer",            # [3]  binary: 1 if historical_deals_won > 0
+            "industry_close_rate",           # [4]  IQR bin 1/2/3: lookup 0.38-0.67 by industry
+            "historical_avg_sentiment",      # [5]  IQR bin 1/2/3: from organisation record
+            "intent",                        # [6]  bin 1/2/3: rebinned from 1-10 consumer intent
+            "total_interactions",            # [7]  IQR bin 1/2/3: sum of all channel conversations
+            "is_multi_channel",              # [8]  binary: 1 if distinct channels > 1
+            "recency_bucket",                # [9]  1=cold(>21d), 2=stale(≤21d), 3=active(≤7d), 4=fresh(≤3d)
+            "engagement_depth",              # [10] IQR bin 1/2/3: total_interactions × sentiment_weight
+            "quotation_sent",                # [11] binary: 1 if generated_quotation exists
+            "is_enterprise_deal",            # [12] binary: 1 if product.base_price >= 400,000
+            "pipeline_stage",                # [13] label encoded 1-12 (alphabetical stage names)
+            "days_in_pipeline",              # [14] IQR bin 1/2/3: days since lead.created_at
+            "pipeline_velocity",             # [15] IQR bin 1/2/3: stage_raw / days_in_pipeline
+            "total_price_with_tax",          # [16] IQR bin 1/2/3: base_price × (1 + tax_rate/100)
+            "consumer_score_tier",           # [17] tier 1/2/3: from lead.consumer_score field
+            "interaction_score_tier",        # [18] tier 1/2/3: from lead.interaction_score field
+            "product_quotation_score_tier",  # [19] tier 1/2/3: from lead.product_quotation_score field
         ],
     },
 }

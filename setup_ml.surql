@@ -359,6 +359,9 @@ DEFINE INDEX idx_interaction_lead ON TABLE interaction_score_result COLUMNS lead
 DEFINE TABLE product_quotation_score_result SCHEMALESS;
 DEFINE INDEX idx_product_quotation_lead ON TABLE product_quotation_score_result COLUMNS lead UNIQUE;
 
+DEFINE TABLE lead_qualification_score_result SCHEMALESS;
+DEFINE INDEX idx_lead_qualification_lead ON TABLE lead_qualification_score_result COLUMNS lead UNIQUE;
+
 -- ============================================================
 -- FUNCTION: fn::score_consumer
 -- ============================================================
@@ -972,6 +975,263 @@ DEFINE EVENT score_product_quotation_on_quotation_created ON TABLE generated_quo
     };
 
 
+
+
+-- ============================================================
+-- FUNCTION: fn::score_lead_qualification
+-- ============================================================
+DEFINE FUNCTION fn::score_lead_qualification($lead_id: record) {
+
+    LET $lead = (SELECT * FROM ONLY $lead_id);
+
+    LET $org = IF $lead.organisation != NONE THEN
+        (SELECT * FROM ONLY $lead.organisation)
+    ELSE NONE END;
+
+    LET $product = (SELECT * FROM ($lead_id->interested_in->product))[0];
+
+    -- 0-6 internal stage scale (same as other functions)
+    LET $stage_raw =
+        IF $lead.state = "NEW_LEAD"                   THEN 0
+        ELSE IF $lead.state = "MANUAL_FOLLOW_UP"      THEN 1
+        ELSE IF $lead.state = "SALES_FOLLOW_UP"       THEN 2
+        ELSE IF $lead.state = "SALES_QUALIFIED"       THEN 3
+        ELSE IF $lead.state = "QUOTATION"             THEN 4
+        ELSE IF $lead.state = "FOLLOW_UP_NEGOTIATION" THEN 5
+        ELSE IF $lead.state = "CLOSED"                THEN 6
+        ELSE 0 END;
+
+    -- pipeline_stage feature: lead_qualification uses 1-12 label encoding (alphabetical)
+    LET $pipeline_stage =
+        IF $lead.state = "CLOSED"                THEN 1
+        ELSE IF $lead.state = "FOLLOW_UP_NEGOTIATION" THEN 4
+        ELSE IF $lead.state = "MANUAL_FOLLOW_UP" THEN 6
+        ELSE IF $lead.state = "NEW_LEAD"         THEN 7
+        ELSE IF $lead.state = "QUOTATION"        THEN 10
+        ELSE IF $lead.state = "SALES_FOLLOW_UP"  THEN 11
+        ELSE IF $lead.state = "SALES_QUALIFIED"  THEN 12
+        ELSE 7 END;
+
+    LET $has_action_milestone = IF $stage_raw >= 4 THEN 1 ELSE 0 END;
+
+    LET $now = time::now();
+    LET $days_in_pipeline_raw = type::float(math::max([
+        math::floor(duration::secs($now - $lead.created_at) / 86400),
+        1
+    ]));
+    LET $days_in_pipeline =
+        IF $days_in_pipeline_raw <= 5  THEN 1
+        ELSE IF $days_in_pipeline_raw <= 25 THEN 2
+        ELSE 3 END;
+
+    LET $stage_velocity_raw = type::float($stage_raw) / $days_in_pipeline_raw;
+    LET $stage_velocity =
+        IF $stage_velocity_raw <= 0.48 THEN 1
+        ELSE IF $stage_velocity_raw <= 1.86 THEN 2
+        ELSE 3 END;
+
+    -- pipeline_velocity uses different cutoffs than stage_velocity
+    LET $pipeline_velocity =
+        IF $stage_velocity_raw <= 0.10 THEN 1
+        ELSE IF $stage_velocity_raw <= 0.50 THEN 2
+        ELSE 3 END;
+
+    LET $historical_deals_won_raw = type::float($org.historical_deals_won ?? 0);
+    LET $historical_deals_won =
+        IF $historical_deals_won_raw <= 0.0 THEN 1
+        ELSE IF $historical_deals_won_raw <= 3.0 THEN 2
+        ELSE 3 END;
+
+    LET $is_repeat_customer = IF $historical_deals_won_raw > 0 THEN 1 ELSE 0 END;
+
+    LET $historical_avg_sentiment_raw = type::float($org.historical_avg_sentiment ?? 0.0);
+    LET $historical_avg_sentiment =
+        IF $historical_avg_sentiment_raw <= -0.20 THEN 1
+        ELSE IF $historical_avg_sentiment_raw <= 0.48 THEN 2
+        ELSE 3 END;
+
+    LET $industry = $org.industry ?? "";
+    LET $industry_close_rate_raw =
+        IF $industry = "Data Centers"                   THEN 0.67
+        ELSE IF $industry = "Cold Chain Logistics"      THEN 0.62
+        ELSE IF $industry = "Semiconductor Fabrication" THEN 0.60
+        ELSE IF $industry = "Dairy Processing"          THEN 0.58
+        ELSE IF $industry = "Breweries & Beverages"     THEN 0.55
+        ELSE IF $industry = "Food Processing"           THEN 0.55
+        ELSE IF $industry = "Defence & Aerospace"       THEN 0.53
+        ELSE IF $industry = "Pharmaceuticals"           THEN 0.52
+        ELSE IF $industry = "Automotive"                THEN 0.50
+        ELSE IF $industry = "Hospitality"               THEN 0.50
+        ELSE IF $industry = "Chemicals"                 THEN 0.48
+        ELSE IF $industry = "Real Estate"               THEN 0.47
+        ELSE IF $industry = "Oil & Gas"                 THEN 0.45
+        ELSE IF $industry = "Power Generation"          THEN 0.45
+        ELSE IF $industry = "Glass Manufacturing"       THEN 0.44
+        ELSE IF $industry = "Paper & Pulp"              THEN 0.43
+        ELSE IF $industry = "Steel Manufacturing"       THEN 0.42
+        ELSE IF $industry = "Rubber & Tyres"            THEN 0.41
+        ELSE IF $industry = "Plastics"                  THEN 0.40
+        ELSE IF $industry = "Textiles"                  THEN 0.38
+        ELSE 0.48 END;
+    LET $industry_close_rate =
+        IF $industry_close_rate_raw <= 0.424 THEN 1
+        ELSE IF $industry_close_rate_raw <= 0.594 THEN 2
+        ELSE 3 END;
+
+    LET $last_conv = (
+        SELECT id, last_message_at, sentiment FROM conversation
+        WHERE lead = $lead_id
+        ORDER BY last_message_at DESC LIMIT 1
+    )[0];
+
+    LET $whatsapp_count = type::float(
+        (SELECT count() FROM conversation
+         WHERE lead = $lead_id AND channel = channel:whatsapp GROUP ALL)[0].count ?? 0
+    );
+    LET $phone_count = type::float(
+        (SELECT count() FROM conversation
+         WHERE lead = $lead_id AND (channel = channel:voice OR channel = channel:phone)
+         GROUP ALL)[0].count ?? 0
+    );
+    LET $email_count = type::float(
+        (SELECT count() FROM conversation
+         WHERE lead = $lead_id AND (channel = channel:email OR channel = channel:web)
+         GROUP ALL)[0].count ?? 0
+    );
+    LET $total_interactions_raw = $whatsapp_count + $phone_count + $email_count;
+    LET $total_interactions =
+        IF $total_interactions_raw <= 4  THEN 1
+        ELSE IF $total_interactions_raw <= 10 THEN 2
+        ELSE 3 END;
+
+    LET $distinct_ch = (IF $whatsapp_count > 0 THEN 1 ELSE 0 END)
+                     + (IF $phone_count    > 0 THEN 1 ELSE 0 END)
+                     + (IF $email_count    > 0 THEN 1 ELSE 0 END);
+    LET $is_multi_channel = IF $distinct_ch > 1 THEN 1 ELSE 0 END;
+
+    -- recency: fresh(≤3d)=4, active(≤7d)=3, stale(≤21d)=2, cold(>21d)=1
+    LET $days_since = duration::secs($now - ($last_conv.last_message_at ?? $now)) / 86400.0;
+    LET $recency_bucket =
+        IF $days_since <= 3  THEN 4
+        ELSE IF $days_since <= 7  THEN 3
+        ELSE IF $days_since <= 21 THEN 2
+        ELSE 1 END;
+
+    LET $s = $last_conv.sentiment ?? "NEUTRAL";
+    LET $sent_w =
+        IF $s = "POSITIVE" OR $s = "SATISFIED" THEN 1.0
+        ELSE IF $s = "INTERESTED"              THEN 0.8
+        ELSE IF $s = "URGENT"                  THEN 0.75
+        ELSE IF $s = "NEGOTIATING"             THEN 0.5
+        ELSE IF $s = "CURIOUS"                 THEN 0.3
+        ELSE IF $s = "NEUTRAL"                 THEN 0.0
+        ELSE IF $s = "DISSATISFIED"            THEN -0.5
+        ELSE -1.0 END;
+    LET $engagement_depth_raw = $total_interactions_raw * $sent_w;
+    LET $engagement_depth =
+        IF $engagement_depth_raw <= 3.0 THEN 1
+        ELSE IF $engagement_depth_raw <= 5.0 THEN 2
+        ELSE 3 END;
+
+    -- intent: derive same as fn::score_consumer (1-10), then rebin for lead_qualification (1-2→1, 3-7→2, 8-10→3)
+    LET $intent_raw =
+        IF $s = "ANGRY"                                              THEN 1
+        ELSE IF $s = "NEGATIVE" OR $s = "FRUSTRATED"
+                OR $s = "DISSATISFIED"                              THEN 2
+        ELSE IF ($s = "SATISFIED" OR $s = "URGENT") AND $stage_raw >= 4 THEN 3
+        ELSE IF $s = "NEUTRAL" AND $stage_raw > 0                   THEN 4
+        ELSE IF $s = "INTERESTED"                                    THEN 5
+        ELSE IF $s = "CURIOUS"                                       THEN 6
+        ELSE IF $s = "NEGOTIATING"                                   THEN 7
+        ELSE IF $s = "POSITIVE" OR ($s = "URGENT" AND $stage_raw < 4) THEN 8
+        ELSE IF $s = "SATISFIED" AND $stage_raw < 4                 THEN 9
+        ELSE 10 END;
+    LET $intent =
+        IF $intent_raw <= 2 THEN 1
+        ELSE IF $intent_raw <= 7 THEN 2
+        ELSE 3 END;
+
+    LET $has_quotation = (
+        SELECT count() FROM generated_quotation
+        WHERE in = $lead_id GROUP ALL
+    )[0].count > 0;
+    LET $quotation_sent = IF $has_quotation THEN 1 ELSE 0 END;
+
+    LET $base_price     = type::float($product.base_price ?? 0.0);
+    LET $tax_rate       = type::float($product.tax_rate   ?? 18.0);
+    LET $total_price_raw = $base_price * (1.0 + $tax_rate / 100.0);
+    LET $total_price_with_tax =
+        IF $total_price_raw <= 50000   THEN 1
+        ELSE IF $total_price_raw <= 300000 THEN 2
+        ELSE 3 END;
+    LET $is_enterprise_deal = IF $base_price >= 400000 THEN 1 ELSE 0 END;
+
+    -- tier thresholds: <40=Low(1), 40-70=Medium(2), >70=High(3)
+    LET $consumer_score_tier =
+        IF ($lead.consumer_score ?? 0) < 40    THEN 1
+        ELSE IF ($lead.consumer_score ?? 0) <= 70 THEN 2
+        ELSE 3 END;
+    LET $interaction_score_tier =
+        IF ($lead.interaction_score ?? 0) < 40    THEN 1
+        ELSE IF ($lead.interaction_score ?? 0) <= 70 THEN 2
+        ELSE 3 END;
+    LET $product_quotation_score_tier =
+        IF ($lead.product_quotation_score ?? 0) < 40    THEN 1
+        ELSE IF ($lead.product_quotation_score ?? 0) <= 70 THEN 2
+        ELSE 3 END;
+
+    LET $raw = ml::lead_qualification<1.0.0>([
+        type::float($has_action_milestone),         -- [0]  binary 0/1
+        type::float($stage_velocity),               -- [1]  IQR bin 1/2/3
+        type::float($historical_deals_won),         -- [2]  IQR bin 1/2/3
+        type::float($is_repeat_customer),           -- [3]  binary 0/1
+        type::float($industry_close_rate),          -- [4]  IQR bin 1/2/3
+        type::float($historical_avg_sentiment),     -- [5]  IQR bin 1/2/3
+        type::float($intent),                       -- [6]  bin 1/2/3
+        type::float($total_interactions),           -- [7]  IQR bin 1/2/3
+        type::float($is_multi_channel),             -- [8]  binary 0/1
+        type::float($recency_bucket),               -- [9]  1/2/3/4
+        type::float($engagement_depth),             -- [10] IQR bin 1/2/3
+        type::float($quotation_sent),               -- [11] binary 0/1
+        type::float($is_enterprise_deal),           -- [12] binary 0/1
+        type::float($pipeline_stage),               -- [13] label encoded 1-12
+        type::float($days_in_pipeline),             -- [14] IQR bin 1/2/3
+        type::float($pipeline_velocity),            -- [15] IQR bin 1/2/3
+        type::float($total_price_with_tax),         -- [16] IQR bin 1/2/3
+        type::float($consumer_score_tier),          -- [17] tier 1/2/3
+        type::float($interaction_score_tier),       -- [18] tier 1/2/3
+        type::float($product_quotation_score_tier)  -- [19] tier 1/2/3
+    ]);
+
+    RETURN math::round($raw[0] * 10000) / 100;
+};
+
+-- ============================================================
+-- EVENT: score_lead_qualification_on_lead_change
+-- Fires when any sub-score or pipeline stage changes on a lead
+-- ============================================================
+DEFINE EVENT score_lead_qualification_on_lead_change ON TABLE lead
+    WHEN $event = "UPDATE" AND (
+        $before.consumer_score          != $value.consumer_score          OR
+        $before.interaction_score       != $value.interaction_score       OR
+        $before.product_quotation_score != $value.product_quotation_score OR
+        $before.state                   != $value.state
+    ) THEN {
+        LET $lq = fn::score_lead_qualification($value.id);
+        LET $conv_row = (
+            SELECT id, last_message_at FROM conversation
+            WHERE lead = $value.id
+            ORDER BY last_message_at DESC LIMIT 1
+        )[0];
+        LET $conv = $conv_row.id;
+        UPDATE $value.id SET lead_qualification_score = $lq;
+        LET $ex = (SELECT id FROM lead_qualification_score_result WHERE lead = $value.id LIMIT 1)[0];
+        IF $ex != NONE THEN {
+            UPDATE $ex.id SET conversation = $conv, score = $lq, scored_at = time::now();
+        } ELSE {
+            CREATE lead_qualification_score_result SET lead = $value.id, conversation = $conv, score = $lq, scored_at = time::now();
+        } END;
+    };
 
 
 -- 3 Correct Test Queries

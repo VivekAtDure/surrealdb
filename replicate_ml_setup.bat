@@ -46,11 +46,13 @@ set CONVERT_ALL_PY=%SCRIPT_DIR%convert_all_to_surml.py
 set CONSUMER_ONNX=%SCRIPT_DIR%models\consumer-model\lgbm.onnx
 set INTERACTION_ONNX=%SCRIPT_DIR%models\interaction-model\lgbm.onnx
 set PRODUCT_ONNX=%SCRIPT_DIR%models\product-quotation-model\lgbm.onnx
+set LEAD_QUAL_ONNX=%SCRIPT_DIR%models\lead-qualification\lgbm.onnx
 
 :: New model SURML output paths (each in its own subfolder)
 set CONSUMER_SURML=%SCRIPT_DIR%models\consumer-model\consumer_score.surml
 set INTERACTION_SURML=%SCRIPT_DIR%models\interaction-model\interaction_score.surml
 set PRODUCT_SURML=%SCRIPT_DIR%models\product-quotation-model\product_quotation_score.surml
+set LEAD_QUAL_SURML=%SCRIPT_DIR%models\lead-qualification\lead_qualification.surml
 
 echo.
 echo ============================================================
@@ -131,6 +133,17 @@ if exist "%PRODUCT_SURML%" (
     if errorlevel 1 ( echo  ERROR: product_quotation_score conversion failed. & exit /b 1 )
     echo  OK - product_quotation_score.surml created in models\product-quotation\
 )
+
+:: lead_qualification
+if exist "%LEAD_QUAL_SURML%" (
+    echo  SKIP - lead_qualification.surml already exists
+) else if not exist "%LEAD_QUAL_ONNX%" (
+    echo  WARN - lead_qualification lgbm.onnx not found, skipping lead_qualification
+) else (
+    python "%CONVERT_ALL_PY%" lead_qualification
+    if errorlevel 1 ( echo  ERROR: lead_qualification conversion failed. & exit /b 1 )
+    echo  OK - lead_qualification.surml created in models\lead-qualification\
+)
 echo.
 
 :: ── Step 4: Import close_prob model into RocksDB ─────────────
@@ -208,6 +221,24 @@ if exist "%PRODUCT_SURML%" (
 ) else (
     echo  SKIP - product_quotation_score.surml not found ^(run train_models.py first^)
 )
+
+if exist "%LEAD_QUAL_SURML%" (
+    curl -s -o %TEMP%\ml_leadqual_result.txt -w "%%{http_code}" ^
+        -X POST %ENDPOINT%/ml/import ^
+        -H "surreal-ns: %NAMESPACE%" ^
+        -H "surreal-db: %DATABASE%" ^
+        -u "%USERNAME%:%PASSWORD%" ^
+        --data-binary @"%LEAD_QUAL_SURML%" > %TEMP%\ml_leadqual_code.txt 2>&1
+    set /p LQ_CODE=<%TEMP%\ml_leadqual_code.txt
+    if "!LQ_CODE!"=="200" (
+        echo  OK - lead_qualification model imported
+    ) else (
+        echo  ERROR: lead_qualification import failed  HTTP !LQ_CODE!
+        exit /b 1
+    )
+) else (
+    echo  SKIP - lead_qualification.surml not found ^(run train_models.py first^)
+)
 echo.
 echo.
 
@@ -225,7 +256,7 @@ curl -s -o nul ^
     -H "surreal-ns: %NAMESPACE%" ^
     -H "surreal-db: %DATABASE%" ^
     -u "%USERNAME%:%PASSWORD%" ^
-    -d "REMOVE FUNCTION IF EXISTS fn::score_lead; REMOVE FUNCTION IF EXISTS fn::score_consumer; REMOVE FUNCTION IF EXISTS fn::score_interaction; REMOVE FUNCTION IF EXISTS fn::score_product_quotation; REMOVE EVENT IF EXISTS score_on_lead_change ON TABLE lead; REMOVE EVENT IF EXISTS score_on_conv_change ON TABLE conversation; REMOVE EVENT IF EXISTS score_consumer_on_lead_change ON TABLE lead; REMOVE EVENT IF EXISTS score_consumer_on_conv_change ON TABLE conversation; REMOVE EVENT IF EXISTS score_interaction_on_lead_change ON TABLE lead; REMOVE EVENT IF EXISTS score_interaction_on_conv_change ON TABLE conversation; REMOVE EVENT IF EXISTS score_product_quotation_on_lead_change ON TABLE lead; REMOVE EVENT IF EXISTS score_product_quotation_on_quotation_created ON TABLE generated_quotation;" > nul 2>&1
+    -d "REMOVE FUNCTION IF EXISTS fn::score_lead; REMOVE FUNCTION IF EXISTS fn::score_consumer; REMOVE FUNCTION IF EXISTS fn::score_interaction; REMOVE FUNCTION IF EXISTS fn::score_product_quotation; REMOVE FUNCTION IF EXISTS fn::score_lead_qualification; REMOVE EVENT IF EXISTS score_on_lead_change ON TABLE lead; REMOVE EVENT IF EXISTS score_on_conv_change ON TABLE conversation; REMOVE EVENT IF EXISTS score_consumer_on_lead_change ON TABLE lead; REMOVE EVENT IF EXISTS score_consumer_on_conv_change ON TABLE conversation; REMOVE EVENT IF EXISTS score_interaction_on_lead_change ON TABLE lead; REMOVE EVENT IF EXISTS score_interaction_on_conv_change ON TABLE conversation; REMOVE EVENT IF EXISTS score_product_quotation_on_lead_change ON TABLE lead; REMOVE EVENT IF EXISTS score_product_quotation_on_quotation_created ON TABLE generated_quotation; REMOVE EVENT IF EXISTS score_lead_qualification_on_lead_change ON TABLE lead;" > nul 2>&1
 
 :: Apply setup
 curl -s -o %TEMP%\setup_result.txt -w "%%{http_code}" ^
@@ -242,6 +273,7 @@ if "%SETUP_CODE%"=="200" (
     echo  OK - fn::score_consumer defined
     echo  OK - fn::score_interaction defined
     echo  OK - fn::score_product_quotation defined
+    echo  OK - fn::score_lead_qualification defined
     echo  OK - All events defined
 ) else (
     echo  ERROR: Setup SQL failed  HTTP %SETUP_CODE%
@@ -258,7 +290,7 @@ curl -s -o %TEMP%\smoke_result.txt ^
     -H "surreal-ns: %NAMESPACE%" ^
     -H "surreal-db: %DATABASE%" ^
     -u "%USERNAME%:%PASSWORD%" ^
-    -d "USE NS %NAMESPACE%; USE DB %DATABASE%; LET $lid = (SELECT VALUE id FROM lead LIMIT 1)[0]; IF $lid != NONE THEN RETURN { close_prob: fn::score_lead($lid), consumer: fn::score_consumer($lid), interaction: fn::score_interaction($lid), product_quotation: fn::score_product_quotation($lid) } ELSE RETURN 'No leads found in table' END;" 2>&1
+    -d "USE NS %NAMESPACE%; USE DB %DATABASE%; LET $lid = (SELECT VALUE id FROM lead LIMIT 1)[0]; IF $lid != NONE THEN RETURN { close_prob: fn::score_lead($lid), consumer: fn::score_consumer($lid), interaction: fn::score_interaction($lid), product_quotation: fn::score_product_quotation($lid), lead_qualification: fn::score_lead_qualification($lid) } ELSE RETURN 'No leads found in table' END;" 2>&1
 
 set /p SMOKE=<%TEMP%\smoke_result.txt
 echo  Scores for first lead: %SMOKE%
@@ -269,10 +301,11 @@ echo  Setup complete. All models stored in RocksDB.
 echo ============================================================
 echo.
 echo  Model locations:
-echo    models\lgbm.surml                                   (close_prob)
-echo    models\costermer-model\consumer_score.surml         (consumer_score)
-echo    models\interaction-model\interaction_score.surml    (interaction_score)
-echo    models\product-quotation\product_quotation_score.surml (product_quotation_score)
+echo    models\lgbm.surml                                        (close_prob)
+echo    models\consumer-model\consumer_score.surml               (consumer_score)
+echo    models\interaction-model\interaction_score.surml         (interaction_score)
+echo    models\product-quotation-model\product_quotation_score.surml (product_quotation_score)
+echo    models\lead-qualification\lead_qualification.surml       (lead_qualification)
 echo.
 echo  Everything survives server restarts - no re-setup needed.
 echo.

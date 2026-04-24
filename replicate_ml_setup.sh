@@ -36,14 +36,16 @@ CONVERT_PY="$SCRIPT_DIR/convert_to_surml.py"
 CONVERT_ALL_PY="$SCRIPT_DIR/convert_all_to_surml.py"
 
 # New model ONNX paths
-CONSUMER_ONNX="$SCRIPT_DIR/models/consumer_score.onnx"
-INTERACTION_ONNX="$SCRIPT_DIR/models/interaction_score.onnx"
-PRODUCT_ONNX="$SCRIPT_DIR/models/product_quotation_score.onnx"
+CONSUMER_ONNX="$SCRIPT_DIR/models/consumer-model/lgbm.onnx"
+INTERACTION_ONNX="$SCRIPT_DIR/models/interaction-model/lgbm.onnx"
+PRODUCT_ONNX="$SCRIPT_DIR/models/product-quotation-model/lgbm.onnx"
+LEAD_QUAL_ONNX="$SCRIPT_DIR/models/lead-qualification/lgbm.onnx"
 
 # New model SURML output paths (each in its own subfolder)
-CONSUMER_SURML="$SCRIPT_DIR/models/costermer-model/consumer_score.surml"
+CONSUMER_SURML="$SCRIPT_DIR/models/consumer-model/consumer_score.surml"
 INTERACTION_SURML="$SCRIPT_DIR/models/interaction-model/interaction_score.surml"
-PRODUCT_SURML="$SCRIPT_DIR/models/product-quotation/product_quotation_score.surml"
+PRODUCT_SURML="$SCRIPT_DIR/models/product-quotation-model/product_quotation_score.surml"
+LEAD_QUAL_SURML="$SCRIPT_DIR/models/lead-qualification/lead_qualification.surml"
 
 # ── Colours ───────────────────────────────────────────────────
 GREEN='\033[0;32m'
@@ -116,7 +118,17 @@ elif [ ! -f "$PRODUCT_ONNX" ]; then
     warn "product_quotation_score.onnx not found — skipping product_quotation_score"
 else
     python3 "$CONVERT_ALL_PY" product_quotation_score || fail "product_quotation_score conversion failed"
-    ok "product_quotation_score.surml created → models/product-quotation/"
+    ok "product_quotation_score.surml created → models/product-quotation-model/"
+fi
+
+# lead_qualification
+if [ -f "$LEAD_QUAL_SURML" ]; then
+    skip "lead_qualification.surml already exists"
+elif [ ! -f "$LEAD_QUAL_ONNX" ]; then
+    warn "lead_qualification lgbm.onnx not found — skipping lead_qualification"
+else
+    python3 "$CONVERT_ALL_PY" lead_qualification || fail "lead_qualification conversion failed"
+    ok "lead_qualification.surml created → models/lead-qualification/"
 fi
 echo ""
 
@@ -163,6 +175,7 @@ import_model() {
 import_model "consumer_score"          "$CONSUMER_SURML"
 import_model "interaction_score"        "$INTERACTION_SURML"
 import_model "product_quotation_score"  "$PRODUCT_SURML"
+import_model "lead_qualification"       "$LEAD_QUAL_SURML"
 echo ""
 
 # ── Step 6: Apply functions + events ──────────────────────────
@@ -186,7 +199,9 @@ curl -s -o /dev/null \
         REMOVE EVENT IF EXISTS score_interaction_on_lead_change ON TABLE lead;
         REMOVE EVENT IF EXISTS score_interaction_on_conv_change ON TABLE conversation;
         REMOVE EVENT IF EXISTS score_product_quotation_on_lead_change ON TABLE lead;
-        REMOVE EVENT IF EXISTS score_product_quotation_on_quotation_created ON TABLE generated_quotation;"
+        REMOVE EVENT IF EXISTS score_product_quotation_on_quotation_created ON TABLE generated_quotation;
+        REMOVE FUNCTION IF EXISTS fn::score_lead_qualification;
+        REMOVE EVENT IF EXISTS score_lead_qualification_on_lead_change ON TABLE lead;"
 
 # Apply setup
 SETUP_CODE=$(curl -s -o /tmp/setup_result.txt -w "%{http_code}" \
@@ -208,6 +223,7 @@ ok "fn::score_lead defined"
 ok "fn::score_consumer defined"
 ok "fn::score_interaction defined"
 ok "fn::score_product_quotation defined"
+ok "fn::score_lead_qualification defined"
 ok "All events defined"
 echo ""
 
@@ -218,13 +234,7 @@ SMOKE=$(curl -s \
     -H "surreal-ns: $NAMESPACE" \
     -H "surreal-db: $DATABASE" \
     -u "$USERNAME:$PASSWORD" \
-    -d "LET \$lid = (SELECT id FROM lead LIMIT 1)[0].id;
-        RETURN {
-            close_prob:        fn::score_lead(\$lid),
-            consumer:          fn::score_consumer(\$lid),
-            interaction:       fn::score_interaction(\$lid),
-            product_quotation: fn::score_product_quotation(\$lid)
-        };" \
+    -d "USE NS $NAMESPACE; USE DB $DATABASE; LET \$lid = (SELECT VALUE id FROM lead LIMIT 1)[0]; IF \$lid != NONE THEN RETURN { close_prob: fn::score_lead(\$lid), consumer: fn::score_consumer(\$lid), interaction: fn::score_interaction(\$lid), product_quotation: fn::score_product_quotation(\$lid), lead_qualification: fn::score_lead_qualification(\$lid) } ELSE RETURN 'No leads found in table' END;" \
     | python3 -c "
 import sys, json
 d = json.load(sys.stdin)
@@ -243,10 +253,11 @@ echo -e " ${GREEN}Setup complete. All models stored in RocksDB.${NC}"
 echo "============================================================"
 echo ""
 echo " Model locations:"
-echo "   models/lgbm.surml                                     (close_prob)"
-echo "   models/costermer-model/consumer_score.surml           (consumer_score)"
-echo "   models/interaction-model/interaction_score.surml      (interaction_score)"
-echo "   models/product-quotation/product_quotation_score.surml (product_quotation_score)"
+echo "   models/lgbm.surml                                             (close_prob)"
+echo "   models/consumer-model/consumer_score.surml                   (consumer_score)"
+echo "   models/interaction-model/interaction_score.surml             (interaction_score)"
+echo "   models/product-quotation-model/product_quotation_score.surml (product_quotation_score)"
+echo "   models/lead-qualification/lead_qualification.surml           (lead_qualification)"
 echo ""
 echo " Everything survives server restarts — no re-setup needed."
 echo ""

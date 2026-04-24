@@ -167,56 +167,110 @@ CONNECT TO VITASALES DB
 ================================================================================
 
 ================================================================================
-ML MODEL — LEAD SCORING (close_probability)
+ML MODELS — LEAD SCORING (5 models)
 ================================================================================
 
-MODEL
------
-- File:        models/lgbm.onnx        (LightGBM regressor, 429 KB)
-- Converted:   models/lgbm.surml       (SurrealDB ML format)
-- Name:        close_prob  version 1.0.0
-- Predicts:    sales close probability (0.0 – 1.0)
-- Features:    29 float32 inputs (pre-normalised)
-- Conversion:  python convert_to_surml.py
+MODELS
+------
+| Model name              | File                                                        | Predicts                        | Score field              |
+|-------------------------|-------------------------------------------------------------|---------------------------------|--------------------------|
+| close_prob  v1.0.0      | models/lgbm.surml                                           | Sales close probability 0–1     | lead.ai_confidence       |
+| consumer_score v1.0.0   | models/consumer-model/consumer_score.surml                  | Consumer engagement score 0–1   | lead.consumer_score      |
+| interaction_score v1.0.0| models/interaction-model/interaction_score.surml            | Interaction quality score 0–1   | lead.interaction_score   |
+| product_quotation v1.0.0| models/product-quotation-model/product_quotation_score.surml| Quotation conversion score 0–1  | lead.product_quotation_score |
+| lead_qualification v1.0.0| models/lead-qualification/lead_qualification.surml         | Lead qualification score 0–1    | lead.lead_qualification_score |
 
-LOAD MODEL INTO DB (run once per server start after restart)
---------------------------------------------------------------
+All models: LightGBM regressors, float32 inputs, converted via convert_all_to_surml.py
+close_prob: 29 features, converted via convert_to_surml.py (original)
+
+REPLICATE FULL SETUP (new machine)
+------------------------------------
+  Windows:  replicate_ml_setup.bat
+  Linux:    ./replicate_ml_setup.sh
+
+  Both scripts:
+    1. Convert .onnx → .surml (skips if .surml already exists)
+    2. Import all 5 models into SurrealDB RocksDB
+    3. Define all scoring functions + events (idempotent)
+    4. Run smoke tests
+
+LOAD MODELS MANUALLY (run once per new server, models persist in RocksDB)
+---------------------------------------------------------------------------
   curl -X POST http://localhost:8000/ml/import \
     -H "surreal-ns: vitasales" -H "surreal-db: vitasales" \
-    -u "root:root" \
-    --data-binary @models/lgbm.surml
+    -u "root:root" --data-binary @models/lgbm.surml
 
-APPLY FUNCTION + EVENTS (run once, persisted in RocksDB)
----------------------------------------------------------
+  curl -X POST http://localhost:8000/ml/import \
+    -H "surreal-ns: vitasales" -H "surreal-db: vitasales" \
+    -u "root:root" --data-binary @models/consumer-model/consumer_score.surml
+
+  curl -X POST http://localhost:8000/ml/import \
+    -H "surreal-ns: vitasales" -H "surreal-db: vitasales" \
+    -u "root:root" --data-binary @models/interaction-model/interaction_score.surml
+
+  curl -X POST http://localhost:8000/ml/import \
+    -H "surreal-ns: vitasales" -H "surreal-db: vitasales" \
+    -u "root:root" --data-binary @models/product-quotation-model/product_quotation_score.surml
+
+  curl -X POST http://localhost:8000/ml/import \
+    -H "surreal-ns: vitasales" -H "surreal-db: vitasales" \
+    -u "root:root" --data-binary @models/lead-qualification/lead_qualification.surml
+
+APPLY FUNCTIONS + EVENTS (run once, persisted in RocksDB)
+----------------------------------------------------------
   curl -X POST http://localhost:8000/sql \
     -H "surreal-ns: vitasales" -H "surreal-db: vitasales" \
     -u "root:root" \
     --data-binary @setup_ml.surql
 
-MANUAL SCORE CALL
------------------
+MANUAL SCORE CALLS
+------------------
   RETURN fn::score_lead(lead:<id>);
+  RETURN fn::score_consumer(lead:<id>);
+  RETURN fn::score_interaction(lead:<id>);
+  RETURN fn::score_product_quotation(lead:<id>);
+  RETURN fn::score_lead_qualification(lead:<id>);
 
 HOW IT WORKS
 ------------
 1. DEFINE FUNCTION fn::score_lead($lead_id)
    - Joins: lead + conversation + message + product + organisation + generated_quotation
-   - Encodes categoricals (pipeline stage, channel, product, industry, completeness)
-   - Applies StandardScaler/MinMaxScaler normalisations (from training reference)
-   - Calls ml::close_prob<1.0.0>([29 floats]) → raw float score
-   - Returns score rounded to 4 decimal places
+   - Encodes categoricals, applies StandardScaler/MinMaxScaler normalisations
+   - Calls ml::close_prob<1.0.0>([29 floats]) → score rounded to 4 d.p.
+   - Writes to lead.ai_confidence
 
-2. DEFINE EVENT score_on_lead_change ON TABLE lead
-   - Fires on CREATE and on UPDATE (only when state/completeness/channel/org changes)
-   - Writes score to lead.ai_confidence
-   - Infinite-loop safe: ai_confidence changes do NOT re-trigger
+2. DEFINE FUNCTION fn::score_consumer($lead_id)
+   - Consumer engagement features from lead + conversation
+   - Calls ml::consumer_score<1.0.0>([...]) → lead.consumer_score
 
-3. DEFINE EVENT score_on_conv_change ON TABLE conversation
-   - Fires on CREATE and on UPDATE (only when sentiment/summary/last_message_at changes)
-   - Re-scores the linked lead (lead.ai_confidence)
+3. DEFINE FUNCTION fn::score_interaction($lead_id)
+   - Interaction quality features (message count, response times, sentiment)
+   - Calls ml::interaction_score<1.0.0>([...]) → lead.interaction_score
 
-SCORING VERIFIED
-----------------
+4. DEFINE FUNCTION fn::score_product_quotation($lead_id)
+   - Product fit + quotation features
+   - Calls ml::product_quotation<1.0.0>([...]) → lead.product_quotation_score
+
+5. DEFINE FUNCTION fn::score_lead_qualification($lead_id)
+   - Lead completeness + profile features
+   - Calls ml::lead_qualification<1.0.0>([...]) → lead.lead_qualification_score
+
+EVENTS (auto-score on data change)
+------------------------------------
+  score_on_lead_change              ON TABLE lead         (→ ai_confidence)
+  score_on_conv_change              ON TABLE conversation (→ ai_confidence)
+  score_consumer_on_lead_change     ON TABLE lead         (→ consumer_score)
+  score_consumer_on_conv_change     ON TABLE conversation (→ consumer_score)
+  score_interaction_on_lead_change  ON TABLE lead         (→ interaction_score)
+  score_interaction_on_conv_change  ON TABLE conversation (→ interaction_score)
+  score_product_quotation_on_lead_change           ON TABLE lead              (→ product_quotation_score)
+  score_product_quotation_on_quotation_created     ON TABLE generated_quotation (→ product_quotation_score)
+  score_lead_qualification_on_lead_change          ON TABLE lead              (→ lead_qualification_score)
+
+  All events are infinite-loop safe (score field changes do NOT re-trigger).
+
+SCORING VERIFIED (close_prob)
+------------------------------
   lead state        ai_confidence
   NEW_LEAD          ~0.012
   SALES_QUALIFIED   ~0.124
@@ -225,16 +279,17 @@ SCORING VERIFIED
 
 IMPORTANT NOTES
 ---------------
-- The ML model IS persisted in RocksDB — survives server restarts, no re-import needed
-  (verified: model callable immediately after restart without re-running ml/import)
+- All ML models persist in RocksDB — survive server restarts, no re-import needed
 - Sentiment mapping: POSITIVE=1.0, NEUTRAL=0.0, ANGRY=-1.0 etc.
-- Products not in the training catalogue (CHIL-001..COOL-004) get -1 encoding (unknown)
-- capacity_tons defaults to training mean (14.08) — cannot parse CMH from DB attributes
-- fe_has_urgency_keyword and fe_has_price_mention default to 0.0 (no text search in DB)
+- Products not in training catalogue (CHIL-001..COOL-004) get -1 encoding (unknown)
+- capacity_tons defaults to training mean (14.08)
+- fe_has_urgency_keyword and fe_has_price_mention default to 0.0
 
 CONVERSION SCRIPT NOTE
 -----------------------
-- surrealml Python package has no Windows DLL; .surml built manually via convert_to_surml.py
+- close_prob: convert_to_surml.py (single-model script)
+- Other 4 models: convert_all_to_surml.py <model_name>
+- surrealml Python package has no Windows DLL; .surml built manually
 - Format: [4-byte i32 big-endian header length] + [UTF-8 header with //=> delimiters] + [ONNX bytes]
 
 ================================================================================

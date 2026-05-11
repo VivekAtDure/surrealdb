@@ -1,0 +1,21 @@
+lead_id,state,completeness,source_channel,days_in_pipeline,sentiment,days_since_last_msg,summary_length,message_length,product_name,product_sku,base_price,tax_rate,product_type_attr,org_industry,has_quotation
+lead:001,QUOTATION,COMPLETE,whatsapp,18,SATISFIED,3,310,185,Centrifugal Chiller,CHIL-001,520000,18.0,centrifugal,Data Centers,1
+lead:002,NEW_LEAD,INCOMPLETE,email,2,ANGRY,45,60,22,Air Cooler Unit,COOL-001,45000,18.0,portable,Textiles,0
+lead:003,SALES_QUALIFIED,COMPLETE,phone,12,INTERESTED,8,240,140,Industrial Chiller,CHIL-004,280000,18.0,industrial,Pharmaceuticals,0
+lead:004,FOLLOW_UP_NEGOTIATION,COMPLETE,whatsapp,25,NEGOTIATING,5,370,190,Screw Chiller,CHIL-003,430000,18.0,premium,Oil & Gas,1
+lead:005,MANUAL_FOLLOW_UP,INCOMPLETE,email,7,DISSATISFIED,38,80,35,Evaporative Cooler,COOL-002,55000,18.0,economy,Hospitality,0
+lead:006,SALES_FOLLOW_UP,INCOMPLETE,voice,10,CURIOUS,14,180,95,Precision Chiller,CHIL-005,185000,18.0,single,Food Processing,0
+lead:007,CLOSED,COMPLETE,whatsapp,30,POSITIVE,2,390,195,Cooler and Chillers Combo,COMBO-001,620000,18.0,combo,Steel Manufacturing,1
+lead:008,NEW_LEAD,INCOMPLETE,email,1,NEUTRAL,20,55,28,Air Cooler Unit,COOL-001,45000,18.0,portable,Automotive,0
+lead:009,QUOTATION,COMPLETE,phone,22,URGENT,4,290,175,Glycol Chiller System,CHIL-005,195000,18.0,glycol,Data Centers,1
+lead:010,MANUAL_FOLLOW_UP,INCOMPLETE,email,5,NEGATIVE,42,70,18,Portable Cooling Unit,COOL-003,75000,18.0,portable,Plastics,0
+lead:011,SALES_QUALIFIED,COMPLETE,whatsapp,14,INTERESTED,9,255,130,Rooftop Chiller,CHIL-006,325000,18.0,rooftop,Chemicals,0
+lead:012,FOLLOW_UP_NEGOTIATION,COMPLETE,phone,28,SATISFIED,3,380,188,Centrifugal Chiller,CHIL-001,520000,18.0,centrifugal,Semiconductor Fabrication,1
+lead:013,NEW_LEAD,INCOMPLETE,email,3,NEUTRAL,22,65,30,Modular Cooling Tower,COOL-004,95000,18.0,modular,Real Estate,0
+lead:014,SALES_FOLLOW_UP,INCOMPLETE,voice,9,NEGOTIATING,16,200,110,Air-Cooled Chiller Package,CHIL-002,355000,18.0,package,Dairy Processing,0
+lead:015,QUOTATION,COMPLETE,whatsapp,20,POSITIVE,2,340,180,Precision Chiller,CHIL-005,185000,18.0,single,Pharmaceuticals,1
+lead:016,MANUAL_FOLLOW_UP,INCOMPLETE,email,6,DISSATISFIED,35,75,25,Air Cooler Unit,COOL-001,45000,18.0,portable,Rubber & Tyres,0
+lead:017,SALES_QUALIFIED,COMPLETE,phone,13,CURIOUS,11,230,125,Industrial Chiller,CHIL-004,280000,18.0,industrial,Power Generation,0
+lead:018,FOLLOW_UP_NEGOTIATION,COMPLETE,whatsapp,24,INTERESTED,6,360,170,Glycol Chiller System,CHIL-005,195000,18.0,glycol,Cold Chain Logistics,1
+lead:019,NEW_LEAD,INCOMPLETE,email,2,ANGRY,48,50,15,Evaporative Cooler,COOL-002,55000,18.0,economy,Glass Manufacturing,0
+lead:020,SALES_FOLLOW_UP,INCOMPLETE,voice,11,NEUTRAL,18,190,105,Screw Chiller,CHIL-003,430000,18.0,premium,Defence & Aerospace,0

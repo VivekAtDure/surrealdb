@@ -1,0 +1,120 @@
+{
+  "model": "Deal Risk Model",
+  "purpose": "Final risk assessment — predicts closure probability using raw operational signals about current deal state, risk indicators, and urgency signals. Independent of the other 4 models.",
+  "target": "sale_closed",
+  "total_features": 28,
+  "features": [
+    {
+      "column": "state",
+      "reason": "Current lead state (ON_HOLD, LOST, CLOSED, CONTRACT_SENT, etc.) — present state is the single strongest risk indicator"
+    },
+    {
+      "column": "completeness",
+      "reason": "Profile completeness — incomplete deals at late stages are high-risk"
+    },
+    {
+      "column": "source_channel",
+      "reason": "Channel of origination — channel affects deal lifecycle and risk profile"
+    },
+    {
+      "column": "days_in_pipeline",
+      "reason": "Total days in pipeline — aged deals have higher drop-off risk"
+    },
+    {
+      "column": "days_since_last_msg",
+      "reason": "Days since last contact — the longer the silence, the higher the churn risk"
+    },
+    {
+      "column": "sentiment",
+      "reason": "Current sentiment label — negative sentiment at late stage is a strong churn signal"
+    },
+    {
+      "column": "summary_length",
+      "reason": "Depth of conversation — short conversations at late stage signal disengagement"
+    },
+    {
+      "column": "message_length",
+      "reason": "Length of most recent message — very short last messages signal declining interest"
+    },
+    {
+      "column": "org_industry",
+      "reason": "Lead's industry — some industries (Oil & Gas, Healthcare) have different risk profiles and decision timelines"
+    },
+    {
+      "column": "has_quotation",
+      "reason": "Whether a quotation exists — deals without quotation at late stage are structurally high-risk"
+    },
+    {
+      "column": "total_price_with_tax",
+      "reason": "Final deal value — very large deals carry higher risk of last-minute cancellation or delay"
+    },
+    {
+      "column": "is_enterprise_deal",
+      "reason": "Enterprise deals have longer close cycles — risk assessment differs fundamentally from SMB"
+    },
+    {
+      "column": "quotation_revision_count",
+      "reason": "High revision count = prolonged negotiation = risk of deal fatigue and drop-off"
+    },
+    {
+      "column": "has_feedback",
+      "reason": "Feedback on quotation — absence of feedback at quotation stage is a strong risk signal"
+    },
+    {
+      "column": "quotation_sent_via",
+      "reason": "Channel used to send quote — some channels have lower review and response rates"
+    },
+    {
+      "column": "followup_response_rate",
+      "reason": "Response rate to follow-ups — low rate at late stage = high drop-off risk"
+    },
+    {
+      "column": "has_urgency_keyword",
+      "reason": "Urgency language detected — presence of urgency indicates near-term decision likely"
+    },
+    {
+      "column": "has_price_mention",
+      "reason": "Price discussion in messages — active price talk signals the lead is close to deciding"
+    },
+    {
+      "column": "agent_response_ratio",
+      "reason": "Agent responsiveness — poor agent response at late stage increases churn risk significantly"
+    },
+    {
+      "column": "attachment_shared",
+      "reason": "Attachments exchanged — no attachments at proposal stage is a risk signal of low engagement"
+    },
+    {
+      "column": "installation_charge",
+      "reason": "Installation cost — high installation costs with no buyer confirmation is a risk factor"
+    },
+    {
+      "column": "installation_is_free",
+      "reason": "Free installation offered — reduces friction; its absence at late stage can elevate deal risk"
+    },
+    {
+      "column": "capacity_value",
+      "reason": "Product capacity — very large or very small capacity deals have different risk dynamics"
+    },
+    {
+      "column": "capacity_unit",
+      "reason": "Unit of capacity — required to correctly interpret capacity_value across product types"
+    },
+    {
+      "column": "capacity_bin",
+      "reason": "Bucketed capacity range — handles nonlinear risk patterns by deal size category"
+    },
+    {
+      "column": "product_type_attr",
+      "reason": "Product type attribute (centrifugal, portable, etc.) — complex product types carry higher deal risk"
+    },
+    {
+      "column": "base_price",
+      "reason": "Base product price — price anchoring; extreme values signal unusual deal dynamics and risk"
+    },
+    {
+      "column": "tax_rate",
+      "reason": "Tax rate applied — affects buyer's final cost perception and price sensitivity"
+    }
+  ]
+}

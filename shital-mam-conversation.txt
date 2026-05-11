@@ -1,0 +1,865 @@
+{
+    "contact_id": "cid_2a3dfd22a9bd46cd",
+    "lead_ids": [
+        "lead:mip4iusp4kerw7fmqsx8"
+    ],
+    "leads": [
+        {
+            "ai_confidence": 0.689353,
+            "classification": "SALES",
+            "completeness": "INCOMPLETE",
+            "consumer_score": 0.265026,
+            "conversations": [
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:29:52.188226025Z",
+                    "external_source_leadid": "lead:mip4iusp4kerw7fmqsx8",
+                    "id": "conversation:0grogtievznuy5hp1hp6",
+                    "last_message_at": "2026-05-05T11:29:52.188161924Z",
+                    "lead": "lead:mip4iusp4kerw7fmqsx8",
+                    "sentiment": "DISAPPOINTED",
+                    "started_at": "2026-05-05T11:29:52.188243525Z",
+                    "summary": "Shital Thakkar from Dure Technologies expressed dissatisfaction with the initial quotation for a 250-gallon cooler and requested a 20% discount. The agent acknowledged the feedback and agreed to check for the best possible discount. Shital confirmed the intent to purchase one cooler and provided contact information for further communication.",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "Hi , I want one cooler of 250 gallons.\n\nThanks & Regards,\n\n\n\nShital Thakkar\n\n\nDure Technologies\n\n\n[https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png]\n+91 - 9619692925\n[https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png]\nshi​tal@duretechnologies.com\n[https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png]\nwww.duretechnologies.com<https://www.duretechnologies.com/>\n[https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png]\n1101/1102 Centrum IT Park, Thane, Mumbai\n\n\n\n",
+                            "conversation": "conversation:0grogtievznuy5hp1hp6",
+                            "created_at": "2026-05-05T11:21:23.993243969Z",
+                            "id": "message:iu5ccdjco87owsf6bwv9",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>Quotation Email</title>\n</head>\n<body style=\"margin: 0; padding: 0; font-family: Arial, sans-serif; color: #222; line-height: 1.6; background-color:#f7f7f7;\">\n  <div style=\"max-width: 700px; margin: 0 auto; padding: 24px; background-color: #ffffff;\">\n\n    <p style=\"margin: 0 0 12px 0;\">\n      Dear Shital Thakkar,<br>\n      Tel: 919619692925\n    </p>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      Good day!\n    </p>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      Thank you for your inquiry with VITA AGENT.<br>\n      We're pleased to offer our <strong>DWC250-5</strong>, suitable for your stated use case.\n    </p>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Product Offer</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li><strong>Model:</strong> DWC250-5</li>\n      <li><strong>Special Offer Price (AED):</strong> 2992.5</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Key Features</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li>Tropicalized compressor for UAE climate</li>\n      <li>Durable build for continuous operation</li>\n      <li>Easy service access and low maintenance</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Commercial Terms</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li>Delivery: 2–3 working days ex-Dubai (subject to stock at confirmation)</li>\n      <li>Warranty: 1 year against manufacturing defects</li>\n      <li>Validity: 7 days from the date of this quotation</li>\n      <li>Payment: 100% advance / COD (as agreed)</li>\n      <li>Price Note: Exclusive of VAT and installation, if applicable</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Next Steps</h3>\n    <p style=\"margin: 0 0 12px 0;\">\n      Kindly confirm the following details to proceed:\n    </p>\n    <ol style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li>Delivery address &amp; site access</li>\n      <li>Billing details/TRN (if VAT invoice required)</li>\n    </ol>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      We appreciate your consideration and look forward to your confirmation.\n    </p>\n\n    <p style=\"margin: 24px 0 8px 0;\">\n      Best regards,\n    </p>\n\n    <p style=\"margin: 0;\">\n      <strong>VITA AGENT</strong><br>\n      +91 96196 92925 | india@vitafi.ai<br>\n     1101/1102, Centrum IT Park,<br>\n      Wagle Estate, Thane 400602, Maharashtra<br>\n      Tel: +91 96196 92925 | Fax: +91 96196 92925<br>\n      Group: <a href=\"https://www.vitafi.ai\" target=\"_blank\">https://www.vitafi.ai</a><br>\n\n    </p>\n\n  </div>\n</body>\n</html>",
+                            "conversation": "conversation:0grogtievznuy5hp1hp6",
+                            "created_at": "2026-05-05T11:21:46.947711088Z",
+                            "id": "message:oqhae6m0ol7i01jafkxi",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "Hi Shital, thanks for getting back. Please share your delivery address to proceed with the 250 gallons cooler order.",
+                            "conversation": "conversation:0grogtievznuy5hp1hp6",
+                            "created_at": "2026-05-05T11:25:13.497943559Z",
+                            "id": "message:rveetwzvgf13lwcl02fr",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "Sure Shital, I understand. Let me check the best possible discount on the 250 gallons cooler and get back to you shortly.",
+                            "conversation": "conversation:0grogtievznuy5hp1hp6",
+                            "created_at": "2026-05-05T11:26:01.415820824Z",
+                            "id": "message:v9bwk3tbxaatv5dxfkjx",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "I understand Shital, and I’m sorry the quotation did not meet your expectation. Please share your target price, and I’ll check what best can be done from our side.",
+                            "conversation": "conversation:0grogtievznuy5hp1hp6",
+                            "created_at": "2026-05-05T11:29:50.129987477Z",
+                            "id": "message:zc04ga87uow9993c6iib",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        }
+                    ]
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:36:30.629626677Z",
+                    "external_source_leadid": "lead:mip4iusp4kerw7fmqsx8",
+                    "id": "conversation:n97b423bofq0l1ja4khr",
+                    "last_message_at": "2026-05-05T11:36:30.629581676Z",
+                    "lead": "lead:mip4iusp4kerw7fmqsx8",
+                    "sentiment": "INTERESTED",
+                    "started_at": "2026-05-05T11:36:30.629639177Z",
+                    "summary": "Shital Thakkar from Dure Technologies expressed dissatisfaction with the pricing of a 10-ton chiller and requested a 20% discount on a 250-gallon cooler. The agent acknowledged the concern, offered revised pricing, and requested delivery details to proceed with the order. Shital confirmed the purchase of one 250-gallon cooler, providing contact and company information.",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "\"Hi\"",
+                            "conversation": "conversation:n97b423bofq0l1ja4khr",
+                            "created_at": "2026-05-05T11:25:07.386451204Z",
+                            "id": "message:1mo1tw27tuizkdtt4z8f",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "\"Give me a 20 percent discount\"",
+                            "conversation": "conversation:n97b423bofq0l1ja4khr",
+                            "created_at": "2026-05-05T11:25:55.900401416Z",
+                            "id": "message:ghz4nmeftuwcr7rbweh6",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>Quotation Email</title>\n</head>\n<body style=\"margin: 0; padding: 0; font-family: Arial, sans-serif; color: #222; line-height: 1.6; background-color:#f7f7f7;\">\n  <div style=\"max-width: 700px; margin: 0 auto; padding: 24px; background-color: #ffffff;\">\n\n    <p style=\"margin: 0 0 12px 0;\">\n      Dear Shital,<br>\n      Tel: 919619692925\n    </p>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      Good day!\n    </p>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      Thank you for your inquiry with Vitasales.<br>\n      We’re pleased to offer our <strong>DWC250-5</strong>, suitable for your stated use case.\n    </p>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Product Offer</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li><strong>Model:</strong> DWC250-5</li>\n      <li><strong>Special Offer Price (AED):</strong> 2280</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Key Features</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li>Tropicalized compressor for UAE climate</li>\n      <li>Durable build for continuous operation</li>\n      <li>Easy service access and low maintenance</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Commercial Terms</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li>Delivery: 2–3 working days ex-Dubai (subject to stock at confirmation)</li>\n      <li>Warranty: 1 year against manufacturing defects</li>\n      <li>Validity: 7 days from the date of this quotation</li>\n      <li>Payment: 100% advance / COD (as agreed)</li>\n      <li>Price Note: Exclusive of VAT and installation, if applicable</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Next Steps</h3>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      We appreciate your consideration and look forward to your confirmation.\n    </p>\n\n    <p style=\"margin: 24px 0 8px 0;\">\n      Best regards,\n    </p>\n\n    <p style=\"margin: 0;\">\n      <strong>Vitasales</strong><br>\n      +91-8657051455 | vitasales@gmail.com<br>\n      VITAFI<br>\n      Centrum Wagle Estate<br>\n      Tel:  +91-8657051455 | Fax:  +91-8657051455<br>\n      Group: <a href=\"https://www.vitasales.com\" target=\"_blank\">https://www.vitasales.com</a><br>\n      Division: <a href=\"https://danawatercoolers.com\" target=\"_blank\">https://vitasales.com</a><br>\n      (Download brochures: <a href=\"http://www.vitasales.com/downloads/\" target=\"_blank\">http://www.vitasales.com/downloads/</a>)\n    </p>\n\n  </div>\n</body>\n</html>",
+                            "conversation": "conversation:n97b423bofq0l1ja4khr",
+                            "created_at": "2026-05-05T11:26:38.942497312Z",
+                            "id": "message:355radytym29v61ygtu7",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "\"I am not interested in this quotation , this is absolutely a bad price\"",
+                            "conversation": "conversation:n97b423bofq0l1ja4khr",
+                            "created_at": "2026-05-05T11:29:44.977606133Z",
+                            "id": "message:74nnlsle8q9k6umbtrzz",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>Quotation Email</title>\n</head>\n<body style=\"margin: 0; padding: 0; font-family: Arial, sans-serif; color: #222; line-height: 1.6; background-color:#f7f7f7;\">\n  <div style=\"max-width: 700px; margin: 0 auto; padding: 24px; background-color: #ffffff;\">\n\n    <p style=\"margin: 0 0 12px 0;\">\n      Dear Shital,<br>\n      Tel: 919619692925\n    </p>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      Good day!\n    </p>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      Thank you for your inquiry with Vitasales.<br>\n      We’re pleased to offer our <strong>DWC250-5</strong>, suitable for your stated use case.\n    </p>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Product Offer</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li><strong>Model:</strong> DWC250-5</li>\n      <li><strong>Special Offer Price (AED):</strong> 2850</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Key Features</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li>Tropicalized compressor for UAE climate</li>\n      <li>Durable build for continuous operation</li>\n      <li>Easy service access and low maintenance</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Commercial Terms</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li>Delivery: 2–3 working days ex-Dubai (subject to stock at confirmation)</li>\n      <li>Warranty: 1 year against manufacturing defects</li>\n      <li>Validity: 7 days from the date of this quotation</li>\n      <li>Payment: 100% advance / COD (as agreed)</li>\n      <li>Price Note: Exclusive of VAT and installation, if applicable</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Next Steps</h3>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      We appreciate your consideration and look forward to your confirmation.\n    </p>\n\n    <p style=\"margin: 24px 0 8px 0;\">\n      Best regards,\n    </p>\n\n    <p style=\"margin: 0;\">\n      <strong>Vitasales</strong><br>\n      +91-8657051455 | vitasales@gmail.com<br>\n      VITAFI<br>\n      Centrum Wagle Estate<br>\n      Tel:  +91-8657051455 | Fax:  +91-8657051455<br>\n      Group: <a href=\"https://www.vitasales.com\" target=\"_blank\">https://www.vitasales.com</a><br>\n      Division: <a href=\"https://danawatercoolers.com\" target=\"_blank\">https://vitasales.com</a><br>\n      (Download brochures: <a href=\"http://www.vitasales.com/downloads/\" target=\"_blank\">http://www.vitasales.com/downloads/</a>)\n    </p>\n\n  </div>\n</body>\n</html>",
+                            "conversation": "conversation:n97b423bofq0l1ja4khr",
+                            "created_at": "2026-05-05T11:30:21.761271049Z",
+                            "id": "message:u7pcnz3fb5wiechltxwb",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "\"I am not interested in this quotation , this is absolutely a bad price\"",
+                            "conversation": "conversation:n97b423bofq0l1ja4khr",
+                            "created_at": "2026-05-05T11:32:20.879771540Z",
+                            "id": "message:n8g0ont6d7wf3vtuhim2",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "\"Now I want a chiller of ten tons\"",
+                            "conversation": "conversation:n97b423bofq0l1ja4khr",
+                            "created_at": "2026-05-05T11:35:50.404165422Z",
+                            "id": "message:wwf30bjorc3ufzcfgjle",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "Thanks Shital, noted for 1 chiller of 10 Ton. I’ll check whether this model is manufactured and let you know shortly.",
+                            "conversation": "conversation:n97b423bofq0l1ja4khr",
+                            "created_at": "2026-05-05T11:35:53.471544691Z",
+                            "id": "message:4ziy59025xvrob989ddy",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>Quotation Email</title>\n</head>\n<body style=\"margin: 0; padding: 0; font-family: Arial, sans-serif; color: #222; line-height: 1.6; background-color:#f7f7f7;\">\n  <div style=\"max-width: 700px; margin: 0 auto; padding: 24px; background-color: #ffffff;\">\n\n    <p style=\"margin: 0 0 12px 0;\">\n      Dear Shital,<br>\n      Tel: 919619692925\n    </p>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      Good day!\n    </p>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      Thank you for your inquiry with Vitasales.<br>\n      We’re pleased to offer our <strong>DC10000</strong>, suitable for your stated use case.\n    </p>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Product Offer</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li><strong>Model:</strong> DC10000</li>\n      <li><strong>Special Offer Price (AED):</strong> 21500</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Key Features</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li>Tropicalized compressor for UAE climate</li>\n      <li>Durable build for continuous operation</li>\n      <li>Easy service access and low maintenance</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Commercial Terms</h3>\n    <ul style=\"margin: 0 0 16px 20px; padding: 0;\">\n      <li>Delivery: 2–3 working days ex-Dubai (subject to stock at confirmation)</li>\n      <li>Warranty: 1 year against manufacturing defects</li>\n      <li>Validity: 7 days from the date of this quotation</li>\n      <li>Payment: 100% advance / COD (as agreed)</li>\n      <li>Price Note: Exclusive of VAT and installation, if applicable</li>\n    </ul>\n\n    <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Next Steps</h3>\n\n    <p style=\"margin: 0 0 16px 0;\">\n      We appreciate your consideration and look forward to your confirmation.\n    </p>\n\n    <p style=\"margin: 24px 0 8px 0;\">\n      Best regards,\n    </p>\n\n    <p style=\"margin: 0;\">\n      <strong>Vitasales</strong><br>\n      +91-8657051455 | vitasales@gmail.com<br>\n      VITAFI<br>\n      Centrum Wagle Estate<br>\n      Tel:  +91-8657051455 | Fax:  +91-8657051455<br>\n      Group: <a href=\"https://www.vitasales.com\" target=\"_blank\">https://www.vitasales.com</a><br>\n      Division: <a href=\"https://danawatercoolers.com\" target=\"_blank\">https://vitasales.com</a><br>\n      (Download brochures: <a href=\"http://www.vitasales.com/downloads/\" target=\"_blank\">http://www.vitasales.com/downloads/</a>)\n    </p>\n\n  </div>\n</body>\n</html>",
+                            "conversation": "conversation:n97b423bofq0l1ja4khr",
+                            "created_at": "2026-05-05T11:36:28.325961327Z",
+                            "id": "message:w8de1le0ebgb0d0jb3ej",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        }
+                    ]
+                }
+            ],
+            "created_at": "2026-05-05T11:36:30.075575877Z",
+            "email": "shital@duretechnologies.com",
+            "events": [
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:24.275736489Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:rqpd3zc5ec90mgzlfj7j",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:21:24.275667989Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:29:45.510726031Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:u0vg8c2f7wm68ty9i9aa",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:29:45.510672631Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:25:14.167099097Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:pi9p4k6j5c63cxrignf5",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:25:14.167044397Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:26:39.488209319Z",
+                    "event_type": "QUOTATION_CREATED",
+                    "id": "event_log:mhdwvuffe8h5nmbtkt09",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "SALES_QUALIFIED",
+                    "payload": {
+                        "currency": "AED",
+                        "quotation_id": "quotation:kmxlucm3xaj3w12gmnal",
+                        "total_amount": 2280.0
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:36:29.255766899Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:prdicklr4a0x8swj0n0m",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:36:29.255691699Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-05T11:32:20.784172487Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:j4whvger32up8sblr1ez",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_2a3dfd22a9bd46cd"
+                        ],
+                        "linked_leads": [
+                            "lead:mip4iusp4kerw7fmqsx8"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:47.784810681Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:6h9kenn507h6ev58crok",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:21:47.784755181Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:36:28.944916836Z",
+                    "event_type": "QUOTATION_CREATED",
+                    "id": "event_log:f7duqtksv3todf41i42y",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "SALES_QUALIFIED",
+                    "payload": {
+                        "currency": "AED",
+                        "quotation_id": "quotation:2ru24uh0s8ob1kotass3",
+                        "total_amount": 21500.0
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-05T11:25:55.806536556Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:exno54ynywv6zkc48fy5",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_2a3dfd22a9bd46cd"
+                        ],
+                        "linked_leads": [
+                            "lead:mip4iusp4kerw7fmqsx8"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:26:39.730618833Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:tv6qxfptvl6wsglfh1d3",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:26:39.730551333Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:46.859352346Z",
+                    "event_type": "QUOTE_SENT",
+                    "id": "event_log:reu3ajo3pw1xghg8mu99",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "sent_at": "2026-05-05T11:21:46.859324245Z"
+                    },
+                    "triggered_by": "agent"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:30:22.576452970Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:e242k6gjsaqms7v107fj",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:30:22.576393970Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:47.562014665Z",
+                    "event_type": "QUOTATION_CREATED",
+                    "id": "event_log:snvjeo0nou2xaml3him1",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "SALES_QUALIFIED",
+                    "payload": {
+                        "currency": "AED",
+                        "quotation_id": "quotation:kpcyceyhj4wqxy87rk5f",
+                        "total_amount": 2992.5
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:32:21.429356950Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:wonsisf2y3sxojuql39h",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:32:21.429304050Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:25:07.624419728Z",
+                    "event_type": "CONTACT_FIELD_UPDATED",
+                    "id": "event_log:01g0jjh219k94iuakq2x",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "field": "name",
+                        "new_value": "Shital",
+                        "old_value": "Shital Thakkar"
+                    },
+                    "triggered_by": "agent"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:26:02.087386355Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:s55xxvvt44yrxvei6bxp",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:26:02.087310155Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:25:07.952488078Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:33rb54d87obm7xlb0cj3",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:25:07.952309777Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-05T11:35:50.317578306Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:qbkm7rfaw88mcrncnvhf",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_2a3dfd22a9bd46cd"
+                        ],
+                        "linked_leads": [
+                            "lead:mip4iusp4kerw7fmqsx8"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:46.860200350Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:yrkxtpv6m74csq20wtyh",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "delay_hours": 48,
+                        "task_type": "QUOTE_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:35:54.103467629Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:tdnokxsecynp2nxrfmao",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:35:54.103415629Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:29:50.798719911Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:qwh0io7fm58w20311uhg",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:29:50.798664511Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-05T11:21:23.852390061Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:1tqofjqwetwg0x1cytes",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_2a3dfd22a9bd46cd"
+                        ],
+                        "linked_leads": [
+                            "lead:mip4iusp4kerw7fmqsx8"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-05T11:25:07.235169490Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:rq7u1vpxurnwbsqyb3zp",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_2a3dfd22a9bd46cd"
+                        ],
+                        "linked_leads": [
+                            "lead:mip4iusp4kerw7fmqsx8"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:23.447139424Z",
+                    "event_type": "LEAD_CREATED",
+                    "id": "event_log:h8v2omkg5i2ojf3aopxh",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "email": "shital@duretechnologies.com"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-05T11:29:44.888334215Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:x5s2tpjielryiwz5dtby",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_2a3dfd22a9bd46cd"
+                        ],
+                        "linked_leads": [
+                            "lead:mip4iusp4kerw7fmqsx8"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:47.512700618Z",
+                    "event_type": "PRODUCT_INTEREST_LINKED",
+                    "id": "event_log:huec4un14bol4jqdozep",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "category": "Cooler",
+                        "model": "DWC250-5",
+                        "productId": "master_product_price_list:sw1x283upc6xn36fphjt",
+                        "related": true,
+                        "sku": "SKU-019d94b4-027e-7172-b652-ffd150e0c304"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:30:22.296723424Z",
+                    "event_type": "QUOTATION_CREATED",
+                    "id": "event_log:637p2mpr6uyjqnucvgmw",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "SALES_QUALIFIED",
+                    "payload": {
+                        "currency": "AED",
+                        "quotation_id": "quotation:7ofrbtzv4hlxrstmo0xt",
+                        "total_amount": 2850.0
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:35:50.907295036Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:yeynyqum62b4rnjq7ina",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:35:50.907244236Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:36:28.898132340Z",
+                    "event_type": "PRODUCT_INTEREST_LINKED",
+                    "id": "event_log:iywqn4grrv4qrx6slbl6",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "category": "Chiller",
+                        "model": "DC10000",
+                        "productId": "master_product_price_list:lh6dvngtplfvwt66sa15",
+                        "related": true,
+                        "sku": "SKU-019d94b4-027e-7172-b652-ff9e4d722444"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-05T11:25:56.432418972Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:7d2uc8yq7msrsgjyksaj",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-05T11:25:56.432317272Z"
+                    },
+                    "triggered_by": "system"
+                }
+            ],
+            "followup_tasks": [
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:46.859820948Z",
+                    "id": "followup_task:q0i2c9qxmyc4jys5evkw",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "message": "Hi Shital Thakkar! Just checking in on the quotation we sent. Have you had a chance to review it? \uD83D\uDE0A",
+                    "scheduled_at": "2026-05-07T11:21:46.859794848Z",
+                    "sequence": 1,
+                    "status": "PENDING",
+                    "task_type": "QUOTE_FOLLOWUP",
+                    "updated_at": "2026-05-05T11:21:46.859848648Z"
+                }
+            ],
+            "id": "lead:mip4iusp4kerw7fmqsx8",
+            "interaction_score": 0.018508,
+            "lead_qualification_score": 0.98057,
+            "name": "Shital",
+            "organisation": "organisation:1",
+            "phone": null,
+            "product_interest": "SKU-019d94b4-027e-7172-b652-ff9e4d722444",
+            "product_quotation_score": 0.720044,
+            "products": [
+                {
+                    "category": "Chiller",
+                    "created_at": "2026-04-16T05:11:58.334045544Z",
+                    "description": "DANA Water chiller, Capacity 10 Ton",
+                    "exworks_price_aed": 21500,
+                    "id": "master_product_price_list:lh6dvngtplfvwt66sa15",
+                    "installation_charge": 500,
+                    "model": "DC10000",
+                    "organisation": "organisation:1",
+                    "purchase_price": 0,
+                    "sku": "SKU-019d94b4-027e-7172-b652-ff9e4d722444",
+                    "vat_percent": 5
+                },
+                {
+                    "category": "Cooler",
+                    "created_at": "2026-04-16T05:11:58.334351845Z",
+                    "description": "250 Gallon Cooling Capacity & 100 Gallon Storage Capacity with 5 taps",
+                    "exworks_price_aed": 2850,
+                    "id": "master_product_price_list:sw1x283upc6xn36fphjt",
+                    "installation_charge": 0,
+                    "model": "DWC250-5",
+                    "organisation": "organisation:1",
+                    "purchase_price": 2100,
+                    "sku": "SKU-019d94b4-027e-7172-b652-ffd150e0c304",
+                    "vat_percent": 5
+                }
+            ],
+            "quotation": [
+                {
+                    "currency": "AED",
+                    "generated_at": "2026-05-05T11:26:39.486925013Z",
+                    "id": "quotation:kmxlucm3xaj3w12gmnal",
+                    "isfeedback": false,
+                    "lead": "lead:mip4iusp4kerw7fmqsx8",
+                    "model": "DWC250-5",
+                    "pdf_url": "https://cmsvital.imonitorplus.com/uploads/generated_output_e457af5d32.pdf",
+                    "products": [
+                        {
+                            "model": "DWC250-5",
+                            "pdfUrl": "https://cmsvital.imonitorplus.com/uploads/generated_output_e457af5d32.pdf",
+                            "productType": "Cooler",
+                            "quantity": 1,
+                            "quoteId": "Q-20260505-001",
+                            "totalPrice": 2280.0,
+                            "unitPrice": 2850.0
+                        }
+                    ],
+                    "quote_id": "Q-20260505-001",
+                    "sent_via": "WHATSAPP",
+                    "status": "DRAFT",
+                    "total_amount": 2280.0,
+                    "updated_at": "2026-05-05T11:26:39.487041514Z"
+                },
+                {
+                    "currency": "AED",
+                    "generated_at": "2026-05-05T11:36:28.943836729Z",
+                    "id": "quotation:2ru24uh0s8ob1kotass3",
+                    "isfeedback": false,
+                    "lead": "lead:mip4iusp4kerw7fmqsx8",
+                    "model": "DC10000",
+                    "pdf_url": "https://cmsvital.imonitorplus.com/uploads/generated_output_0772330235.pdf",
+                    "products": [
+                        {
+                            "model": "DC10000",
+                            "pdfUrl": "https://cmsvital.imonitorplus.com/uploads/generated_output_0772330235.pdf",
+                            "productType": "Chiller",
+                            "quantity": 1,
+                            "quoteId": "Q-20260505-001",
+                            "totalPrice": 21500.0,
+                            "unitPrice": 21500.0
+                        }
+                    ],
+                    "quote_id": "Q-20260505-001",
+                    "sent_via": "WHATSAPP",
+                    "status": "DRAFT",
+                    "total_amount": 21500.0,
+                    "updated_at": "2026-05-05T11:36:28.943913530Z"
+                },
+                {
+                    "currency": "AED",
+                    "generated_at": "2026-05-05T11:30:22.295702920Z",
+                    "id": "quotation:7ofrbtzv4hlxrstmo0xt",
+                    "isfeedback": false,
+                    "lead": "lead:mip4iusp4kerw7fmqsx8",
+                    "model": "DWC250-5",
+                    "pdf_url": "https://cmsvital.imonitorplus.com/uploads/generated_output_5fedc41ddc.pdf",
+                    "products": [
+                        {
+                            "model": "DWC250-5",
+                            "pdfUrl": "https://cmsvital.imonitorplus.com/uploads/generated_output_5fedc41ddc.pdf",
+                            "productType": "Cooler",
+                            "quantity": 1,
+                            "quoteId": "Q-20260505-001",
+                            "totalPrice": 2850.0,
+                            "unitPrice": 2850.0
+                        }
+                    ],
+                    "quote_id": "Q-20260505-001",
+                    "sent_via": "WHATSAPP",
+                    "status": "DRAFT",
+                    "total_amount": 2850.0,
+                    "updated_at": "2026-05-05T11:30:22.295799520Z"
+                },
+                {
+                    "currency": "AED",
+                    "generated_at": "2026-05-05T11:21:47.561063260Z",
+                    "id": "quotation:kpcyceyhj4wqxy87rk5f",
+                    "isfeedback": false,
+                    "lead": "lead:mip4iusp4kerw7fmqsx8",
+                    "model": "DWC250-5",
+                    "pdf_url": "https://cmsvital.imonitorplus.com/uploads/generated_output_ce316d622b.pdf",
+                    "products": [
+                        {
+                            "model": "DWC250-5",
+                            "pdfUrl": "https://cmsvital.imonitorplus.com/uploads/generated_output_ce316d622b.pdf",
+                            "productType": "Cooler",
+                            "quantity": 1,
+                            "quoteId": "Q-20260505-001",
+                            "totalPrice": 2992.5,
+                            "unitPrice": 2850.0
+                        }
+                    ],
+                    "quote_id": "Q-20260505-001",
+                    "sent_via": "EMAIL",
+                    "status": "DRAFT",
+                    "total_amount": 2992.5,
+                    "updated_at": "2026-05-05T11:21:47.561147961Z"
+                }
+            ],
+            "scores_updated_at": null,
+            "source_channel": "channel:email",
+            "state": "QUOTATION_SENT",
+            "state_history": [
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:23.447758627Z",
+                    "id": "lead_state_history:drcvlqp4d4bwxx6fg9fs",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "to_state": "NEW_LEAD",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-05T11:21:46.860517851Z",
+                    "from_state": "NEW_LEAD",
+                    "id": "lead_state_history:0v7p8rtsv1mz94p1vo8w",
+                    "lead_id": "lead:mip4iusp4kerw7fmqsx8",
+                    "to_state": "QUOTATION_SENT",
+                    "triggered_by": "agent"
+                }
+            ],
+            "updated_at": "2026-05-05T11:36:30.075606677Z",
+            "whatsapp_no": "919619692925"
+        }
+    ],
+    "channel_map": [
+        {
+            "contact_id": "cid_2a3dfd22a9bd46cd",
+            "created_at": "2026-05-05T11:35:50.147560891Z",
+            "email": "shital@duretechnologies.com",
+            "id": "contact_channel_map:uvbl9i14jcttqexh12c0",
+            "lead": "lead:mip4iusp4kerw7fmqsx8",
+            "organisation": "organisation:1",
+            "updated_at": "2026-05-05T11:35:50.147574791Z",
+            "whatsapp": "919619692925"
+        }
+    ],
+    "_summary": {
+        "total_leads": 1,
+        "total_messages": 14,
+        "total_conversations": 2,
+        "total_events": 30,
+        "has_scores": true,
+        "is_qualified": true
+    },
+    "scores": {
+        "consumer_score": 0.265026,
+        "interaction_score": 0.018508,
+        "product_quotation_score": 0.720044,
+        "lead_qualification_score": 0.98057,
+        "ai_confidence": 0.689353,
+        "is_qualified": true,
+        "score_source": "single_lead",
+        "scores_computed_from_leads": 1
+    }
+}

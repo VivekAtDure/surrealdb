@@ -1,0 +1,72 @@
+{
+  "model": "Consumer Score Model",
+  "purpose": "Score based on WHO the consumer is, WHAT they said, and HOW they behave — not product or channel mechanics.",
+  "target": "sale_closed",
+  "total_features": 16,
+  "features": [
+    {
+      "column": "primary_sentiment",
+      "reason": "Core mood of the lead (angry/satisfied/urgent/curious) — directly reflects buyer mindset and likelihood to engage"
+    },
+    {
+      "column": "sentiment_score",
+      "reason": "Numeric intensity of sentiment — distinguishes mild vs strong signals of the same category"
+    },
+    {
+      "column": "sentiment_combo_score",
+      "reason": "Blended multi-dimensional sentiment score — more stable predictor than raw score alone"
+    },
+    {
+      "column": "intent",
+      "reason": "Explicit buying intent (ready_to_buy, evaluating, churning, at_risk) — strongest single feature for consumer scoring"
+    },
+    {
+      "column": "message_quality",
+      "reason": "Quality of messages (short/medium/detailed/long) — reflects how seriously the consumer is engaging"
+    },
+    {
+      "column": "summary_length",
+      "reason": "Length of conversation summary — longer = deeper, richer conversations indicate serious interest"
+    },
+    {
+      "column": "has_action_milestone",
+      "reason": "Whether a key action occurred (demo booked, quote requested) — milestone signals active progression"
+    },
+    {
+      "column": "stage_velocity",
+      "reason": "Speed through the current pipeline stage — fast movers close more often"
+    },
+    {
+      "column": "historical_deals_won",
+      "reason": "Past successful deals for this customer/segment — direct historical performance signal"
+    },
+    {
+      "column": "is_repeat_customer",
+      "reason": "Repeat customers have trust built up — lower friction to close"
+    },
+    {
+      "column": "historical_avg_sentiment",
+      "reason": "Average past sentiment — persistent positive or negative history shapes current prediction"
+    },
+    {
+      "column": "industry_close_rate",
+      "reason": "Baseline close rate for this lead's industry — normalizes score against sector difficulty"
+    },
+    {
+      "column": "lead_completeness",
+      "reason": "Completeness of lead profile — incomplete profiles indicate low engagement from the consumer side"
+    },
+    {
+      "column": "lead_source",
+      "reason": "Origin of the lead (referral, email, whatsapp, web, voice) — referrals close significantly higher than cold leads"
+    },
+    {
+      "column": "agent_response_ratio",
+      "reason": "Ratio of agent replies to lead messages — reflects how actively the lead is being engaged"
+    },
+    {
+      "column": "attachment_shared",
+      "reason": "Whether docs/brochures were shared — sharing attachments moves the deal into active consideration"
+    }
+  ]
+}

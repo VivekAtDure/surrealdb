@@ -1,0 +1,163 @@
+{
+  "model": "Lead Qualification Score Model",
+  "purpose": "Meta-model combining key signals from all 3 models + their tier scores to produce a holistic qualification score.",
+  "target": "sale_closed",
+  "total_features": 31,
+  "features": [
+    {
+      "column": "consumer_score_tier",
+      "source_domain": "Consumer Model Output",
+      "reason": "Tier output of Consumer Score Model — High/Medium/Low consumer readiness"
+    },
+    {
+      "column": "interaction_score_tier",
+      "source_domain": "Interaction Model Output",
+      "reason": "Tier output of Interaction Score Model — High/Medium/Low engagement quality"
+    },
+    {
+      "column": "product_quotation_score_tier",
+      "source_domain": "Product Model Output",
+      "reason": "Tier output of Product Quotation Score Model — High/Medium/Low deal seriousness"
+    },
+    {
+      "column": "intent",
+      "source_domain": "Consumer",
+      "reason": "Buying intent label — one of the strongest single predictors carried forward from consumer model"
+    },
+    {
+      "column": "has_action_milestone",
+      "source_domain": "Consumer",
+      "reason": "Milestone presence signals active deal progression"
+    },
+    {
+      "column": "stage_velocity",
+      "source_domain": "Consumer",
+      "reason": "Speed through pipeline — fast movers qualify and close faster"
+    },
+    {
+      "column": "historical_deals_won",
+      "source_domain": "Consumer / Interaction",
+      "reason": "Historical win track record — persistent signal across all domains"
+    },
+    {
+      "column": "is_repeat_customer",
+      "source_domain": "Consumer / Product",
+      "reason": "Repeat customers have a lower qualification bar across all scoring dimensions"
+    },
+    {
+      "column": "industry_close_rate",
+      "source_domain": "Consumer / Product",
+      "reason": "Industry baseline — calibrates the score against sector-level conversion difficulty"
+    },
+    {
+      "column": "historical_avg_sentiment",
+      "source_domain": "Consumer",
+      "reason": "Historical sentiment trajectory — positive trend boosts qualification confidence"
+    },
+    {
+      "column": "total_interactions",
+      "source_domain": "Interaction",
+      "reason": "Volume of engagement — highly interacted leads are better qualified"
+    },
+    {
+      "column": "is_multi_channel",
+      "source_domain": "Interaction",
+      "reason": "Multi-channel engagement = stronger buyer intent"
+    },
+    {
+      "column": "recency_bucket",
+      "source_domain": "Interaction",
+      "reason": "Recency of last contact — stale leads should be flagged as low qualification"
+    },
+    {
+      "column": "engagement_depth",
+      "source_domain": "Interaction",
+      "reason": "Quality depth of engagement beyond raw count"
+    },
+    {
+      "column": "followup_sequence_reached",
+      "source_domain": "Interaction",
+      "reason": "How deep into follow-up cycle the lead went — reflects persistence of both sides"
+    },
+    {
+      "column": "any_followup_responded",
+      "source_domain": "Interaction",
+      "reason": "Whether lead responded to follow-ups at all — direct re-engagement signal"
+    },
+    {
+      "column": "followup_response_rate",
+      "source_domain": "Interaction",
+      "reason": "Normalized follow-up response rate — avoids bias from high-interaction leads"
+    },
+    {
+      "column": "agent_response_ratio",
+      "source_domain": "Interaction",
+      "reason": "Agent consistency in engagement — poor response increases qualification risk"
+    },
+    {
+      "column": "quotation_sent",
+      "source_domain": "Product",
+      "reason": "Quotation sent is the strongest pre-close structural signal"
+    },
+    {
+      "column": "is_enterprise_deal",
+      "source_domain": "Product",
+      "reason": "Enterprise vs SMB — different qualification criteria and scoring thresholds apply"
+    },
+    {
+      "column": "pipeline_stage",
+      "source_domain": "Product",
+      "reason": "Current funnel stage is essential for holistic qualification scoring"
+    },
+    {
+      "column": "days_in_pipeline",
+      "source_domain": "Product",
+      "reason": "Time in pipeline reflects deal health — too long signals a stuck or at-risk deal"
+    },
+    {
+      "column": "pipeline_velocity",
+      "source_domain": "Product",
+      "reason": "Speed of overall progression — fast movers at qualification stage are close to closing"
+    },
+    {
+      "column": "total_price_with_tax",
+      "source_domain": "Product",
+      "reason": "Deal value — larger deals need more signals to qualify; low-value deals close faster"
+    },
+    {
+      "column": "product_category",
+      "source_domain": "Product",
+      "reason": "Chiller vs Cooler affects the typical qualification journey and cycle length"
+    },
+    {
+      "column": "capacity_bin",
+      "source_domain": "Product",
+      "reason": "Bucketed capacity captures deal size category — large-capacity deals have different qualification dynamics"
+    },
+    {
+      "column": "installation_is_free",
+      "source_domain": "Product",
+      "reason": "Free installation reduces buyer friction — affects the qualification conversion threshold"
+    },
+    {
+      "column": "quotation_revision_count",
+      "source_domain": "Product",
+      "reason": "Revision count reflects negotiation depth — higher count = engaged but uncertain buyer"
+    },
+    {
+      "column": "quotation_sent_via",
+      "source_domain": "Product",
+      "reason": "Delivery channel of quotation — affects review rate and response speed"
+    },
+    {
+      "column": "lead_completeness",
+      "source_domain": "Lead Profile",
+      "reason": "Incomplete leads are structurally harder to qualify — missing data limits scoring confidence"
+    },
+    {
+      "column": "lead_source",
+      "source_domain": "Lead Profile",
+      "reason": "Lead origin affects qualification quality — referral leads qualify at higher rates than cold inbound"
+    }
+  ]
+}

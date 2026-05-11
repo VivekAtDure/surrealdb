@@ -9,10 +9,10 @@ setlocal enabledelayedexpansion
 ::   - vitasalesbackup[1].surql already imported
 ::
 :: This script will:
-::   1. Convert lgbm.onnx -> lgbm.surml          (existing close_prob model)
-::   2. Convert 3 new models -> .surml            (consumer, interaction, product-quotation)
-::   3. Import all 4 ML models into SurrealDB RocksDB
-::   4. Define fn::score_lead() + all scoring functions + events
+::   1. Convert all 5 ONNX models -> .surml  (via convert_all_to_surml.py)
+::   2. Import / update all 5 ML models into SurrealDB RocksDB
+::      (models already loaded are automatically updated/replaced)
+::   3. Define fn::score_lead() + all scoring functions + events
 ::
 :: After this runs, every new/updated lead is auto-scored.
 ::
@@ -36,23 +36,22 @@ if "%DATABASE%"==""  set DATABASE=vitasales
 
 :: ── Paths ────────────────────────────────────────────────────
 set SCRIPT_DIR=%~dp0
-set ONNX_PATH=%SCRIPT_DIR%models\lgbm.onnx
-set SURML_PATH=%SCRIPT_DIR%models\lgbm.surml
 set SETUP_SQL=%SCRIPT_DIR%setup_ml.surql
-set CONVERT_PY=%SCRIPT_DIR%convert_to_surml.py
 set CONVERT_ALL_PY=%SCRIPT_DIR%convert_all_to_surml.py
 
-:: New model ONNX paths
-set CONSUMER_ONNX=%SCRIPT_DIR%models\consumer-model\lgbm.onnx
-set INTERACTION_ONNX=%SCRIPT_DIR%models\interaction-model\lgbm.onnx
-set PRODUCT_ONNX=%SCRIPT_DIR%models\product-quotation-model\lgbm.onnx
-set LEAD_QUAL_ONNX=%SCRIPT_DIR%models\lead-qualification\lgbm.onnx
+:: ONNX source files
+set DEAL_RISK_ONNX=%SCRIPT_DIR%models\Deal-Risk\close_prob_lgbm.onnx
+set CONSUMER_ONNX=%SCRIPT_DIR%models\Consumer\consumer_score_lgbm.onnx
+set INTERACTION_ONNX=%SCRIPT_DIR%models\Interaction\interaction_score_lgbm.onnx
+set LEAD_QUAL_ONNX=%SCRIPT_DIR%models\Lead-Qualification\lead_qualification_lgbm.onnx
+set PRODUCT_ONNX=%SCRIPT_DIR%models\Product-Quotation\product_quotation_lgbm.onnx
 
-:: New model SURML output paths (each in its own subfolder)
-set CONSUMER_SURML=%SCRIPT_DIR%models\consumer-model\consumer_score.surml
-set INTERACTION_SURML=%SCRIPT_DIR%models\interaction-model\interaction_score.surml
-set PRODUCT_SURML=%SCRIPT_DIR%models\product-quotation-model\product_quotation_score.surml
-set LEAD_QUAL_SURML=%SCRIPT_DIR%models\lead-qualification\lead_qualification.surml
+:: SURML output files
+set DEAL_RISK_SURML=%SCRIPT_DIR%models\Deal-Risk\close_prob.surml
+set CONSUMER_SURML=%SCRIPT_DIR%models\Consumer\consumer_score.surml
+set INTERACTION_SURML=%SCRIPT_DIR%models\Interaction\interaction_score.surml
+set LEAD_QUAL_SURML=%SCRIPT_DIR%models\Lead-Qualification\lead_qualification.surml
+set PRODUCT_SURML=%SCRIPT_DIR%models\Product-Quotation\product_quotation_score.surml
 
 echo.
 echo ============================================================
@@ -65,7 +64,7 @@ echo ============================================================
 echo.
 
 :: ── Step 1: Check SurrealDB is reachable ─────────────────────
-echo [1/7] Checking SurrealDB is reachable...
+echo [1/5] Checking SurrealDB is reachable...
 curl -s -o nul -w "%%{http_code}" %ENDPOINT%/health > %TEMP%\surreal_health.txt 2>&1
 set /p HEALTH_CODE=<%TEMP%\surreal_health.txt
 if not "%HEALTH_CODE%"=="200" (
@@ -79,171 +78,114 @@ if not "%HEALTH_CODE%"=="200" (
 echo  OK - SurrealDB is up at %ENDPOINT%
 echo.
 
-:: ── Step 2: Convert lgbm.onnx -> lgbm.surml ──────────────────
-echo [2/7] Preparing close_prob model (lgbm)...
-if exist "%SURML_PATH%" (
-    echo  SKIP - lgbm.surml already exists
-) else (
-    if not exist "%ONNX_PATH%" (
-        echo  ERROR: lgbm.onnx not found at %ONNX_PATH%
-        exit /b 1
-    )
-    echo  Converting lgbm.onnx to lgbm.surml...
-    python "%CONVERT_PY%"
-    if errorlevel 1 (
-        echo  ERROR: Conversion failed. Make sure Python is installed.
-        exit /b 1
-    )
-    echo  OK - lgbm.surml created
+:: ── Step 2: Convert all 5 ONNX models -> .surml ──────────────
+echo [2/5] Converting all 5 models (ONNX -> SURML)...
+
+:: Verify all 5 ONNX files exist before converting
+set MISSING=0
+if not exist "%DEAL_RISK_ONNX%"   ( echo  ERROR: Not found: %DEAL_RISK_ONNX%   & set MISSING=1 )
+if not exist "%CONSUMER_ONNX%"    ( echo  ERROR: Not found: %CONSUMER_ONNX%    & set MISSING=1 )
+if not exist "%INTERACTION_ONNX%" ( echo  ERROR: Not found: %INTERACTION_ONNX% & set MISSING=1 )
+if not exist "%LEAD_QUAL_ONNX%"   ( echo  ERROR: Not found: %LEAD_QUAL_ONNX%   & set MISSING=1 )
+if not exist "%PRODUCT_ONNX%"     ( echo  ERROR: Not found: %PRODUCT_ONNX%     & set MISSING=1 )
+if "%MISSING%"=="1" (
+    echo.
+    echo  One or more ONNX files are missing. Aborting.
+    exit /b 1
 )
+
+python "%CONVERT_ALL_PY%"
+if errorlevel 1 (
+    echo  ERROR: Model conversion failed. Make sure Python is installed.
+    exit /b 1
+)
+echo  OK - All 5 .surml files created
 echo.
 
-:: ── Step 3: Convert 3 new models via convert_all_to_surml.py ─
-echo [3/7] Preparing 3 new scoring models...
-
-:: consumer_score
-if exist "%CONSUMER_SURML%" (
-    echo  SKIP - consumer_score.surml already exists
-) else if not exist "%CONSUMER_ONNX%" (
-    echo  WARN - consumer_score.onnx not found, skipping consumer_score
-) else (
-    python "%CONVERT_ALL_PY%" consumer_score
-    if errorlevel 1 ( echo  ERROR: consumer_score conversion failed. & exit /b 1 )
-    echo  OK - consumer_score.surml created in models\costermer-model\
-)
-
-:: interaction_score
-if exist "%INTERACTION_SURML%" (
-    echo  SKIP - interaction_score.surml already exists
-) else if not exist "%INTERACTION_ONNX%" (
-    echo  WARN - interaction_score.onnx not found, skipping interaction_score
-) else (
-    python "%CONVERT_ALL_PY%" interaction_score
-    if errorlevel 1 ( echo  ERROR: interaction_score conversion failed. & exit /b 1 )
-    echo  OK - interaction_score.surml created in models\interaction-model\
-)
-
-:: product_quotation_score
-if exist "%PRODUCT_SURML%" (
-    echo  SKIP - product_quotation_score.surml already exists
-) else if not exist "%PRODUCT_ONNX%" (
-    echo  WARN - product_quotation_score.onnx not found, skipping product_quotation_score
-) else (
-    python "%CONVERT_ALL_PY%" product_quotation_score
-    if errorlevel 1 ( echo  ERROR: product_quotation_score conversion failed. & exit /b 1 )
-    echo  OK - product_quotation_score.surml created in models\product-quotation\
-)
-
-:: lead_qualification
-if exist "%LEAD_QUAL_SURML%" (
-    echo  SKIP - lead_qualification.surml already exists
-) else if not exist "%LEAD_QUAL_ONNX%" (
-    echo  WARN - lead_qualification lgbm.onnx not found, skipping lead_qualification
-) else (
-    python "%CONVERT_ALL_PY%" lead_qualification
-    if errorlevel 1 ( echo  ERROR: lead_qualification conversion failed. & exit /b 1 )
-    echo  OK - lead_qualification.surml created in models\lead-qualification\
-)
+:: ── Step 3: Import / update all 5 models into RocksDB ────────
+echo [3/5] Importing / updating all 5 models in SurrealDB RocksDB...
+echo  (existing models will be replaced automatically)
 echo.
 
-:: ── Step 4: Import close_prob model into RocksDB ─────────────
-echo [4/7] Importing close_prob (lgbm) model...
-curl -s -o %TEMP%\ml_import_result.txt -w "%%{http_code}" ^
+:: close_prob
+set _HTTP_CODE=000
+curl -s -o "%TEMP%\ml_import_body.txt" -w "%%{http_code}" 2>nul ^
     -X POST %ENDPOINT%/ml/import ^
     -H "surreal-ns: %NAMESPACE%" ^
     -H "surreal-db: %DATABASE%" ^
     -u "%USERNAME%:%PASSWORD%" ^
-    --data-binary @"%SURML_PATH%" > %TEMP%\ml_import_code.txt 2>&1
-
-set /p ML_CODE=<%TEMP%\ml_import_code.txt
-if "%ML_CODE%"=="200" (
-    echo  OK - close_prob model imported
-) else (
-    echo  ERROR: close_prob import failed  HTTP %ML_CODE%
-    type %TEMP%\ml_import_result.txt
+    --data-binary @"%DEAL_RISK_SURML%" > "%TEMP%\ml_import_code.txt"
+set /p _HTTP_CODE=<"%TEMP%\ml_import_code.txt"
+if "!_HTTP_CODE!"=="200" ( echo  OK - close_prob imported/updated ) else (
+    echo  ERROR: close_prob import failed  HTTP !_HTTP_CODE!
+    type "%TEMP%\ml_import_body.txt"
     exit /b 1
 )
+
+:: consumer_score
+set _HTTP_CODE=000
+curl -s -o "%TEMP%\ml_import_body.txt" -w "%%{http_code}" 2>nul ^
+    -X POST %ENDPOINT%/ml/import ^
+    -H "surreal-ns: %NAMESPACE%" ^
+    -H "surreal-db: %DATABASE%" ^
+    -u "%USERNAME%:%PASSWORD%" ^
+    --data-binary @"%CONSUMER_SURML%" > "%TEMP%\ml_import_code.txt"
+set /p _HTTP_CODE=<"%TEMP%\ml_import_code.txt"
+if "!_HTTP_CODE!"=="200" ( echo  OK - consumer_score imported/updated ) else (
+    echo  ERROR: consumer_score import failed  HTTP !_HTTP_CODE!
+    type "%TEMP%\ml_import_body.txt"
+    exit /b 1
+)
+
+:: interaction_score
+set _HTTP_CODE=000
+curl -s -o "%TEMP%\ml_import_body.txt" -w "%%{http_code}" 2>nul ^
+    -X POST %ENDPOINT%/ml/import ^
+    -H "surreal-ns: %NAMESPACE%" ^
+    -H "surreal-db: %DATABASE%" ^
+    -u "%USERNAME%:%PASSWORD%" ^
+    --data-binary @"%INTERACTION_SURML%" > "%TEMP%\ml_import_code.txt"
+set /p _HTTP_CODE=<"%TEMP%\ml_import_code.txt"
+if "!_HTTP_CODE!"=="200" ( echo  OK - interaction_score imported/updated ) else (
+    echo  ERROR: interaction_score import failed  HTTP !_HTTP_CODE!
+    type "%TEMP%\ml_import_body.txt"
+    exit /b 1
+)
+
+:: lead_qualification
+set _HTTP_CODE=000
+curl -s -o "%TEMP%\ml_import_body.txt" -w "%%{http_code}" 2>nul ^
+    -X POST %ENDPOINT%/ml/import ^
+    -H "surreal-ns: %NAMESPACE%" ^
+    -H "surreal-db: %DATABASE%" ^
+    -u "%USERNAME%:%PASSWORD%" ^
+    --data-binary @"%LEAD_QUAL_SURML%" > "%TEMP%\ml_import_code.txt"
+set /p _HTTP_CODE=<"%TEMP%\ml_import_code.txt"
+if "!_HTTP_CODE!"=="200" ( echo  OK - lead_qualification imported/updated ) else (
+    echo  ERROR: lead_qualification import failed  HTTP !_HTTP_CODE!
+    type "%TEMP%\ml_import_body.txt"
+    exit /b 1
+)
+
+:: product_quotation_score
+set _HTTP_CODE=000
+curl -s -o "%TEMP%\ml_import_body.txt" -w "%%{http_code}" 2>nul ^
+    -X POST %ENDPOINT%/ml/import ^
+    -H "surreal-ns: %NAMESPACE%" ^
+    -H "surreal-db: %DATABASE%" ^
+    -u "%USERNAME%:%PASSWORD%" ^
+    --data-binary @"%PRODUCT_SURML%" > "%TEMP%\ml_import_code.txt"
+set /p _HTTP_CODE=<"%TEMP%\ml_import_code.txt"
+if "!_HTTP_CODE!"=="200" ( echo  OK - product_quotation_score imported/updated ) else (
+    echo  ERROR: product_quotation_score import failed  HTTP !_HTTP_CODE!
+    type "%TEMP%\ml_import_body.txt"
+    exit /b 1
+)
+
 echo.
 
-:: ── Step 5: Import 3 new models into RocksDB ─────────────────
-echo [5/7] Importing 3 new scoring models...
-
-if exist "%CONSUMER_SURML%" (
-    curl -s -o %TEMP%\ml_consumer_result.txt -w "%%{http_code}" ^
-        -X POST %ENDPOINT%/ml/import ^
-        -H "surreal-ns: %NAMESPACE%" ^
-        -H "surreal-db: %DATABASE%" ^
-        -u "%USERNAME%:%PASSWORD%" ^
-        --data-binary @"%CONSUMER_SURML%" > %TEMP%\ml_consumer_code.txt 2>&1
-    set /p C_CODE=<%TEMP%\ml_consumer_code.txt
-    if "!C_CODE!"=="200" (
-        echo  OK - consumer_score model imported
-    ) else (
-        echo  ERROR: consumer_score import failed  HTTP !C_CODE!
-        exit /b 1
-    )
-) else (
-    echo  SKIP - consumer_score.surml not found
-)
-
-if exist "%INTERACTION_SURML%" (
-    curl -s -o %TEMP%\ml_interaction_result.txt -w "%%{http_code}" ^
-        -X POST %ENDPOINT%/ml/import ^
-        -H "surreal-ns: %NAMESPACE%" ^
-        -H "surreal-db: %DATABASE%" ^
-        -u "%USERNAME%:%PASSWORD%" ^
-        --data-binary @"%INTERACTION_SURML%" > %TEMP%\ml_interaction_code.txt 2>&1
-    set /p I_CODE=<%TEMP%\ml_interaction_code.txt
-    if "!I_CODE!"=="200" (
-        echo  OK - interaction_score model imported
-    ) else (
-        echo  ERROR: interaction_score import failed  HTTP !I_CODE!
-        exit /b 1
-    )
-) else (
-    echo  SKIP - interaction_score.surml not found
-)
-
-if exist "%PRODUCT_SURML%" (
-    curl -s -o %TEMP%\ml_product_result.txt -w "%%{http_code}" ^
-        -X POST %ENDPOINT%/ml/import ^
-        -H "surreal-ns: %NAMESPACE%" ^
-        -H "surreal-db: %DATABASE%" ^
-        -u "%USERNAME%:%PASSWORD%" ^
-        --data-binary @"%PRODUCT_SURML%" > %TEMP%\ml_product_code.txt 2>&1
-    set /p P_CODE=<%TEMP%\ml_product_code.txt
-    if "!P_CODE!"=="200" (
-        echo  OK - product_quotation_score model imported
-    ) else (
-        echo  ERROR: product_quotation_score import failed  HTTP !P_CODE!
-        exit /b 1
-    )
-) else (
-    echo  SKIP - product_quotation_score.surml not found ^(run train_models.py first^)
-)
-
-if exist "%LEAD_QUAL_SURML%" (
-    curl -s -o %TEMP%\ml_leadqual_result.txt -w "%%{http_code}" ^
-        -X POST %ENDPOINT%/ml/import ^
-        -H "surreal-ns: %NAMESPACE%" ^
-        -H "surreal-db: %DATABASE%" ^
-        -u "%USERNAME%:%PASSWORD%" ^
-        --data-binary @"%LEAD_QUAL_SURML%" > %TEMP%\ml_leadqual_code.txt 2>&1
-    set /p LQ_CODE=<%TEMP%\ml_leadqual_code.txt
-    if "!LQ_CODE!"=="200" (
-        echo  OK - lead_qualification model imported
-    ) else (
-        echo  ERROR: lead_qualification import failed  HTTP !LQ_CODE!
-        exit /b 1
-    )
-) else (
-    echo  SKIP - lead_qualification.surml not found ^(run train_models.py first^)
-)
-echo.
-echo.
-
-:: ── Step 6: Apply function + events ──────────────────────────
-echo [6/7] Applying scoring functions + events...
+:: ── Step 4: Apply functions + events ─────────────────────────
+echo [4/5] Applying scoring functions + events...
 
 if not exist "%SETUP_SQL%" (
     echo  ERROR: setup_ml.surql not found at %SETUP_SQL%
@@ -282,8 +224,8 @@ if "%SETUP_CODE%"=="200" (
 )
 echo.
 
-:: ── Step 7: Smoke tests ───────────────────────────────────────
-echo [7/7] Running smoke tests...
+:: ── Step 5: Smoke tests ───────────────────────────────────────
+echo [5/5] Running smoke tests...
 
 curl -s -o %TEMP%\smoke_result.txt ^
     -X POST %ENDPOINT%/sql ^
@@ -297,17 +239,18 @@ echo  Scores for first lead: %SMOKE%
 echo.
 
 echo ============================================================
-echo  Setup complete. All models stored in RocksDB.
+echo  Setup complete. All 5 models stored in RocksDB.
 echo ============================================================
 echo.
 echo  Model locations:
-echo    models\lgbm.surml                                        (close_prob)
-echo    models\consumer-model\consumer_score.surml               (consumer_score)
-echo    models\interaction-model\interaction_score.surml         (interaction_score)
-echo    models\product-quotation-model\product_quotation_score.surml (product_quotation_score)
-echo    models\lead-qualification\lead_qualification.surml       (lead_qualification)
+echo    models\Deal-Risk\close_prob.surml                            (close_prob)
+echo    models\Consumer\consumer_score.surml                         (consumer_score)
+echo    models\Interaction\interaction_score.surml                   (interaction_score)
+echo    models\Lead-Qualification\lead_qualification.surml           (lead_qualification)
+echo    models\Product-Quotation\product_quotation_score.surml       (product_quotation_score)
 echo.
 echo  Everything survives server restarts - no re-setup needed.
+echo  Re-run this script anytime to update models in RocksDB.
 echo.
 echo  Test with:
 echo    curl -X POST %ENDPOINT%/sql ^
@@ -316,4 +259,4 @@ echo      -u "%USERNAME%:%PASSWORD%" ^
 echo      -d "SELECT id, state, ai_confidence, consumer_score, interaction_score, product_quotation_score FROM lead LIMIT 5;"
 echo.
 endlocal
-
+exit /b 0

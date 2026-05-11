@@ -1,0 +1,14 @@
+[
+  "primary_sentiment",
+  "sentiment_score",
+  "sentiment_combo_score",
+  "intent",
+  "message_quality",
+  "summary_length",
+  "has_action_milestone",
+  "stage_velocity",
+  "historical_deals_won",
+  "is_repeat_customer",
+  "historical_avg_sentiment",
+  "industry_close_rate"
+]

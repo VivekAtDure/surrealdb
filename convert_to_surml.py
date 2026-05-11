@@ -33,8 +33,8 @@ import os
 import struct
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-ONNX_PATH  = os.path.join(SCRIPT_DIR, "models", "lgbm.onnx")
-SURML_PATH = os.path.join(SCRIPT_DIR, "models", "lgbm.surml")
+ONNX_PATH  = os.path.join(SCRIPT_DIR, "models", "Deal-Risk", "close_prob_lgbm.onnx")
+SURML_PATH = os.path.join(SCRIPT_DIR, "models", "Deal-Risk", "lgbm.surml")
 
 # ── 29 features in exact training order ──────────────────────────────────────
 FEATURE_COLS = [

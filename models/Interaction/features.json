@@ -1,0 +1,88 @@
+{
+  "model": "Interaction Score Model",
+  "purpose": "Score based on HOW the lead interacted — channel patterns, frequency, recency, and follow-up behavior.",
+  "target": "sale_closed",
+  "total_features": 20,
+  "features": [
+    {
+      "column": "whatsapp_count",
+      "reason": "Number of WhatsApp interactions — WhatsApp-heavy leads show stronger informal engagement"
+    },
+    {
+      "column": "phone_count",
+      "reason": "Number of phone calls — voice calls signal higher commitment and urgency"
+    },
+    {
+      "column": "email_count",
+      "reason": "Number of email interactions — email-heavy leads are often formal/enterprise type"
+    },
+    {
+      "column": "total_interactions",
+      "reason": "Total touchpoint volume — high count means both sides are invested"
+    },
+    {
+      "column": "dominant_channel",
+      "reason": "The primary channel used — channel preference reveals lead persona and behavior type"
+    },
+    {
+      "column": "first_channel",
+      "reason": "Channel used for first contact — first channel sets the engagement tone"
+    },
+    {
+      "column": "last_channel",
+      "reason": "Channel used for most recent contact — last channel shows current preferred communication mode"
+    },
+    {
+      "column": "is_multi_channel",
+      "reason": "Whether lead engaged across multiple channels — multi-channel = stronger intent"
+    },
+    {
+      "column": "channel_switch_count",
+      "reason": "How many times the lead switched channels — channel-switching shows determination to get a response"
+    },
+    {
+      "column": "conversation_time_hours",
+      "reason": "Total hours spent in conversations — longer engagement = deeper relationship"
+    },
+    {
+      "column": "conv_time_bucket",
+      "reason": "Bucketed conversation time (high_fast / low_slow / medium_medium) — categorical grouping helps LGBM handle nonlinear patterns"
+    },
+    {
+      "column": "recency_bucket",
+      "reason": "How recently the last message was sent (fresh/active/stale/cold) — stale leads drop off sharply in conversion rate"
+    },
+    {
+      "column": "engagement_depth",
+      "reason": "Composite depth-of-engagement score — captures quality of engagement beyond raw counts"
+    },
+    {
+      "column": "channel_x_stage",
+      "reason": "Interaction of dominant channel + current pipeline stage — combined feature capturing stage-channel dynamics"
+    },
+    {
+      "column": "historical_deals_won",
+      "reason": "Past deal success — historical context anchors the interaction score in real outcomes"
+    },
+    {
+      "column": "followup_sequence_reached",
+      "reason": "How many follow-up rounds were attempted — higher sequence = either very engaged or very stubborn"
+    },
+    {
+      "column": "any_followup_responded",
+      "reason": "Whether the lead responded to any follow-up — response to follow-up is the strongest re-engagement signal"
+    },
+    {
+      "column": "followup_response_rate",
+      "reason": "Rate of follow-up responses — normalized across leads with different interaction volumes"
+    },
+    {
+      "column": "last_followup_task_type",
+      "reason": "Type of last follow-up sent (QUOTE_FOLLOWUP, SALES_FOLLOWUP, etc.) — reflects current deal stage in follow-up lifecycle"
+    },
+    {
+      "column": "agent_response_ratio",
+      "reason": "Agent responsiveness ratio — consistent agent engagement keeps leads from going cold"
+    }
+  ]
+}

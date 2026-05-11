@@ -1,0 +1,19 @@
+[
+  "product_type",
+  "product_complexity",
+  "product_base_price",
+  "product_tax_rate",
+  "price_tier",
+  "capacity_tons",
+  "capacity_bin",
+  "product_x_capacity",
+  "total_price_with_tax",
+  "capacity_price_ratio",
+  "quotation_sent",
+  "is_enterprise_deal",
+  "industry_close_rate",
+  "pipeline_stage",
+  "is_repeat_customer",
+  "days_in_pipeline",
+  "pipeline_velocity"
+]

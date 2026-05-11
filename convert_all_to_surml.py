@@ -31,11 +31,55 @@ MODELS_DIR = os.path.join(SCRIPT_DIR, "models")
 
 MODEL_CONFIGS = {
 
+    "close_prob": {
+        "onnx_file":   "Deal-Risk/close_prob_lgbm.onnx",
+        "surml_file":  "Deal-Risk/v2/close_prob.surml",
+        "name":        "close_prob",
+        "version":     "2.0.0",
+        "output":      "close_probability=>none",
+        "description": (
+            "LightGBM regressor predicting sales close probability (0-1). "
+            "Input: 29 pre-normalised float32 features. "
+            "Normalisation applied in fn::score_lead() before calling model."
+        ),
+        "feature_cols": [
+            "capacity_tons",
+            "fe_stage_ordinal",
+            "fe_has_urgency_keyword",
+            "fe_has_price_mention",
+            "fe_log_base_price",
+            "fe_total_price_with_tax",
+            "fe_log_capacity",
+            "fe_days_since_last_message",
+            "fe_days_in_pipeline",
+            "fe_message_length",
+            "fe_summary_length",
+            "fe_stage_x_sentiment",
+            "fe_quotation_x_satisfied",
+            "fe_quotation_x_urgent",
+            "fe_complete_x_quotation",
+            "fe_angry_x_high_stage",
+            "fe_urgent_x_high_stage",
+            "fe_enterprise_deal",
+            "fe_dissatisfied_x_late",
+            "fe_interested_x_complete",
+            "pipeline_stage_enc",
+            "source_channel_type_enc",
+            "product_category_enc",
+            "product_type_enc",
+            "product_name_enc",
+            "product_sku_enc",
+            "organisation_industry_enc",
+            "lead_completeness_enc",
+            "quotation_sent_enc",
+        ],
+    },
+
     "consumer_score": {
-        "onnx_file":   "consumer-model/lgbm.onnx",
-        "surml_file":  "consumer-model/consumer_score.surml",
+        "onnx_file":   "Consumer/consumer_score_lgbm.onnx",
+        "surml_file":  "Consumer/v2/consumer_score.surml",
         "name":        "consumer_score",
-        "version":     "1.0.0",
+        "version":     "2.0.0",
         "output":      "close_probability=>none",
         "description": (
             "LightGBM regressor predicting sale close probability from consumer "
@@ -59,10 +103,10 @@ MODEL_CONFIGS = {
     },
 
     "interaction_score": {
-        "onnx_file":   "interaction-model/lgbm.onnx",
-        "surml_file":  "interaction-model/interaction_score.surml",
+        "onnx_file":   "Interaction/interaction_score_lgbm.onnx",
+        "surml_file":  "Interaction/v2/interaction_score.surml",
         "name":        "interaction_score",
-        "version":     "1.0.0",
+        "version":     "2.0.0",
         "output":      "close_probability=>none",
         "description": (
             "LightGBM regressor predicting sale close probability from channel "
@@ -89,22 +133,22 @@ MODEL_CONFIGS = {
     },
 
     "product_quotation_score": {
-        "onnx_file":   "product-quotation-model/lgbm.onnx",
-        "surml_file":  "product-quotation-model/product_quotation_score.surml",
+        "onnx_file":   "Product-Quotation/product_quotation_lgbm.onnx",
+        "surml_file":  "Product-Quotation/v2/product_quotation_score.surml",
         "name":        "product_quotation_score",
-        "version":     "1.0.0",
+        "version":     "2.0.0",
         "output":      "close_probability=>none",
         "description": (
             "LightGBM regressor predicting sale close probability from product "
-            "and quotation data. 18 raw float32 features. "
+            "and quotation data. 17 raw float32 features. "
             "Feature engineering done in fn::score_product_quotation() before calling model."
         ),
         "feature_cols": [
             "product_category",         # [0]  ordinal: chiller=0, cooler=1, hybrid=2
             "product_type",             # [1]  ordinal: absorption=0 … vrf=21
             "product_complexity",       # [2]  continuous 1.0-4.5 inferred from type
-            "product_base_price",       # [3]  raw price value
-            "product_tax_rate",         # [4]  tax % (e.g. 18.0)
+            "base_price",               # [3]  raw price value
+            "tax_rate",                 # [4]  tax % (e.g. 18.0)
             "price_tier",               # [5]  ordinal: enterprise=0, high=1, low=2, mid=3
             "capacity_tons",            # [6]  raw capacity value
             "capacity_bin",             # [7]  ordinal: 1-5t=0, 11-20t=1, 21-50t=2, 51-100t=3, 6-10t=4
@@ -114,18 +158,17 @@ MODEL_CONFIGS = {
             "quotation_sent",           # [11] binary: 1 if generated_quotation exists
             "is_enterprise_deal",       # [12] binary: 1 if base_price >= 400,000
             "industry_close_rate",      # [13] fixed lookup 0.38-0.67 by industry
-            "pipeline_stage",           # [14] ordinal: Closed=0 … Sales_Qualified=12
+            "stage_raw",                # [14] ordinal: raw pipeline stage value
             "is_repeat_customer",       # [15] binary: 1 if historical_deals_won > 0
             "days_in_pipeline",         # [16] days since lead.created_at
-            "pipeline_velocity",        # [17] stage_ordinal / days_in_pipeline
         ],
     },
 
     "lead_qualification": {
-        "onnx_file":   "lead-qualification/lgbm.onnx",
-        "surml_file":  "lead-qualification/lead_qualification.surml",
+        "onnx_file":   "Lead-Qualification/lead_qualification_lgbm.onnx",
+        "surml_file":  "Lead-Qualification/v2/lead_qualification.surml",
         "name":        "lead_qualification",
-        "version":     "1.0.0",
+        "version":     "2.0.0",
         "output":      "close_probability=>none",
         "description": (
             "LightGBM regressor predicting overall lead qualification score by "

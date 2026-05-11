@@ -1,0 +1,2500 @@
+{
+    "contact_id": "cid_1de5caa0d68f4ca2",
+    "lead_ids": [
+        "lead:kkc8p7w4dqzdppvmm6xi",
+        "lead:vrbgg3vhtyhf7w74zlfg",
+        "lead:tg85nlms3rg9qcsx3ry5",
+        "lead:mp4y06qarb5vugrn4m8x",
+        "lead:irut5vvipjj3qmatvies",
+        "lead:g0t3ijciv6xihadi5fsw"
+    ],
+    "leads": [
+        {
+            "ai_confidence": 0.315309,
+            "classification": "SALES",
+            "completeness": "INCOMPLETE",
+            "consumer_score": 0.735814,
+            "conversations": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:30:00.765221927Z",
+                    "external_source_leadid": "7aP8LYQzlkV7JUpwQdOd",
+                    "id": "conversation:tm9b30dgs0jguiokdd3j",
+                    "last_message_at": "2026-05-08T09:30:00.765179627Z",
+                    "lead": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "sentiment": "INTERESTED",
+                    "started_at": "2026-05-08T09:30:00.765234127Z",
+                    "summary": "Customer Vivek requested five chillers, each with a capacity of 8 tons. The request has been communicated to the team for further processing.",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "boHello team I need 5 chillers, each chiller capacity should be 8 tons Regards Vivek",
+                            "conversation": "conversation:tm9b30dgs0jguiokdd3j",
+                            "created_at": "2026-05-08T09:29:59.369895590Z",
+                            "id": "message:b1u1kbbiqm66vrdfvzws",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        }
+                    ]
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:32:38.666769363Z",
+                    "external_source_leadid": "7aP8LYQzlkV7JUpwQdOd",
+                    "id": "conversation:00mo97hd2rf7rksgqkn8",
+                    "last_message_at": "2026-05-08T09:32:38.666723963Z",
+                    "lead": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "sentiment": "CURIOUS",
+                    "started_at": "2026-05-08T09:32:38.666781664Z",
+                    "summary": "Customer Vivek contacted the team on 2026-05-08 to inquire about purchasing five chillers, each with a capacity of 8 tons, and provided his contact details, including phone number +917977915393 and email vivekparasnath6969@gmail.com. The agent acknowledged the enquiry and requested confirmation of Vivek's phone number to ensure communication for a personalized quotation. The request is being processed, and the agent is awaiting further details if needed.",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "boHello team I need 5 chillers, each chiller capacity should be 8 tons Regards Vivek",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:30:01.527500707Z",
+                            "id": "message:e1scsw48a9oyngf8hxg1",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:30:01.616672538Z",
+                            "id": "message:rjewvrdyy81u1vohci19",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;\">\n\n  <div style=\"background-color: #1a73e8; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;\">\n    <h2 style=\"color: white; margin: 0;\">Follow-Up on Your Recent Enquiry</h2>\n  </div>\n\n  <div style=\"background-color: #ffffff; padding: 30px; border: 1px solid #ddd;\">\n    <p style=\"font-size: 16px;\">Dear <strong>Vivek</strong>,</p>\n\n    <p style=\"color: #555; line-height: 1.6;\">\n      Thank you for your recent enquiry regarding <b>Chiller</b> . We are currently processing your request and would \n      love to get back to you with a personalised quotation at the earliest.\n    </p>\n\n    <p style=\"color: #555; line-height: 1.6;\">\n      To proceed further, we kindly request you to provide the following detail(s):\n    </p>\n\n    <div style=\"background-color: #f8f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #1a73e8;\">\n      <ul style=\"color: #333; line-height: 2.2; margin: 0; padding-left: 20px;\">\n        \n        \n        <li><strong>Phone Number (With Country Code)</strong> – So our team can reach you if needed</li>\n  \n  \n  \n\n      </ul>\n    </div>\n\n    <p style=\"color: #555; line-height: 1.6;\">\n      Please reply to this email with the requested information and we will ensure your \n      quotation is processed without any further delay.\n    </p>\n\n    <p style=\"color: #555; line-height: 1.6;\">\n      We appreciate your time and look forward to your response.\n    </p>\n  </div>\n\n  <div style=\"background-color: #f5f5f5; padding: 12px; text-align: center; border-radius: 0 0 8px 8px; font-size: 12px; color: #999;\">\n    This is an automated message. Please reply directly to this email for assistance.\n  </div>\n\n</div>",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:30:18.810925766Z",
+                            "id": "message:3yeb811yz8mttmz2ef2x",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "boHello team I need 5 chillers, each chiller capacity should be 8 tons Regards Vivek\n\n--- Attachment Content ---\n\nNo attachment was provided with this enquiry.",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:30:23.132667710Z",
+                            "id": "message:sozyy4w4itrt0hhx4yhw",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:30:23.488547694Z",
+                            "id": "message:6w4p3xix8nhzhil54zws",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:31:26.138343373Z",
+                            "id": "message:t2g83lj7yaiw7eh8y98l",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "boHello team I need 5 chillers, each chiller capacity should be 8 tons Regards Vivek\n\n--- Attachment Content ---\n\nNo attachment was provided with this enquiry.",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:31:56.534849690Z",
+                            "id": "message:ydbj1ae9apbr9qq9yk2n",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "**PART 1 — Conversation:**\n\nVivek, with contact details +917977915393 and vivekparasnath6969@gmail.com, initiated a conversation with our team on 2026-05-08 at 09:30 via text message. He inquired about purchasing 5 chillers, each with a capacity of 8 tons. Additionally, he provided his phone number in a subsequent message at 09:31.\n\n**PART 2 — Attachment / Document Specifications:**\n\nThere is no attachment content provided in the conversation thread.",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:32:01.621059406Z",
+                            "id": "message:r9h149l9izejq0fzyvf6",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:32:16.485513995Z",
+                            "id": "message:p6d4lopfq1r7fq40bw67",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:32:35.360040427Z",
+                            "id": "message:0if8ezwgvntysx18kd2a",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "**PART 1 — Conversation:**\n\nVivek, with contact details +917977915393 and vivekparasnath6969@gmail.com, initiated a conversation with our team on 2026-05-08 at 09:30 via text message. He inquired about purchasing 5 chillers, each with a capacity of 8 tons. Additionally, he provided his phone number in a subsequent message at 09:31.\n\n**PART 2 — Attachment / Document Specifications:**\n\nThere is no attachment content provided in the conversation thread.",
+                            "conversation": "conversation:00mo97hd2rf7rksgqkn8",
+                            "created_at": "2026-05-08T09:32:36.855536392Z",
+                            "id": "message:5rrsowgi407s5dbkrdqp",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        }
+                    ]
+                }
+            ],
+            "created_at": "2026-05-08T09:32:38.068643733Z",
+            "email": "vivekparasnath6969@gmail.com",
+            "events": [
+                {
+                    "created_at": "2026-05-08T09:29:59.219585464Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:fct4m4srdond4z7pydus",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:32:16.396450074Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:wd4bgn0g9q9ncr33viok",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:35.585761093Z",
+                    "event_type": "QUOTE_SENT",
+                    "id": "event_log:s2pqqz7128cuy9oopb4k",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "sent_at": "2026-05-08T09:32:35.585733593Z"
+                    },
+                    "triggered_by": "agent"
+                },
+                {
+                    "created_at": "2026-05-08T09:30:23.390126428Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:qrx617ilznd4byv0y5dy",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:31:26.402160021Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:1pug4slx5k1t30lphx64",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "MANUAL_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:31:26.402100421Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:30:01.887688146Z",
+                    "event_type": "INITIAL_INQUIRY_CAPTURED",
+                    "id": "event_log:56parrqx5wj9opq45n45",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "classification": "SALES"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:32:01.535541301Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:y0c57rs8nf2sf27jqc9x",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:31:26.357781711Z",
+                    "event_type": "MANUAL_FOLLOWUP_INITIATED",
+                    "id": "event_log:kjkei04tcsagsgo1plmz",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "MANUAL_FOLLOW_UP",
+                    "payload": {
+                        "note": "Agent manually following up with customer"
+                    },
+                    "triggered_by": "agent"
+                },
+                {
+                    "created_at": "2026-05-08T09:31:26.052044464Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:6xs7fhfgd480e3yq3xkp",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:31:56.450753891Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:igx8qfqsdjg38ttm7isc",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:29:59.590136353Z",
+                    "event_type": "SALES_FOLLOWUP_INITIATED",
+                    "id": "event_log:y9ov2bnjdwcm84bujqia",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "completeness": "INCOMPLETE"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:32:36.031314698Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:onc2tbzzfh80okr0na5k",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:32:36.031259698Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:30:23.476443837Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:7vjownefvooacntb7a5l",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:30:23.476359536Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:32:01.906080157Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:l5nsx8yz6e5g06wwgqvw",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:32:01.906024457Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:30:19.125185324Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:3f305bpmjcfpxbc0hbrd",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:30:19.125119323Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:16.711290163Z",
+                    "event_type": "LEAD_QUALIFIED",
+                    "id": "event_log:1it6gx99535c9qfmyfzv",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_QUALIFIED",
+                    "payload": {
+                        "confidence": 0.443885,
+                        "product": "Chiller"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:30:23.824979386Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:nuv669m192ismnmfv91a",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:30:23.824927686Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:30:01.837783205Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:9rg61d01j5ekg24ry3k0",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:30:01.837728605Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:30:01.520164072Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:r4h4l6iddzn4hr5xlb8n",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:29:59.643633612Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:f5esveuqxwj7wlajxa19",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:29:59.643581311Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:32:35.270520604Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:dh4o7szut8f0qsz69d32",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:37.107108782Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:164r5nk0hblv6hcg6tt6",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "delay_hours": 4,
+                        "task_type": "SALES_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:30:01.937951689Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:26gezayh4dm4aawm1d1f",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:30:01.937899089Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:30:23.033270239Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:b3t4sj8qagzer8g20v48",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:16.711673365Z",
+                    "event_type": "SALES_CONTEXT_LOCKED",
+                    "id": "event_log:f94k6m7jdgqbkk4yddy5",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_QUALIFIED",
+                    "payload": {
+                        "locked_at": "2026-05-08T09:32:16.711657465Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:31:56.803323563Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:za2yh2haz6vq4deux2wx",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:31:56.803260063Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:29:58.873357993Z",
+                    "event_type": "LEAD_CREATED",
+                    "id": "event_log:29tjewtdgb97sbxljva7",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "email": "vivekparasnath6969@gmail.com",
+                        "external_id": "7aP8LYQzlkV7JUpwQdOd"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:31:56.755609837Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:z2vw5v3y3skwrgdyr6pn",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "delay_hours": 4,
+                        "task_type": "SALES_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:35.586718298Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:fsvlv4nt84bqpzjgbidb",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "delay_hours": 48,
+                        "task_type": "QUOTE_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:32:16.855086344Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:f4qs1ejf5qf128eg4gs6",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_QUALIFIED",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:32:16.855033943Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:31:56.755216035Z",
+                    "event_type": "SALES_FOLLOWUP_INITIATED",
+                    "id": "event_log:hfk5rbzaef5hokn2jiaq",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "completeness": "INCOMPLETE",
+                        "product": "Chiller"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:30:18.717799304Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:1ceejminozl3ksfvis19",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "delay_hours": 4,
+                        "task_type": "SALES_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:37.106749881Z",
+                    "event_type": "SALES_FOLLOWUP_INITIATED",
+                    "id": "event_log:2pbp99x2zs8fyuh0gp1g",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "completeness": "INCOMPLETE",
+                        "product": "Cooler and Chillers"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:32:37.284755023Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:1qkt7okdrf8jnzt31sse",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:32:37.284685223Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:29:59.590558655Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:alpe9xs178dkp5w9vk3n",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "delay_hours": 4,
+                        "task_type": "SALES_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:32:36.763293855Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:r8r2dv8aq8lc3wekkude",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:30:01.380845799Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:ljqjbugd81c5r92l1ld3",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a"
+                        ],
+                        "linked_leads": [
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:30:18.717403902Z",
+                    "event_type": "SALES_FOLLOWUP_INITIATED",
+                    "id": "event_log:38791c7sa1k4o7xmya78",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "completeness": "INCOMPLETE"
+                    },
+                    "triggered_by": "system"
+                }
+            ],
+            "followup_tasks": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:31:56.754526132Z",
+                    "id": "followup_task:offjdmaolhzzrcw4rpnp",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "message": "Hi Vivek! Following up on your recent inquiry. How can we help you today?",
+                    "scheduled_at": "2026-05-08T11:31:26.358234713Z",
+                    "sequence": 1,
+                    "status": "CANCELLED",
+                    "task_type": "MANUAL_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:31:56.754549532Z"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:37.106115678Z",
+                    "id": "followup_task:fv0qxc26lf02zy2qs0so",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "message": "Hi Vivek! Just checking in on the quotation we sent. Have you had a chance to review it? \uD83D\uDE0A",
+                    "scheduled_at": "2026-05-10T09:32:35.586275496Z",
+                    "sequence": 1,
+                    "status": "CANCELLED",
+                    "task_type": "QUOTE_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:32:37.106160378Z"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:37.107430184Z",
+                    "id": "followup_task:488qu1aj1sm1bn6ahw2s",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "message": "Hi Vivek! We need a few more details to prepare your quotation. Could you share: quantity needed, delivery location, and rental or purchase?",
+                    "scheduled_at": "2026-05-08T13:32:37.107405784Z",
+                    "sequence": 1,
+                    "status": "PENDING",
+                    "task_type": "SALES_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:32:37.107453984Z"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:16.710429959Z",
+                    "id": "followup_task:6gwfxqz6u0n8k866s53i",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "message": "Hi Vivek! We need a few more details to prepare your quotation. Could you share: quantity needed, delivery location, and rental or purchase?",
+                    "scheduled_at": "2026-05-08T13:31:56.755895839Z",
+                    "sequence": 1,
+                    "status": "CANCELLED",
+                    "task_type": "SALES_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:32:16.710461759Z"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:31:26.357223708Z",
+                    "id": "followup_task:k9tzwy20tbvgyb348t9t",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "message": "Hi Vivek! We need a few more details to prepare your quotation. Could you share: quantity needed, delivery location, and rental or purchase?",
+                    "scheduled_at": "2026-05-08T13:30:18.718155106Z",
+                    "sequence": 1,
+                    "status": "CANCELLED",
+                    "task_type": "SALES_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:31:26.357247609Z"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:30:18.716972700Z",
+                    "id": "followup_task:zkbws8jxx3epzj10jtcg",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "message": "Hi there! We need a few more details to prepare your quotation. Could you share: quantity needed, delivery location, and rental or purchase?",
+                    "scheduled_at": "2026-05-08T13:29:59.590947457Z",
+                    "sequence": 1,
+                    "status": "CANCELLED",
+                    "task_type": "SALES_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:30:18.717014100Z"
+                }
+            ],
+            "id": "lead:kkc8p7w4dqzdppvmm6xi",
+            "interaction_score": 0.016826,
+            "lead_qualification_score": 0.98057,
+            "name": "Vivek",
+            "organisation": "organisation:1",
+            "phone": "917977915393",
+            "product_interest": "Cooler and Chillers",
+            "product_quotation_score": 0.0,
+            "products": [],
+            "quotation": [],
+            "scores_updated_at": null,
+            "source_channel": "channel:whatsapp",
+            "state": "SALES_FOLLOW_UP",
+            "state_history": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:16.712105767Z",
+                    "from_state": "SALES_FOLLOW_UP",
+                    "id": "lead_state_history:lzylbzunt3f6avmhsrwv",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "to_state": "SALES_QUALIFIED",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:29:59.591445060Z",
+                    "from_state": "NEW_LEAD",
+                    "id": "lead_state_history:gd6tsrkqam4b2xukvf4b",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "to_state": "SALES_FOLLOW_UP",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:35.587058799Z",
+                    "from_state": "SALES_QUALIFIED",
+                    "id": "lead_state_history:3zoeqabo745a06iigbuq",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "to_state": "QUOTATION_SENT",
+                    "triggered_by": "agent"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:29:58.874034696Z",
+                    "id": "lead_state_history:dn9fb4p38z79h0cagfc3",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "to_state": "NEW_LEAD",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:31:26.358774616Z",
+                    "from_state": "SALES_FOLLOW_UP",
+                    "id": "lead_state_history:g9iyevnvmc4ek4tkqw2g",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "to_state": "MANUAL_FOLLOW_UP",
+                    "triggered_by": "agent"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:31:56.756488141Z",
+                    "from_state": "MANUAL_FOLLOW_UP",
+                    "id": "lead_state_history:oiehnnngzfkon5vmmloh",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "to_state": "SALES_FOLLOW_UP",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:30:18.718764909Z",
+                    "from_state": "NEW_LEAD",
+                    "id": "lead_state_history:u7ijtwq9rdktccwibsrh",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "to_state": "SALES_FOLLOW_UP",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:32:37.107925686Z",
+                    "from_state": "QUOTATION_SENT",
+                    "id": "lead_state_history:lkzy1ii6vij1a9a05m1k",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "to_state": "SALES_FOLLOW_UP",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:30:01.888324149Z",
+                    "from_state": "SALES_FOLLOW_UP",
+                    "id": "lead_state_history:rl7htv2hqqiv2ubbxhme",
+                    "lead_id": "lead:kkc8p7w4dqzdppvmm6xi",
+                    "to_state": "NEW_LEAD",
+                    "triggered_by": "system"
+                }
+            ],
+            "updated_at": "2026-05-08T09:32:38.068673533Z",
+            "whatsapp_no": null
+        },
+        {
+            "ai_confidence": 0.22529,
+            "classification": "SALES",
+            "completeness": "INCOMPLETE",
+            "consumer_score": 0.44506,
+            "conversations": [
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:31:56.844611059Z",
+                    "external_source_leadid": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "id": "conversation:w3v7r7rr3hzsou7gp5st",
+                    "last_message_at": "2026-05-08T09:31:56.844564359Z",
+                    "lead": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "sentiment": "INTERESTED",
+                    "started_at": "2026-05-08T09:31:56.844624059Z",
+                    "summary": "Customer Vivek provided his phone number with the country code, +917977915393, and reiterated his request for five chillers, each with a capacity of 8 tons. The agent acknowledged the enquiry and indicated that a personalized quotation would be processed now that the necessary contact information has been received. The request is now in progress.",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "boHello team I need 5 chillers, each chiller capacity should be 8 tons Regards Vivek\n\n--- Attachment Content ---\n\nNo attachment was provided with this enquiry.",
+                            "conversation": "conversation:w3v7r7rr3hzsou7gp5st",
+                            "created_at": "2026-05-08T09:30:00.918672968Z",
+                            "id": "message:dxq384lk00fdet9v999k",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "boMy phone number is +917977915393",
+                            "conversation": "conversation:w3v7r7rr3hzsou7gp5st",
+                            "created_at": "2026-05-08T09:31:54.319310381Z",
+                            "id": "message:rasch6jafs2o8rnnrx1z",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        }
+                    ]
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:36.472214768Z",
+                    "external_source_leadid": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "id": "conversation:p7smtazannxhg6pybvpm",
+                    "last_message_at": "2026-05-08T09:40:36.472127567Z",
+                    "lead": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "sentiment": "DISAPPOINTED",
+                    "started_at": "2026-05-08T09:40:36.472227868Z",
+                    "summary": "Customer Vivek contacted the team on 2026-05-08 to inquire about purchasing five chillers, each with a capacity of 8 tons, and provided his contact details, including phone number +917977915393 and email vivekparasnath6969@gmail.com. The agent acknowledged the enquiry and requested confirmation of Vivek's phone number to ensure communication for a personalized quotation. Vivek reiterated his request multiple times, and the agent is processing the request while awaiting further details if needed.",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "\"Hii\"",
+                            "conversation": "conversation:p7smtazannxhg6pybvpm",
+                            "created_at": "2026-05-08T09:40:34.323342470Z",
+                            "id": "message:9flcegwwbo4yy6sn7n2m",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        }
+                    ]
+                }
+            ],
+            "created_at": "2026-05-08T09:40:35.411712987Z",
+            "email": "vivekparasnath6969@gmail.com",
+            "events": [
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:40:34.546636461Z",
+                    "event_type": "INITIAL_INQUIRY_CAPTURED",
+                    "id": "event_log:ago3h9nijfkqk7v6pllt",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "classification": "SALES"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:31:54.577800107Z",
+                    "event_type": "MANUAL_FOLLOWUP_INITIATED",
+                    "id": "event_log:z81mptp56sj4pox5vs9c",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "lead_state": "MANUAL_FOLLOW_UP",
+                    "payload": {
+                        "note": "Agent manually following up with customer"
+                    },
+                    "triggered_by": "agent"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:34.598689415Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:c8a7zucpu74nbzc6fnng",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:40:34.598635115Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:30:00.782408010Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:3p97wa9lkbbkk75lh8j3",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_f47e45cb5d674e3a",
+                            "cid_1de5caa0d68f4ca2"
+                        ],
+                        "linked_leads": [
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:kkc8p7w4dqzdppvmm6xi"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:30:00.276916869Z",
+                    "event_type": "LEAD_CREATED",
+                    "id": "event_log:8d8sq4h5kzvy3op6e9eo",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "email": "vivekparasnath6969@gmail.com"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:31:54.225181935Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:2jjoz33ve0phxd29no6f",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_f47e45cb5d674e3a",
+                            "cid_1de5caa0d68f4ca2"
+                        ],
+                        "linked_leads": [
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:kkc8p7w4dqzdppvmm6xi"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:40:34.185574997Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:cxpvannce0ef5ms8ctuq",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_f47e45cb5d674e3a",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_541a9656003a4dce",
+                            "cid_21882bc2a99545f2",
+                            "cid_4516c9d3267c4359"
+                        ],
+                        "linked_leads": [
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:tg85nlms3rg9qcsx3ry5",
+                            "lead:mp4y06qarb5vugrn4m8x",
+                            "lead:irut5vvipjj3qmatvies"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:31:54.632242466Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:jp8jk4nn8l6x6anpjqfm",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "lead_state": "MANUAL_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:31:54.632188465Z"
+                    },
+                    "triggered_by": "system"
+                }
+            ],
+            "followup_tasks": [
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:31:54.578286810Z",
+                    "id": "followup_task:s33y8l4x32khlpu10m2j",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "message": "Hi there! Following up on your recent inquiry. How can we help you today?",
+                    "scheduled_at": "2026-05-08T11:31:54.578231409Z",
+                    "sequence": 1,
+                    "status": "PENDING",
+                    "task_type": "MANUAL_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:31:54.578311810Z"
+                }
+            ],
+            "id": "lead:vrbgg3vhtyhf7w74zlfg",
+            "interaction_score": 0.018508,
+            "lead_qualification_score": 0.98057,
+            "name": "Vivek",
+            "organisation": "organisation:1",
+            "phone": null,
+            "product_interest": null,
+            "product_quotation_score": 0.0,
+            "products": [],
+            "quotation": [],
+            "scores_updated_at": null,
+            "source_channel": "channel:email",
+            "state": "NEW_LEAD",
+            "state_history": [
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:40:34.547970668Z",
+                    "from_state": "MANUAL_FOLLOW_UP",
+                    "id": "lead_state_history:dvsufldcsj7waxtm8yf3",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "to_state": "NEW_LEAD",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:30:00.278061175Z",
+                    "id": "lead_state_history:mcxrwiw279r5t2lxbjij",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "to_state": "NEW_LEAD",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:31:54.578808312Z",
+                    "from_state": "NEW_LEAD",
+                    "id": "lead_state_history:2rnt3bw57s1izkg94dvy",
+                    "lead_id": "lead:vrbgg3vhtyhf7w74zlfg",
+                    "to_state": "MANUAL_FOLLOW_UP",
+                    "triggered_by": "agent"
+                }
+            ],
+            "updated_at": "2026-05-08T09:40:35.411744987Z",
+            "whatsapp_no": "917977915393"
+        },
+        {
+            "ai_confidence": 0.0,
+            "classification": "NON-SALES",
+            "completeness": "INCOMPLETE",
+            "consumer_score": 0.0,
+            "conversations": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:41.374549830Z",
+                    "external_source_leadid": "lead:tg85nlms3rg9qcsx3ry5",
+                    "id": "conversation:6x9grv8ka94q6bv4ztok",
+                    "last_message_at": "2026-05-08T09:41:41.374504330Z",
+                    "lead": "lead:tg85nlms3rg9qcsx3ry5",
+                    "sentiment": "NEUTRAL",
+                    "started_at": "2026-05-08T09:41:41.374562630Z",
+                    "summary": "",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "\"Hii\"",
+                            "conversation": "conversation:6x9grv8ka94q6bv4ztok",
+                            "created_at": "2026-05-08T09:40:20.769765220Z",
+                            "id": "message:x6dxny92jcl94uyc9wfi",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        }
+                    ]
+                }
+            ],
+            "created_at": "2026-05-08T09:40:21.024389088Z",
+            "email": null,
+            "events": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:20.046181416Z",
+                    "event_type": "LEAD_CREATED",
+                    "id": "event_log:5lgnljhobkoyrg3f2d73",
+                    "lead_id": "lead:tg85nlms3rg9qcsx3ry5",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {},
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:21.077868254Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:4p7pxxf2xupwghqt2q0p",
+                    "lead_id": "lead:tg85nlms3rg9qcsx3ry5",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:40:21.077799854Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:40:20.613759343Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:nj360krebgb09jmklz9l",
+                    "lead_id": "lead:tg85nlms3rg9qcsx3ry5",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_541a9656003a4dce",
+                            "cid_1de5caa0d68f4ca2"
+                        ],
+                        "linked_leads": [
+                            "lead:tg85nlms3rg9qcsx3ry5",
+                            "lead:kkc8p7w4dqzdppvmm6xi"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                }
+            ],
+            "followup_tasks": [],
+            "id": "lead:tg85nlms3rg9qcsx3ry5",
+            "interaction_score": 0.0,
+            "lead_qualification_score": 0.0,
+            "name": "Vivek",
+            "organisation": "organisation:1",
+            "phone": null,
+            "product_interest": null,
+            "product_quotation_score": 0.0,
+            "products": [],
+            "quotation": [],
+            "scores_updated_at": null,
+            "source_channel": "channel:whatsapp",
+            "state": "NEW_LEAD",
+            "state_history": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:20.046863719Z",
+                    "id": "lead_state_history:06jys2y42tdl1tn96otx",
+                    "lead_id": "lead:tg85nlms3rg9qcsx3ry5",
+                    "to_state": "NEW_LEAD",
+                    "triggered_by": "system"
+                }
+            ],
+            "updated_at": "2026-05-08T09:40:21.024447388Z",
+            "whatsapp_no": "917977915393"
+        },
+        {
+            "ai_confidence": 0.0,
+            "classification": "NON-SALES",
+            "completeness": "INCOMPLETE",
+            "consumer_score": 0.0,
+            "conversations": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:41.951773246Z",
+                    "external_source_leadid": "2Y9gytmrdK6MXNjerX2x",
+                    "id": "conversation:dg3m70k1lcdtszz4clmb",
+                    "last_message_at": "2026-05-08T09:41:41.951727346Z",
+                    "lead": "lead:mp4y06qarb5vugrn4m8x",
+                    "sentiment": "NEUTRAL",
+                    "started_at": "2026-05-08T09:41:41.951785846Z",
+                    "summary": "",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:dg3m70k1lcdtszz4clmb",
+                            "created_at": "2026-05-08T09:40:21.336405342Z",
+                            "id": "message:iij09m0evgm9v0tkz3od",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        }
+                    ]
+                }
+            ],
+            "created_at": "2026-05-08T09:40:21.570754108Z",
+            "email": null,
+            "events": [
+                {
+                    "created_at": "2026-05-08T09:40:21.193709131Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:m5c402d7u6x6z6gg75fw",
+                    "lead_id": "lead:mp4y06qarb5vugrn4m8x",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_21882bc2a99545f2",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_541a9656003a4dce"
+                        ],
+                        "linked_leads": [
+                            "lead:mp4y06qarb5vugrn4m8x",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:tg85nlms3rg9qcsx3ry5"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:21.626602685Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:kp8r1bwwcsylunc6q7lx",
+                    "lead_id": "lead:mp4y06qarb5vugrn4m8x",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:40:21.626547285Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:20.544158996Z",
+                    "event_type": "LEAD_CREATED",
+                    "id": "event_log:3pdfluda659i6f40yc0f",
+                    "lead_id": "lead:mp4y06qarb5vugrn4m8x",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "external_id": "2Y9gytmrdK6MXNjerX2x",
+                        "phone": "917977915393"
+                    },
+                    "triggered_by": "system"
+                }
+            ],
+            "followup_tasks": [],
+            "id": "lead:mp4y06qarb5vugrn4m8x",
+            "interaction_score": 0.0,
+            "lead_qualification_score": 0.0,
+            "name": "Vivek",
+            "organisation": "organisation:1",
+            "phone": "917977915393",
+            "product_interest": null,
+            "product_quotation_score": 0.0,
+            "products": [],
+            "quotation": [],
+            "scores_updated_at": null,
+            "source_channel": "channel:whatsapp",
+            "state": "NEW_LEAD",
+            "state_history": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:20.544762199Z",
+                    "id": "lead_state_history:wz01gu3utwlc18wq21bq",
+                    "lead_id": "lead:mp4y06qarb5vugrn4m8x",
+                    "to_state": "NEW_LEAD",
+                    "triggered_by": "system"
+                }
+            ],
+            "updated_at": "2026-05-08T09:40:21.570798608Z",
+            "whatsapp_no": null
+        },
+        {
+            "ai_confidence": 0.443885,
+            "classification": "SALES",
+            "completeness": "INCOMPLETE",
+            "consumer_score": 0.756763,
+            "conversations": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T10:03:49.468603754Z",
+                    "external_source_leadid": "2Y9gytmrdK6MXNjerX2x",
+                    "id": "conversation:gshkeb2zuawmw1xieu4h",
+                    "last_message_at": "2026-05-08T10:03:49.468514253Z",
+                    "lead": "lead:irut5vvipjj3qmatvies",
+                    "sentiment": "DISAPPOINTED",
+                    "started_at": "2026-05-08T10:03:49.468633054Z",
+                    "summary": "Customer Vivek expressed dissatisfaction with the price of AED 107,500 for the DC10000 model and requested a negotiation. The agent confirmed the model details, delivery terms, and warranty, and is working on providing a personalized quotation via WhatsApp. Vivek reiterated his request for a quotation on WhatsApp and provided his contact details for further communication.",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:gshkeb2zuawmw1xieu4h",
+                            "created_at": "2026-05-08T09:40:21.497462844Z",
+                            "id": "message:tmtzzwcwcbe39wn7w3gq",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:gshkeb2zuawmw1xieu4h",
+                            "created_at": "2026-05-08T09:40:22.187433572Z",
+                            "id": "message:jf92fon1lhpx7bstd6jp",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:gshkeb2zuawmw1xieu4h",
+                            "created_at": "2026-05-08T09:40:36.253635300Z",
+                            "id": "message:sls53a3j5eadfvun229f",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:gshkeb2zuawmw1xieu4h",
+                            "created_at": "2026-05-08T09:41:42.007326946Z",
+                            "id": "message:f57vakw2q4ssj745dxtp",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:gshkeb2zuawmw1xieu4h",
+                            "created_at": "2026-05-08T09:41:50.013764540Z",
+                            "id": "message:z4kz0rwua0jc94d6bzza",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:gshkeb2zuawmw1xieu4h",
+                            "created_at": "2026-05-08T09:41:50.777169839Z",
+                            "id": "message:e6k2k4con413k180l748",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:gshkeb2zuawmw1xieu4h",
+                            "created_at": "2026-05-08T09:48:54.575709082Z",
+                            "id": "message:yoiy3zbqxjsr0ny57l17",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "[no content]",
+                            "conversation": "conversation:gshkeb2zuawmw1xieu4h",
+                            "created_at": "2026-05-08T10:03:47.343710481Z",
+                            "id": "message:wpcjtlvust0l4i7tpzi0",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        }
+                    ]
+                }
+            ],
+            "created_at": "2026-05-08T10:03:48.525309939Z",
+            "email": "vivekparasnath6969@gmail.com",
+            "events": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:48:54.807790470Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:m0mx6rhjvcq7a9ri7clp",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "delay_hours": 4,
+                        "task_type": "SALES_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:51.030109364Z",
+                    "event_type": "QUOTE_SENT",
+                    "id": "event_log:hwzs1qafq542c4n63w8n",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "sent_at": "2026-05-08T09:41:51.030071464Z"
+                    },
+                    "triggered_by": "agent"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:21.802959962Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:szw9crk6b8biglm4t63i",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:40:21.802904761Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:22.472461589Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:vn42kat6uz20veevmqzd",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:40:22.472398788Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:21.747992088Z",
+                    "event_type": "SALES_FOLLOWUP_INITIATED",
+                    "id": "event_log:usctbjwnfnkegs3txpei",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "completeness": "INCOMPLETE"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:42.420386878Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:nf9rrunh58ooy2f0z4d8",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:41:42.420287078Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:48:54.476695818Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:zpvoqh72wc3z83dtmyg5",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_4516c9d3267c4359",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a",
+                            "cid_35dce05debc34143"
+                        ],
+                        "linked_leads": [
+                            "lead:irut5vvipjj3qmatvies",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:g0t3ijciv6xihadi5fsw"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:41:49.916111828Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:jlcyxp8bimnox1k086wk",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_4516c9d3267c4359",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a",
+                            "cid_35dce05debc34143"
+                        ],
+                        "linked_leads": [
+                            "lead:irut5vvipjj3qmatvies",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:g0t3ijciv6xihadi5fsw"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:20.589522422Z",
+                    "event_type": "LEAD_CREATED",
+                    "id": "event_log:5gh9kch7y43z1eyjz19b",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "external_id": "2Y9gytmrdK6MXNjerX2x",
+                        "phone": "917977915393"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:48:54.993255939Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:osy09iiui34px2k8ro8g",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:48:54.993189339Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:36.658483478Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:3y6n6ygj1ol7mbmypkn2",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:40:36.658428178Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:50.487341921Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:s95b0cpkkl5c89ifmisd",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:41:50.487282320Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:40:21.355965639Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:mpipcs83b26uj7a4g4bc",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_4516c9d3267c4359",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_541a9656003a4dce",
+                            "cid_21882bc2a99545f2"
+                        ],
+                        "linked_leads": [
+                            "lead:irut5vvipjj3qmatvies",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:tg85nlms3rg9qcsx3ry5",
+                            "lead:mp4y06qarb5vugrn4m8x"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:51.031048669Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:4xwy3pwz6jvs8dl5glgy",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "delay_hours": 48,
+                        "task_type": "QUOTE_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:40:36.166497474Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:s177rj0zpa36jz5ivbsj",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_4516c9d3267c4359"
+                        ],
+                        "linked_leads": [
+                            "lead:irut5vvipjj3qmatvies"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T10:03:47.248681346Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:0fehexb5fxoydzlnkedm",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_4516c9d3267c4359",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_f47e45cb5d674e3a",
+                            "cid_35dce05debc34143"
+                        ],
+                        "linked_leads": [
+                            "lead:irut5vvipjj3qmatvies",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:g0t3ijciv6xihadi5fsw"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:41:41.900009066Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:p2lc9lng5auc03ht8xsi",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_4516c9d3267c4359"
+                        ],
+                        "linked_leads": [
+                            "lead:irut5vvipjj3qmatvies"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:51.482025532Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:e7rhqthtf9i4i50hudg7",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:41:51.481908031Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T10:03:47.730640361Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:07482g5fwymgmbv6y7xi",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T10:03:47.730588561Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:48:54.807419668Z",
+                    "event_type": "SALES_FOLLOWUP_INITIATED",
+                    "id": "event_log:sbatk43svnyc4j2fxpr7",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "completeness": "INCOMPLETE",
+                        "product": "Cooler and Chillers"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:41:50.682184242Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:tm23up9olug2m07r6llw",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_4516c9d3267c4359",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_541a9656003a4dce",
+                            "cid_21882bc2a99545f2",
+                            "cid_f47e45cb5d674e3a",
+                            "cid_35dce05debc34143"
+                        ],
+                        "linked_leads": [
+                            "lead:irut5vvipjj3qmatvies",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:tg85nlms3rg9qcsx3ry5",
+                            "lead:mp4y06qarb5vugrn4m8x",
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:g0t3ijciv6xihadi5fsw"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:21.748440791Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:7wo6cf3onn5iqgotzg9y",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "delay_hours": 4,
+                        "task_type": "SALES_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:40:22.100447140Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:13aztjzs0wn97645n0q5",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_4516c9d3267c4359"
+                        ],
+                        "linked_leads": [
+                            "lead:irut5vvipjj3qmatvies"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                }
+            ],
+            "followup_tasks": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:48:54.808106571Z",
+                    "id": "followup_task:yxxi96bt874271wuya30",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "message": "Hi Vivek! We need a few more details to prepare your quotation. Could you share: quantity needed, delivery location, and rental or purchase?",
+                    "scheduled_at": "2026-05-08T13:48:54.808083671Z",
+                    "sequence": 1,
+                    "status": "PENDING",
+                    "task_type": "SALES_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:48:54.808128872Z"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:48:54.806351563Z",
+                    "id": "followup_task:d4a8lszq9odhac5yx8z1",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "message": "Hi Vivek! Just checking in on the quotation we sent. Have you had a chance to review it? \uD83D\uDE0A",
+                    "scheduled_at": "2026-05-10T09:41:51.030536266Z",
+                    "sequence": 1,
+                    "status": "CANCELLED",
+                    "task_type": "QUOTE_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:48:54.806395663Z"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:51.028951858Z",
+                    "id": "followup_task:5bzmbe1lvun6sum82k82",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "message": "Hi there! We need a few more details to prepare your quotation. Could you share: quantity needed, delivery location, and rental or purchase?",
+                    "scheduled_at": "2026-05-08T13:40:21.748816493Z",
+                    "sequence": 1,
+                    "status": "CANCELLED",
+                    "task_type": "SALES_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:41:51.028978858Z"
+                }
+            ],
+            "id": "lead:irut5vvipjj3qmatvies",
+            "interaction_score": 0.012051,
+            "lead_qualification_score": 0.98057,
+            "name": "Vivek",
+            "organisation": "organisation:1",
+            "phone": "917977915393",
+            "product_interest": "Cooler and Chillers",
+            "product_quotation_score": 0.0,
+            "products": [],
+            "quotation": [],
+            "scores_updated_at": null,
+            "source_channel": "channel:whatsapp",
+            "state": "SALES_FOLLOW_UP",
+            "state_history": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:51.031443171Z",
+                    "from_state": "SALES_FOLLOW_UP",
+                    "id": "lead_state_history:9a7a4dnvbcs4yyh7bumf",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "to_state": "QUOTATION_SENT",
+                    "triggered_by": "agent"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:21.749324895Z",
+                    "from_state": "NEW_LEAD",
+                    "id": "lead_state_history:edbsk0gac3px4fusm8xi",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "to_state": "SALES_FOLLOW_UP",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:40:20.590045824Z",
+                    "id": "lead_state_history:92az73my65e6lbe7mzas",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "to_state": "NEW_LEAD",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:48:54.808633374Z",
+                    "from_state": "QUOTATION_SENT",
+                    "id": "lead_state_history:2alllef3hcurlbp8tesn",
+                    "lead_id": "lead:irut5vvipjj3qmatvies",
+                    "to_state": "SALES_FOLLOW_UP",
+                    "triggered_by": "system"
+                }
+            ],
+            "updated_at": "2026-05-08T10:03:48.525342039Z",
+            "whatsapp_no": "917977915393"
+        },
+        {
+            "ai_confidence": 0.440949,
+            "classification": "SALES",
+            "completeness": "INCOMPLETE",
+            "consumer_score": 0.763663,
+            "conversations": [
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:42:28.060409968Z",
+                    "external_source_leadid": "lead:g0t3ijciv6xihadi5fsw",
+                    "id": "conversation:9jkyks2ck1iy0nxefwwx",
+                    "last_message_at": "2026-05-08T09:42:28.060328067Z",
+                    "lead": "lead:g0t3ijciv6xihadi5fsw",
+                    "sentiment": "INTERESTED",
+                    "started_at": "2026-05-08T09:42:28.060423268Z",
+                    "summary": "Customer Vivek requested a quotation for five 8-ton chillers, specifying that he wants the quotation sent via WhatsApp. The agent confirmed the suitable model as DC10000, priced at AED 107,500, with a delivery time of 2–3 working days from Dubai, subject to stock confirmation, and a 1-year warranty. Vivek repeatedly provided his contact details, and the agent is in the process of confirming the stock and sending the quotation on WhatsApp.",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "<!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"UTF-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <title>Quotation Email</title> </head> <body style=\"margin: 0; padding: 0; font-family: Arial, sans-serif; color: #222; line-height: 1.6; background-color:#f7f7f7;\"> <div style=\"max-width: 700px; margin: 0 auto; padding: 24px; background-color: #ffffff;\"> <p style=\"margin: 0 0 12px 0;\"> Dear Vivek,<br> Tel: 917977915393 </p> <p style=\"margin: 0 0 16px 0;\"> Good day! </p> <p style=\"margin: 0 0 16px 0;\"> Thank you for your inquiry with Vitasales.<br> We’re pleased to offer our <strong>DC10000</strong>, suitable for your stated use case. </p> <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Product Offer</h3> <ul style=\"margin: 0 0 16px 20px; padding: 0;\"> <li><strong>Model:</strong> DC10000</li> <li><strong>Special Offer Price (AED):</strong> 107500</li> </ul> <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Key Features</h3> <ul style=\"margin: 0 0 16px 20px; padding: 0;\"> <li>Tropicalized compressor for UAE climate</li> <li>Durable build for continuous operation</li> <li>Easy service access and low maintenance</li> </ul> <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Commercial Terms</h3> <ul style=\"margin: 0 0 16px 20px; padding: 0;\"> <li>Delivery: 2–3 working days ex-Dubai (subject to stock at confirmation)</li> <li>Warranty: 1 year against manufacturing defects</li> <li>Validity: 7 days from the date of this quotation</li> <li>Payment: 100% advance / COD (as agreed)</li> <li>Price Note: Exclusive of VAT and installation, if applicable</li> </ul> <h3 style=\"margin: 24px 0 12px 0; font-size: 18px; color: #000;\">Next Steps</h3> <p style=\"margin: 0 0 16px 0;\"> We appreciate your consideration and look forward to your confirmation. </p> <p style=\"margin: 24px 0 8px 0;\"> Best regards, </p> <p style=\"margin: 0;\"> <strong>Vitasales</strong><br> +91-8657051455 | vitasales@gmail.com<br> VITAFI<br> Centrum Wagle Estate<br> Tel: +91-8657051455 | Fax: +91-8657051455<br> Group: <a href=\"https://www.vitasales.com\" target=\"_blank\">https://www.vitasales.com</a><br> Division: <a href=\"https://danawatercoolers.com\" target=\"_blank\">https://vitasales.com</a><br> (Download brochures: <a href=\"http://www.vitasales.com/downloads/\" target=\"_blank\">http://www.vitasales.com/downloads/</a>) </p> </div> </body> </html>",
+                            "conversation": "conversation:9jkyks2ck1iy0nxefwwx",
+                            "created_at": "2026-05-08T09:42:25.264991852Z",
+                            "id": "message:9uxwxet0ylgnl0be3gh8",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        }
+                    ]
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T10:03:48.965321418Z",
+                    "external_source_leadid": "lead:g0t3ijciv6xihadi5fsw",
+                    "id": "conversation:22rthkpb3tdk2ln81ya3",
+                    "last_message_at": "2026-05-08T10:03:48.965277118Z",
+                    "lead": "lead:g0t3ijciv6xihadi5fsw",
+                    "sentiment": "DISAPPOINTED",
+                    "started_at": "2026-05-08T10:03:48.965333918Z",
+                    "summary": "Customer Vivek expressed dissatisfaction with the product and the quoted price of AED 107,500 per chiller, requesting a negotiation. The agent confirmed the model as DC10000 and reiterated the delivery and warranty terms, stating that the quotation would be sent via WhatsApp after stock confirmation. Vivek repeatedly requested the quotation on WhatsApp and provided his contact details for further communication.",
+                    "messages": [
+                        {
+                            "attachment_url": null,
+                            "content": "\"I want the quotation on WhatsApp\"",
+                            "conversation": "conversation:22rthkpb3tdk2ln81ya3",
+                            "created_at": "2026-05-08T09:41:40.834977023Z",
+                            "id": "message:lma31t8nqmxssugj4w8r",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "Hi Vivek, thanks for confirming — we have your requirement for 5 chillers of 8 Ton each. We will check whether these requested chillers are manufactured by us and share the quotation with you on WhatsApp shortly.",
+                            "conversation": "conversation:22rthkpb3tdk2ln81ya3",
+                            "created_at": "2026-05-08T09:41:43.957155582Z",
+                            "id": "message:bkdq86zedasbv0cxo2j3",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "The suitable model identified is DC10000. Price is AED 107,500. Delivery is 2–3 working days ex-Dubai, subject to stock at confirmation, with 1 year warranty against manufacturing defects. Please confirm to proceed with the quotation and order details.",
+                            "conversation": "conversation:22rthkpb3tdk2ln81ya3",
+                            "created_at": "2026-05-08T09:42:22.609493803Z",
+                            "id": "message:3ayg6j06dqbzixnfzo5d",
+                            "message_type": "TEXT",
+                            "sender": "AGENT"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "\"The price is high I want to negotiate on this price\"",
+                            "conversation": "conversation:22rthkpb3tdk2ln81ya3",
+                            "created_at": "2026-05-08T09:48:53.201132661Z",
+                            "id": "message:ocpafgfrepgytlys02gb",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        },
+                        {
+                            "attachment_url": null,
+                            "content": "\"I really don't like the product and I am really disappointed with the price\"",
+                            "conversation": "conversation:22rthkpb3tdk2ln81ya3",
+                            "created_at": "2026-05-08T10:03:45.876183213Z",
+                            "id": "message:3bx83316a290ggtp0vvy",
+                            "message_type": "TEXT",
+                            "sender": "CUSTOMER"
+                        }
+                    ]
+                }
+            ],
+            "created_at": "2026-05-08T10:03:47.008718094Z",
+            "email": "vivekparasnath6969@gmail.com",
+            "events": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T10:03:46.103979296Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:q0ox2jc5yhsya2s7esq3",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "delay_hours": 4,
+                        "task_type": "SALES_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:email",
+                    "created_at": "2026-05-08T09:42:25.923157023Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:6lha24qlq4sqlwdap2j0",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:42:25.923104922Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:41.051220988Z",
+                    "event_type": "SALES_FOLLOWUP_INITIATED",
+                    "id": "event_log:3ihk4erord0dqxtsx69j",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "completeness": "INCOMPLETE"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:48:53.700907493Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:9ns6ssr7fqqgb0x8m012",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:48:53.700838292Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:48:53.113647652Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:byou8ilem6o9kn8pbeg0",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_35dce05debc34143",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_541a9656003a4dce",
+                            "cid_21882bc2a99545f2",
+                            "cid_f47e45cb5d674e3a",
+                            "cid_4516c9d3267c4359"
+                        ],
+                        "linked_leads": [
+                            "lead:g0t3ijciv6xihadi5fsw",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:tg85nlms3rg9qcsx3ry5",
+                            "lead:mp4y06qarb5vugrn4m8x",
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:irut5vvipjj3qmatvies"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:41.051814291Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:x2tn0gzwi2ot0hvf5bky",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "delay_hours": 4,
+                        "task_type": "SALES_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T10:03:46.147718542Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:hi14ehcr4idm25xnl9uo",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T10:03:46.147673442Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T09:41:40.712789765Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:220plkcy68mo3h5jrjs8",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_35dce05debc34143",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_541a9656003a4dce",
+                            "cid_21882bc2a99545f2",
+                            "cid_f47e45cb5d674e3a",
+                            "cid_4516c9d3267c4359"
+                        ],
+                        "linked_leads": [
+                            "lead:g0t3ijciv6xihadi5fsw",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:tg85nlms3rg9qcsx3ry5",
+                            "lead:mp4y06qarb5vugrn4m8x",
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:irut5vvipjj3qmatvies"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T10:03:46.103571194Z",
+                    "event_type": "SALES_FOLLOWUP_INITIATED",
+                    "id": "event_log:6haqd8nhzppay0q57pou",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "completeness": "INCOMPLETE",
+                        "product": "SKU-019d94b4-027e-7172-b652-ff9e4d722444"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:42:23.382921886Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:ywd5lzv1wu2gxt570ux6",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:42:23.382868386Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:41.101651560Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:g6w5njyp1qitve5q7qmv",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "SALES_FOLLOW_UP",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:41:41.101600860Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "created_at": "2026-05-08T10:03:45.789922327Z",
+                    "event_type": "CONTACT_LINKED",
+                    "id": "event_log:995x86h1n2mpcrha5co9",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "payload": {
+                        "contact_ids": [
+                            "cid_35dce05debc34143",
+                            "cid_1de5caa0d68f4ca2",
+                            "cid_541a9656003a4dce",
+                            "cid_21882bc2a99545f2",
+                            "cid_f47e45cb5d674e3a",
+                            "cid_4516c9d3267c4359"
+                        ],
+                        "linked_leads": [
+                            "lead:g0t3ijciv6xihadi5fsw",
+                            "lead:kkc8p7w4dqzdppvmm6xi",
+                            "lead:tg85nlms3rg9qcsx3ry5",
+                            "lead:mp4y06qarb5vugrn4m8x",
+                            "lead:vrbgg3vhtyhf7w74zlfg",
+                            "lead:irut5vvipjj3qmatvies"
+                        ],
+                        "organisation": "organisation:1"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:39.845702593Z",
+                    "event_type": "LEAD_CREATED",
+                    "id": "event_log:s1udx33ne9ey5ryt2k5g",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "NEW_LEAD",
+                    "payload": {
+                        "email": "vivekparasnath6969@gmail.com"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:44.495606892Z",
+                    "event_type": "GRAPH_GENERATED",
+                    "id": "event_log:2neyma6ksxhv95c5psdu",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "edges": [
+                            "had_state",
+                            "generated_event",
+                            "has_followup_task",
+                            "interested_in"
+                        ],
+                        "generated_at": "2026-05-08T09:41:44.495551792Z"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:43.865577587Z",
+                    "event_type": "QUOTE_SENT",
+                    "id": "event_log:3jlmzxol2elsqeoik5ep",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "sent_at": "2026-05-08T09:41:43.865504487Z"
+                    },
+                    "triggered_by": "agent"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:43.867021095Z",
+                    "event_type": "FOLLOW_UP_TASK_CREATED",
+                    "id": "event_log:57lqc9x48wdeg2skdqg5",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "delay_hours": 48,
+                        "task_type": "QUOTE_FOLLOWUP"
+                    },
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:42:23.158506184Z",
+                    "event_type": "PRODUCT_INTEREST_LINKED",
+                    "id": "event_log:y3koar71m9b4imjqye7p",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "lead_state": "QUOTATION_SENT",
+                    "payload": {
+                        "category": "Chiller",
+                        "model": "DC10000",
+                        "productId": "master_product_price_list:lh6dvngtplfvwt66sa15",
+                        "related": true,
+                        "sku": "SKU-019d94b4-027e-7172-b652-ff9e4d722444"
+                    },
+                    "triggered_by": "system"
+                }
+            ],
+            "followup_tasks": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:43.863255375Z",
+                    "id": "followup_task:4ratrs4tvlmedlzmiggd",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "message": "Hi Vivek! We need a few more details to prepare your quotation. Could you share: quantity needed, delivery location, and rental or purchase?",
+                    "scheduled_at": "2026-05-08T13:41:41.052321794Z",
+                    "sequence": 1,
+                    "status": "CANCELLED",
+                    "task_type": "SALES_FOLLOWUP",
+                    "updated_at": "2026-05-08T09:41:43.863289875Z"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T10:03:46.102958090Z",
+                    "id": "followup_task:ro3j3atd9fx49u8j2yvg",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "message": "Hi Vivek! Just checking in on the quotation we sent. Have you had a chance to review it? \uD83D\uDE0A",
+                    "scheduled_at": "2026-05-10T09:41:43.866604093Z",
+                    "sequence": 1,
+                    "status": "CANCELLED",
+                    "task_type": "QUOTE_FOLLOWUP",
+                    "updated_at": "2026-05-08T10:03:46.102989290Z"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T10:03:46.104325698Z",
+                    "id": "followup_task:lfj2bqcxwfe6230opncd",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "message": "Hi Vivek! We need a few more details to prepare your quotation. Could you share: quantity needed, delivery location, and rental or purchase?",
+                    "scheduled_at": "2026-05-08T14:03:46.104297998Z",
+                    "sequence": 1,
+                    "status": "PENDING",
+                    "task_type": "SALES_FOLLOWUP",
+                    "updated_at": "2026-05-08T10:03:46.104350698Z"
+                }
+            ],
+            "id": "lead:g0t3ijciv6xihadi5fsw",
+            "interaction_score": 0.016826,
+            "lead_qualification_score": 0.98057,
+            "name": "Vivek",
+            "organisation": "organisation:1",
+            "phone": null,
+            "product_interest": "SKU-019d94b4-027e-7172-b652-ff9e4d722444",
+            "product_quotation_score": 0.0,
+            "products": [
+                {
+                    "category": "Chiller",
+                    "created_at": "2026-04-16T05:11:58.334045544Z",
+                    "description": "DANA Water chiller, Capacity 10 Ton",
+                    "exworks_price_aed": 21500,
+                    "id": "master_product_price_list:lh6dvngtplfvwt66sa15",
+                    "installation_charge": 500,
+                    "model": "DC10000",
+                    "organisation": "organisation:1",
+                    "purchase_price": 0,
+                    "sku": "SKU-019d94b4-027e-7172-b652-ff9e4d722444",
+                    "vat_percent": 5
+                }
+            ],
+            "quotation": [],
+            "scores_updated_at": null,
+            "source_channel": "channel:whatsapp",
+            "state": "SALES_FOLLOW_UP",
+            "state_history": [
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T10:03:46.104739Z",
+                    "from_state": "QUOTATION_SENT",
+                    "id": "lead_state_history:7lwr2cgntth7xktnikrd",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "to_state": "SALES_FOLLOW_UP",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:39.846336997Z",
+                    "id": "lead_state_history:hh9w1wqd1xd7fvfkvd3z",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "to_state": "NEW_LEAD",
+                    "triggered_by": "system"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:43.867330597Z",
+                    "from_state": "SALES_FOLLOW_UP",
+                    "id": "lead_state_history:9gn1by166nz6xap4p2zv",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "to_state": "QUOTATION_SENT",
+                    "triggered_by": "agent"
+                },
+                {
+                    "channel": "channel:whatsapp",
+                    "created_at": "2026-05-08T09:41:41.052955198Z",
+                    "from_state": "NEW_LEAD",
+                    "id": "lead_state_history:5jutx2wizxp1esa6tmma",
+                    "lead_id": "lead:g0t3ijciv6xihadi5fsw",
+                    "to_state": "SALES_FOLLOW_UP",
+                    "triggered_by": "system"
+                }
+            ],
+            "updated_at": "2026-05-08T10:03:47.008754694Z",
+            "whatsapp_no": "917977915393"
+        }
+    ],
+    "channel_map": [
+        {
+            "contact_id": "cid_1de5caa0d68f4ca2",
+            "created_at": "2026-05-08T09:32:36.419385331Z",
+            "email": "vivekparasnath6969@gmail.com",
+            "id": "contact_channel_map:ytqw2rubwhml6mhpofr9",
+            "lead": "lead:kkc8p7w4dqzdppvmm6xi",
+            "organisation": "organisation:1",
+            "phone": "917977915393",
+            "updated_at": "2026-05-08T09:32:36.419399431Z"
+        }
+    ],
+    "_summary": {
+        "total_leads": 6,
+        "total_messages": 31,
+        "total_conversations": 9,
+        "total_events": 92,
+        "has_scores": true,
+        "is_qualified": true
+    },
+    "scores": {
+        "consumer_score": 0.735814,
+        "interaction_score": 0.016826,
+        "product_quotation_score": 0.0,
+        "lead_qualification_score": 0.98057,
+        "ai_confidence": 0.315309,
+        "is_qualified": true,
+        "score_source": "cross_channel_best",
+        "scores_computed_from_leads": 6
+    }
+}
